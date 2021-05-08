@@ -13,7 +13,27 @@ ThemeData lightTheme() {
     accentColor: lightColor,
     backgroundColor: backgroundColor,
 
-    //forms
+    //appbar
+    appBarTheme: AppBarTheme(
+        backgroundColor: backgroundColor.withOpacity(0), elevation: 0),
+
+    //buttons
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        primary: primaryColor,
+        onPrimary: backgroundColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(5), topLeft: Radius.circular(5)),
+        ),
+      ),
+    ),
+
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        primary: primaryColor,
+      ),
+    ),
 
     // fontes e textos
     fontFamily: 'Lato',
