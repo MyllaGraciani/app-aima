@@ -28,7 +28,7 @@ class TabsPage extends StatelessWidget {
               icon: new Icon(Icons.calendar_today),
             ),
             Tab(
-              icon: new Icon(Icons.more_horiz),
+              icon: new Icon(Icons.menu),
             ),
             Tab(
               icon: new Icon(Icons.person_rounded),

@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        label: 'Olá, Mylla',
+        label: 'Olá, Mylla ',
         textStyleSub: Theme.of(context).textTheme.subtitle1,
       ),
       body: ListView(

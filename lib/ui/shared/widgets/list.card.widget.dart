@@ -7,7 +7,6 @@ class ListCardWidget extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       height: 90,
-      color: Colors.amber,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
