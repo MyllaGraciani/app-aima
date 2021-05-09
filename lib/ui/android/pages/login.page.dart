@@ -1,3 +1,4 @@
+import 'package:aima/ui/android/pages/cadastro-pages/cadastro.nome.page.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:aima/ui/shared/widgets/input.widget.dart';
 import 'package:flutter/material.dart';
@@ -14,66 +15,89 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 200,
-                child: Image.asset(
-                  "assets/logo.png",
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minWidth: MediaQuery.of(context).size.width,
+            minHeight: MediaQuery.of(context).size.height,
+          ),
+          child: IntrinsicHeight(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 200,
+                          child: Image.asset(
+                            "assets/logo.png",
+                          ),
+                        ),
+                        Text(
+                          "aíma",
+                          style: Theme.of(context).textTheme.headline3,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        InputWidget(
+                          label: "E-mail",
+                          typeKeyboard: TextInputType.emailAddress,
+                          obscure: false,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        InputWidget(
+                          label: "Senha",
+                          typeKeyboard: TextInputType.text,
+                          obscure: true,
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        ButtonWidgetGeneric(
+                          typeButton: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => TabsPage(),
+                                ),
+                              );
+                            },
+                            child: Text("Entrar"),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        ButtonWidgetGeneric(
+                          typeButton: TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CadastroNomePage(),
+                                ),
+                              );
+                            },
+                            child: Text("Cadastrar"),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-              Text(
-                "aíma",
-                style: Theme.of(context).textTheme.headline3,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              InputWidget(
-                label: "E-mail",
-                typeKeyboard: TextInputType.emailAddress,
-                obscure: false,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              InputWidget(
-                label: "Senha",
-                typeKeyboard: TextInputType.text,
-                obscure: true,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              ButtonWidgetGeneric(
-                typeButton: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => TabsPage(),
-                      ),
-                    );
-                  },
-                  child: Text("Entrar"),
-                ),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              ButtonWidgetGeneric(
-                typeButton: TextButton(
-                  onPressed: () {},
-                  child: Text("Cadastrar"),
-                ),
-              )
-            ],
+              ],
+            ),
           ),
         ),
       ),

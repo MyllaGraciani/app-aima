@@ -15,8 +15,12 @@ dependencies:
     sdk: flutter
 
   firebase_core: ^1.1.0
-
+  firebase_auth: ^1.1.3
   cupertino_icons: ^1.0.2
+  # pacote para acessar galeria e tirar fotos
+  image_picker: ^0.7.4
+  # pacote para alterar icon do app
+  flutter_launcher_icons: ^0.9.0
 
 dev_dependencies:
   flutter_test:
