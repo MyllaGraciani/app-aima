@@ -35,16 +35,53 @@ ThemeData lightTheme() {
       ),
     ),
 
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        primary: backgroundColor,
+        side: BorderSide(color: backgroundColor),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(5),
+            topLeft: Radius.circular(5),
+          ),
+        ),
+      ),
+    ),
     // fontes e textos
+
     fontFamily: 'Lato',
     textTheme: TextTheme(
+      headline1: TextStyle(
+        color: backgroundColor,
+        fontSize: 50,
+      ),
+      headline2: TextStyle(
+        color: primaryColor,
+      ),
+      headline3: TextStyle(
+        color: primaryColor,
+      ),
       headline4: TextStyle(
         color: primaryColor,
         fontWeight: FontWeight.w300,
         fontSize: 80,
       ),
-      headline3: TextStyle(
+      headline5: TextStyle(
         color: primaryColor,
+      ),
+      subtitle1: TextStyle(
+        color: primaryColor,
+      ),
+      subtitle2: TextStyle(
+        color: primaryColor,
+      ),
+      bodyText1: TextStyle(
+        color: primaryColor,
+      ),
+      bodyText2: TextStyle(
+        color: backgroundColor,
+        fontWeight: FontWeight.w300,
+        fontSize: 20,
       ),
     ),
   );
