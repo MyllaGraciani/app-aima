@@ -4,10 +4,11 @@ import 'package:aima/ui/android/pages/splash.screen.page.dart';
 import 'package:aima/ui/shared/pages/error.page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(App());
+  initializeDateFormatting().then((_) => runApp(App()));
 }
 
 class App extends StatefulWidget {
