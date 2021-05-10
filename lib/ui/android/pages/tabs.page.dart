@@ -1,4 +1,5 @@
 import 'package:aima/ui/android/pages/adicionais.page.dart';
+import 'package:aima/ui/android/pages/notas.page.dart';
 import 'package:flutter/material.dart';
 
 import 'calendario.page.dart';
@@ -9,12 +10,13 @@ class TabsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 5,
       child: Scaffold(
         body: TabBarView(
           children: [
             HomePage(),
             CalendarioPage(),
+            NotasPage(),
             AdicionaisPage(),
             PerfilPage(),
           ],
@@ -26,6 +28,9 @@ class TabsPage extends StatelessWidget {
             ),
             Tab(
               icon: new Icon(Icons.calendar_today),
+            ),
+            Tab(
+              icon: new Icon(Icons.note_add_rounded),
             ),
             Tab(
               icon: new Icon(Icons.menu),
