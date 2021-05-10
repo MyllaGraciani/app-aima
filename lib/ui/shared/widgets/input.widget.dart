@@ -15,6 +15,7 @@ class InputWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofocus: true,
       keyboardType: typeKeyboard,
       obscureText: obscure,
       decoration: InputDecoration(
