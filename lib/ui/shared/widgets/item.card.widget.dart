@@ -10,10 +10,10 @@ class ItemCardWidget extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.fromBorderSide(
           BorderSide(
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).accentColor,
           ),
         ),
-        color: Theme.of(context).accentColor.withOpacity(0.2),
+        color: Theme.of(context).accentColor.withOpacity(0.3),
         borderRadius: BorderRadius.circular(50),
       ),
       child: Center(child: Icon(Icons.ac_unit)),
