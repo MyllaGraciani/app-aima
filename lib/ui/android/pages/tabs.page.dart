@@ -1,5 +1,6 @@
 import 'package:aima/ui/android/pages/adicionais.page.dart';
-import 'package:aima/ui/android/pages/notas.page.dart';
+
+import 'package:aima/ui/android/pages/notas2.page.dart';
 import 'package:flutter/material.dart';
 
 import 'calendario.page.dart';
@@ -16,7 +17,7 @@ class TabsPage extends StatelessWidget {
           children: [
             HomePage(),
             CalendarioPage(),
-            NotasPage(),
+            Notas2Page(),
             AdicionaisPage(),
             PerfilPage(),
           ],
