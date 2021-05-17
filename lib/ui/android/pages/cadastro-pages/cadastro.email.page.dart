@@ -1,6 +1,5 @@
 import 'package:aima/ui/android/pages/cadastro-pages/cadastro.senha.page.dart';
-import 'package:aima/ui/shared/widgets/button.widget.dart';
-import 'package:aima/ui/shared/widgets/input.widget.dart';
+import 'package:aima/ui/shared/widgets/cadastro.widget.dart';
 import 'package:flutter/material.dart';
 
 class CadastroEmailPage extends StatefulWidget {
@@ -19,38 +18,10 @@ class _CadastroEmailPageState extends State<CadastroEmailPage> {
           padding: const EdgeInsets.all(20.0),
           child: Form(
             key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Digite o seu melhor e-mail",
-                  style: Theme.of(context).textTheme.headline3,
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                InputWidget(
-                  label: "E-mail",
-                  typeKeyboard: TextInputType.emailAddress,
-                  obscure: false,
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                ButtonWidgetGeneric(
-                  typeButton: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CadastroSenhaPage(),
-                        ),
-                      );
-                    },
-                    child: Text("Próximo"),
-                  ),
-                ),
-              ],
+            child: CadastroWidget(
+              label: "Digite o seu melhor e-mail",
+              labelInput: "E-mail",
+              proxTela: CadastroSenhaPage(),
             ),
           ),
         ),
