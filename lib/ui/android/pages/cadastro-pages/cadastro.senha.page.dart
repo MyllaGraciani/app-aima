@@ -19,7 +19,7 @@ class _CadastroSenhaPageState extends State<CadastroSenhaPage> {
           child: Form(
             key: _formKey,
             child: CadastroWidget(
-              label: "Digite a senha mais forte que tiver ",
+              label: "Digite a senha para a sua conta",
               labelInput: "Senha",
               proxTela: CadastroGeneroPage(),
             ),

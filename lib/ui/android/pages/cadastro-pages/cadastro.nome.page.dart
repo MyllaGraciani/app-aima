@@ -19,7 +19,7 @@ class _CadastroNomePageState extends State<CadastroNomePage> {
           child: Form(
             key: _formKey,
             child: CadastroWidget(
-              label: "Digite o seu nome ou apelido ",
+              label: "Qual o seu nome ou apelido?",
               labelInput: "Nome ou apelido",
               proxTela: CadastroEmailPage(),
             ),

@@ -19,7 +19,7 @@ class _CadastroGeneroPageState extends State<CadastroGeneroPage> {
           child: Form(
             key: _formKey,
             child: CadastroWidget(
-              label: "Digite o gênero no qual você se identifica",
+              label: "Qual o gênero no qual você se identifica?",
               labelInput: "Gênero",
               proxTela: SucessoPage(),
             ),
