@@ -1,7 +1,8 @@
 class UsuarioModel {
   final String email;
   final String senha;
-  // String nome;
+  final String nome;
+  String genero;
 
-  UsuarioModel(this.email, this.senha);
+  UsuarioModel(this.nome, this.genero, this.email, this.senha);
 }

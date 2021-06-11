@@ -19,7 +19,7 @@ class CicloDiaWidget extends StatelessWidget {
             ),
             Text(
               "1",
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headline2,
             ),
             Text(
               "do ciclo",

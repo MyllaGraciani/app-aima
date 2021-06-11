@@ -2,12 +2,12 @@ import 'package:aima/ui/android/pages/cadastro-pages/cadastro.senha.page.dart';
 import 'package:aima/ui/shared/widgets/cadastro.widget.dart';
 import 'package:flutter/material.dart';
 
-class CadastroEmailPage extends StatefulWidget {
+class DuracaoMenstrualPage extends StatefulWidget {
   @override
-  _CadastroEmailPageState createState() => _CadastroEmailPageState();
+  _DuracaoMenstrualPageState createState() => _DuracaoMenstrualPageState();
 }
 
-class _CadastroEmailPageState extends State<CadastroEmailPage> {
+class _DuracaoMenstrualPageState extends State<DuracaoMenstrualPage> {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -27,7 +27,7 @@ class _CadastroEmailPageState extends State<CadastroEmailPage> {
               Form(
                 key: _formKey,
                 child: CadastroWidget(
-                  label: "Qual é o seu e-mail",
+                  label: "Qual a duração do seu período menstrual?",
                   labelInput: "E-mail",
                   proxTela: CadastroSenhaPage(),
                 ),

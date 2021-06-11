@@ -1,4 +1,4 @@
-import 'package:aima/ui/shared/pages/sucesso.page.dart';
+import 'package:aima/ui/android/pages/cadastro-pages/cadastro-ciclo/duracao.page.dart';
 import 'package:aima/ui/shared/widgets/cadastro.widget.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +21,7 @@ class _CadastroGeneroPageState extends State<CadastroGeneroPage> {
             child: CadastroWidget(
               label: "Qual o gênero no qual você se identifica?",
               labelInput: "Gênero",
-              proxTela: SucessoPage(),
+              proxTela: DuracaoCicloPage(),
             ),
           ),
         ),

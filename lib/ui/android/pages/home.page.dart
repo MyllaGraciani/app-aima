@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        label: 'Olá, Mylla ',
+        label: 'Olá, Mylla',
         textStyleSub: Theme.of(context).textTheme.subtitle1,
       ),
       body: ListView(
@@ -16,10 +16,7 @@ class HomePage extends StatelessWidget {
           Container(
             child: Column(
               children: [
-                Container(
-                  margin: EdgeInsets.all(20),
-                  child: CicloDiaWidget(),
-                ),
+                Container(padding: EdgeInsets.all(16), child: CicloDiaWidget()),
                 Text(
                   "Humores",
                   style: Theme.of(context).textTheme.bodyText1,

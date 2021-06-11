@@ -13,7 +13,6 @@ class ItemCardWidget extends StatelessWidget {
             color: Theme.of(context).accentColor,
           ),
         ),
-        color: Theme.of(context).accentColor.withOpacity(0.3),
         borderRadius: BorderRadius.circular(50),
       ),
       child: Center(child: Icon(Icons.ac_unit)),

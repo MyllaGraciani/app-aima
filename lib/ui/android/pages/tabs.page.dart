@@ -10,8 +10,10 @@ class TabsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      // quantidade de itens que o menu vai ter
       length: 5,
       child: Scaffold(
+        //páginas que serão mostradas na mesma ordem dos respectivos icones
         body: TabBarView(
           children: [
             HomePage(),
@@ -21,6 +23,7 @@ class TabsPage extends StatelessWidget {
             PerfilPage(),
           ],
         ),
+        //menu com os icones
         bottomNavigationBar: new TabBar(
           tabs: [
             Tab(
@@ -39,6 +42,7 @@ class TabsPage extends StatelessWidget {
               icon: new Icon(Icons.person_rounded),
             ),
           ],
+          //estilos do menu
           labelColor: Theme.of(context).primaryColor,
           unselectedLabelColor: Theme.of(context).primaryColor.withOpacity(0.4),
           indicatorSize: TabBarIndicatorSize.label,
