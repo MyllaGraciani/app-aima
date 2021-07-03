@@ -1,5 +1,5 @@
-import 'package:aima/ui/android/pages/cadastro-pages/cadastro.genero.page.dart';
-import 'package:aima/ui/shared/widgets/cadastro.widget.dart';
+import 'package:aima/ui/pages/cadastro/cadastro.genero.page.dart';
+import 'package:aima/ui/pages/cadastro/widget/cadastro.widget.dart';
 import 'package:flutter/material.dart';
 
 class CadastroSenhaPage extends StatefulWidget {

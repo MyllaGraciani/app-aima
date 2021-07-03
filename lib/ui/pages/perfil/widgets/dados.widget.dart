@@ -1,4 +1,4 @@
-import 'package:aima/ui/shared/pages/embreve.page.dart';
+import 'package:aima/ui/pages/embreve/embreve.page.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
 

@@ -1,5 +1,5 @@
-import 'package:aima/ui/android/pages/cadastro-pages/cadastro.email.page.dart';
-import 'package:aima/ui/shared/widgets/cadastro.widget.dart';
+import 'package:aima/ui/pages/cadastro/cadastro.email.page.dart';
+import 'package:aima/ui/pages/cadastro/widget/cadastro.widget.dart';
 import 'package:flutter/material.dart';
 
 class CadastroNomePage extends StatefulWidget {

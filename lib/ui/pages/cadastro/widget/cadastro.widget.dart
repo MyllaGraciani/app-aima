@@ -1,7 +1,6 @@
+import 'package:aima/ui/shared/widgets/button.widget.dart';
+import 'package:aima/ui/shared/widgets/input.widget.dart';
 import 'package:flutter/material.dart';
-
-import 'button.widget.dart';
-import 'input.widget.dart';
 
 class CadastroWidget extends StatelessWidget {
   final String label;

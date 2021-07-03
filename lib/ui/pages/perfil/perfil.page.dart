@@ -1,4 +1,4 @@
-import 'package:aima/ui/shared/widgets/perfil-widgets/dados.widget.dart';
+import 'package:aima/ui/pages/perfil/widgets/dados.widget.dart';
 import 'package:flutter/material.dart';
 
 class PerfilPage extends StatelessWidget {

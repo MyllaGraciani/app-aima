@@ -1,7 +1,7 @@
-import 'package:aima/ui/android/pages/tabs.page.dart';
+import 'package:aima/ui/pages/login/login.page.dart';
 import 'package:flutter/material.dart';
 
-class EmBrevePage extends StatelessWidget {
+class SucessoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +14,7 @@ class EmBrevePage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => TabsPage(),
+                  builder: (context) => LoginPage(),
                 ),
               );
             },
@@ -29,9 +29,9 @@ class EmBrevePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset("assets/SittingDoodle.png"),
+              Image.asset("assets/LovingDoodle.png"),
               Text(
-                "em breve!",
+                "Obrigada!",
                 style: Theme.of(context).textTheme.headline3,
               ),
             ],

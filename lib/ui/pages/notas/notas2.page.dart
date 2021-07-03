@@ -1,5 +1,5 @@
 import 'package:aima/ui/shared/widgets/appbar.widget.dart';
-import 'package:aima/ui/shared/widgets/box.notas.widget.dart';
+import 'package:aima/ui/pages/notas/widget/box.notas.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 

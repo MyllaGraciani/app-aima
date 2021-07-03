@@ -1,5 +1,5 @@
 import 'package:aima/themes/light.theme.dart';
-import 'package:aima/ui/android/pages/login.page.dart';
+import 'package:aima/ui/pages/login/login.page.dart';
 
 import 'package:flutter/material.dart';
 

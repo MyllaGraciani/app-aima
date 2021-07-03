@@ -1,9 +1,10 @@
-import 'package:aima/ui/android/pages/cadastro-pages/cadastro.nome.page.dart';
+import 'package:aima/ui/pages/cadastro/cadastro.nome.page.dart';
+import 'package:aima/ui/pages/login/widgets/logo.widget.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:aima/ui/shared/widgets/input.widget.dart';
 import 'package:flutter/material.dart';
 
-import 'tabs.page.dart';
+import '../tabs-menu/tabs.page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -34,16 +35,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(
-                          height: 200,
-                          child: Image.asset(
-                            "assets/logo.png",
-                          ),
-                        ),
-                        Text(
-                          "aíma",
-                          style: Theme.of(context).textTheme.headline3,
-                        ),
+                        LogoWidget(),
                         SizedBox(
                           height: 10,
                         ),
