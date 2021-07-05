@@ -10,8 +10,8 @@ class ItemCardWidget extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.fromBorderSide(
           BorderSide(
-            color: Theme.of(context).accentColor,
-          ),
+              // color: Theme.of(context).accentColor,
+              ),
         ),
         borderRadius: BorderRadius.circular(50),
       ),

@@ -23,12 +23,12 @@ class BoxNotasWidget extends StatelessWidget {
           decoration: BoxDecoration(
             border: Border.all(
               width: 2,
-              color: Theme.of(context).accentColor,
+              // color: Theme.of(context).accentColor,
             ),
             borderRadius: BorderRadius.all(
               Radius.circular(10.0),
             ),
-            color: Theme.of(context).accentColor,
+            // color: Theme.of(context).accentColor,
             boxShadow: [
               BoxShadow(
                 color: Theme.of(context).primaryColor.withOpacity(0.1),

@@ -10,7 +10,7 @@ ThemeData lightTheme() {
     // cores
     brightness: brightness,
     primaryColor: primaryColor,
-    accentColor: lightColor,
+    // accentColor: lightColor,
     backgroundColor: backgroundColor,
 
     //appbar
