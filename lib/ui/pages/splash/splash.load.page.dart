@@ -1,5 +1,6 @@
 import 'dart:async';
-import 'package:aima/ui/pages/embreve/embreve.page.dart';
+import 'package:aima/config/app.assets.dart';
+import 'package:aima/ui/pages/introducao/intro2.page.dart';
 import 'package:aima/ui/pages/login/login.page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -26,7 +27,7 @@ class _CarregarPageState extends State<CarregarPage> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
 
     return Container(
       child: FutureBuilder(
@@ -38,7 +39,7 @@ class _CarregarPageState extends State<CarregarPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(
-                "assets/logo.png",
+                AppAssets.logo,
               ),
             ],
           ),
@@ -50,7 +51,7 @@ class _CarregarPageState extends State<CarregarPage> {
             );
           } else {
             if (snapshot.data == 0) {
-              return EmBrevePage();
+              return IntroducaoPage();
             } else {
               return LoginPage();
             }

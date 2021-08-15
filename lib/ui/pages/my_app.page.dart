@@ -1,5 +1,5 @@
-import 'package:aima/themes/light.theme.dart';
-import 'package:aima/ui/pages/introducao/intro.page.dart';
+import 'package:aima/config/light.theme.dart';
+import 'package:aima/ui/pages/splash/splash.screen.page.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatefulWidget {
@@ -13,7 +13,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Aíma',
       theme: lightTheme(),
-      home: IntroPage(),
+      home: SplashScreen(),
     );
   }
 }

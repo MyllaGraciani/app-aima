@@ -1,3 +1,5 @@
+import 'package:aima/config/app.assets.dart';
+import 'package:aima/config/app.color.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
@@ -12,15 +14,63 @@ class IntroPage extends StatelessWidget {
     Icon(Icons.language),
   ];
 
-  static final kIntro = <Widget>[
-    Column(
-      children: [Icon(Icons.event), Text("data")],
+  static final introPages = <Widget>[
+    Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset(AppAssets.iconeWelcome),
+          Text(
+            "Olá, eu sou aíma, o aplicativo que irá te ajudar a acompanhar o seu ciclo menstrual, sintomas e humores :)",
+            style: TextStyle(
+              decoration: TextDecoration.none,
+              fontFamily: 'Lato',
+              color: AppColors.primaryColor,
+              fontWeight: FontWeight.w300,
+              fontSize: 23,
+            ),
+          ),
+        ],
+      ),
     ),
-    Column(
-      children: [Icon(Icons.home), Text("home")],
+    Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset(AppAssets.iconeWelcome),
+          Text(
+            "Olá, eu sou aíma, o aplicativo que irá te ajudar a acompanhar o seu ciclo menstrual, sintomas e humores :)",
+            style: TextStyle(
+              decoration: TextDecoration.none,
+              fontFamily: 'Lato',
+              color: AppColors.primaryColor,
+              fontWeight: FontWeight.w300,
+              fontSize: 23,
+            ),
+          ),
+        ],
+      ),
     ),
-    Column(
-      children: [Icon(Icons.android), Text("android")],
+    Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset(AppAssets.iconeWelcome),
+          Text(
+            "Aqui, todos os seus dados pessoais pertence somente a você. As únicas informações que usamos são as informações necessárias para melhorar a previsçao do próximo ciclo, humores e sintomas feitos de maneira totalmente anônima.",
+            style: TextStyle(
+              decoration: TextDecoration.none,
+              fontFamily: 'Lato',
+              color: AppColors.primaryColor,
+              fontWeight: FontWeight.w300,
+              fontSize: 23,
+            ),
+          ),
+        ],
+      ),
     ),
   ];
 
@@ -28,31 +78,21 @@ class IntroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: DefaultTabController(
-        length: kIntro.length,
+        length: introPages.length,
         child: Builder(
           builder: (BuildContext context) => Container(
-            color: Colors.amber,
+            color: AppColors.backgroundColor,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(16.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   const TabPageSelector(),
                   Expanded(
-                    child: TabBarView(children: kIntro),
+                    child: TabBarView(children: introPages),
                   ),
                   ElevatedButton(
-                    onPressed: () {
-                      final TabController? controller =
-                          DefaultTabController.of(context);
-                      if (!controller!.indexIsChanging) {
-                        for (var i = 3; i > 0; i--) {
-                          controller.animateTo(kIntro.length - i);
-                        }
-                      }
-                    },
-                    child: const Text('SKIP'),
+                    onPressed: () {},
+                    child: const Text('CONTINUAR'),
                   )
                 ],
               ),

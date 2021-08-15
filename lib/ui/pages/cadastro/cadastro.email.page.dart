@@ -27,7 +27,7 @@ class _CadastroEmailPageState extends State<CadastroEmailPage> {
               Form(
                 key: _formKey,
                 child: CadastroWidget(
-                  label: "Qual é o seu e-mail",
+                  label: "Qual é o seu e-mail:",
                   labelInput: "E-mail",
                   proxTela: CadastroSenhaPage(),
                 ),

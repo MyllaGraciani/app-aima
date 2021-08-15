@@ -1,27 +1,30 @@
 import 'package:flutter/material.dart';
 
-const brightness = Brightness.light;
-const primaryColor = const Color(0xFF332b29);
-const lightColor = const Color(0xFFe54545);
-const backgroundColor = const Color(0xFFeaeaea);
+import 'app.color.dart';
 
 ThemeData lightTheme() {
   return ThemeData(
     // cores
-    brightness: brightness,
-    primaryColor: primaryColor,
-    // accentColor: lightColor,
-    backgroundColor: backgroundColor,
+    colorScheme: ColorScheme.light(
+      brightness: AppColors.brightness,
+      primary: AppColors.primaryColor,
+      secondary: AppColors.lightColor,
+      background: AppColors.backgroundColor,
+    ),
+
+    backgroundColor: AppColors.backgroundColor,
+    primaryColor: AppColors.primaryColor,
 
     //appbar
     appBarTheme: AppBarTheme(
-        backgroundColor: backgroundColor.withOpacity(0), elevation: 0),
+        backgroundColor: AppColors.backgroundColor.withOpacity(0),
+        elevation: 0),
 
     //buttons
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        primary: primaryColor,
-        onPrimary: backgroundColor,
+        primary: AppColors.primaryColor,
+        onPrimary: AppColors.backgroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               topRight: Radius.circular(5), topLeft: Radius.circular(5)),
@@ -31,14 +34,14 @@ ThemeData lightTheme() {
 
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        primary: primaryColor,
+        primary: AppColors.primaryColor,
       ),
     ),
 
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
-        primary: backgroundColor,
-        side: BorderSide(color: backgroundColor),
+        primary: AppColors.backgroundColor,
+        side: BorderSide(color: AppColors.backgroundColor),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(5),
@@ -47,39 +50,39 @@ ThemeData lightTheme() {
         ),
       ),
     ),
-    // fontes e textos
 
+    // fontes e textos
     fontFamily: 'Lato',
     textTheme: TextTheme(
       headline1: TextStyle(
-        color: backgroundColor,
+        color: AppColors.backgroundColor,
         fontSize: 50,
       ),
       headline2: TextStyle(
-        color: primaryColor,
+        color: AppColors.primaryColor,
       ),
       headline3: TextStyle(
-        color: primaryColor,
+        color: AppColors.primaryColor,
       ),
       headline4: TextStyle(
-        color: primaryColor,
+        color: AppColors.primaryColor,
         fontWeight: FontWeight.w300,
         fontSize: 80,
       ),
       headline5: TextStyle(
-        color: primaryColor,
+        color: AppColors.primaryColor,
       ),
       subtitle1: TextStyle(
-        color: primaryColor,
+        color: AppColors.primaryColor,
       ),
       subtitle2: TextStyle(
-        color: primaryColor,
+        color: AppColors.primaryColor,
       ),
       bodyText1: TextStyle(
-        color: primaryColor,
+        color: AppColors.primaryColor,
       ),
       bodyText2: TextStyle(
-        color: backgroundColor,
+        color: AppColors.backgroundColor,
         fontWeight: FontWeight.w300,
         fontSize: 20,
       ),

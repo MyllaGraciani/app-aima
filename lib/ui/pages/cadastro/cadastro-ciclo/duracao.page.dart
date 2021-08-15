@@ -19,16 +19,11 @@ class _DuracaoCicloPageState extends State<DuracaoCicloPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // LinearProgressIndicator(
-              //   value: 0.3,
-              //   valueColor: AlwaysStoppedAnimation<Color>(
-              //       Theme.of(context).primaryColor),
-              // ),
               Form(
                 key: _formKey,
                 child: CadastroWidget(
                   label: "Qual a média da duração do seu ciclo?",
-                  labelInput: "E-mail",
+                  labelInput: "Média",
                   proxTela: DuracaoMenstrualPage(),
                 ),
               ),

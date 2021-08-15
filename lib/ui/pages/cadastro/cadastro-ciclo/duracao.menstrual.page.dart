@@ -1,5 +1,5 @@
-import 'package:aima/ui/pages/cadastro/cadastro.senha.page.dart';
 import 'package:aima/ui/pages/cadastro/widget/cadastro.widget.dart';
+import 'package:aima/ui/pages/sucesso/sucesso.page.dart';
 import 'package:flutter/material.dart';
 
 class DuracaoMenstrualPage extends StatefulWidget {
@@ -28,8 +28,8 @@ class _DuracaoMenstrualPageState extends State<DuracaoMenstrualPage> {
                 key: _formKey,
                 child: CadastroWidget(
                   label: "Qual a duração do seu período menstrual?",
-                  labelInput: "E-mail",
-                  proxTela: CadastroSenhaPage(),
+                  labelInput: "Duração",
+                  proxTela: SucessoPage(),
                 ),
               ),
             ],
