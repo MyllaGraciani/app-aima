@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:aima/config/app.assets.dart';
 import 'package:aima/ui/pages/introducao/intro2.page.dart';
 import 'package:aima/ui/pages/login/login.page.dart';
+import 'package:aima/ui/pages/notas/sintoma.controoler.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
