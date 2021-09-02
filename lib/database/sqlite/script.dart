@@ -47,6 +47,10 @@ VALUES ('Inchaço', 0)
 INSERT INTO sintomas (nome, ativo)
 VALUES ('Diarréia', 0)
 ''',
+  '''
+INSERT INTO sintomas (nome, ativo)
+VALUES ('Teste', 1)
+''',
 // fim sintomas
 // humores
   '''

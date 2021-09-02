@@ -1,8 +1,16 @@
 import 'package:aima/database/sqlite/DAO/sintoma.DAO.dart';
 import 'package:aima/domain/entities/sintoma.model.dart';
+import 'package:aima/ui/shared/widgets/appbar.widget.dart';
 import 'package:flutter/material.dart';
 
-class SintomasPage extends StatelessWidget {
+class SintomasPage extends StatefulWidget {
+  @override
+  State<SintomasPage> createState() => _SintomasPageState();
+}
+
+class _SintomasPageState extends State<SintomasPage> {
+  bool _boolCheck = false;
+
   Future<List<SintomasModel>> _buscar() async {
     return SintomaDAO().find();
   }
@@ -15,16 +23,23 @@ class SintomasPage extends StatelessWidget {
           if (futuro.hasData) {
             List<SintomasModel>? lista = futuro.data;
             return Scaffold(
-                appBar: AppBar(
-                  title: Text('Lista de sintomas'),
+                appBar: AppBarWidget(
+                  label: 'Sintomas',
+                  textStyleSub: Theme.of(context).textTheme.subtitle1,
                 ),
                 body: ListView.builder(
                   itemCount: lista!.length,
                   itemBuilder: (context, i) {
-                    var sintoma = lista[i];
-                    return ListTile(
+                    return CheckboxListTile(
+                      controlAffinity: ListTileControlAffinity.leading,
+                      selected: _boolCheck,
+                      value: _boolCheck,
                       title: Text(lista[i].nome),
-                      subtitle: Text(sintoma.ativo.toString()),
+                      onChanged: (value) {
+                        setState(() {
+                          _boolCheck = !_boolCheck;
+                        });
+                      },
                     );
                   },
                 ));
