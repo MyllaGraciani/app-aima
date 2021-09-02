@@ -1,10 +1,12 @@
 import 'package:aima/database/db_util.dart';
+import 'package:aima/database/sqlite/conexao.dart';
 import 'package:flutter/material.dart';
+import 'package:sqlite_viewer/sqlite_viewer.dart';
 
 class TesteDB extends StatelessWidget {
   // referencia nossa classe single para gerenciar o banco de dados
   final dbHelper = DatabaseHelper.instance;
-  // final dbConnect = Connection.instance;
+  final dbConnect = Connection.instance;
   // layout da homepage
   @override
   Widget build(BuildContext context) {
@@ -36,11 +38,11 @@ class TesteDB extends StatelessWidget {
             ),
             ElevatedButton(
               child: Text(
-                'Consultar dados sintomas',
+                'Consultar table anotacoes',
                 style: TextStyle(fontSize: 20),
               ),
               onPressed: () {
-                // _consultar2();
+                _consultar2();
               },
             ),
             ElevatedButton(
@@ -59,6 +61,20 @@ class TesteDB extends StatelessWidget {
               ),
               onPressed: () {
                 _deletar();
+              },
+            ),
+            ElevatedButton(
+              child: Text(
+                'tabela',
+                style: TextStyle(fontSize: 20),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => DatabaseList(),
+                  ),
+                );
               },
             ),
           ],
@@ -84,11 +100,21 @@ class TesteDB extends StatelessWidget {
     todasLinhas.forEach((row) => print(row));
   }
 
-  // void _consultar2() async {
-  //   final todasLinhas = await dbConnect.queryAllRows();
-  //   print('Consulta todas as linhas:');
-  //   todasLinhas.forEach((row) => print(row));
-  // }
+  void _consultar2() async {
+    final todasLinhas = await dbConnect.queryAllRows('tiposAnotacoes');
+    final todasLinhas2 = await dbConnect.queryAllRows('registroDoDia');
+    final todasLinhas3 = await dbConnect.queryAllRows('estadosEmocionais');
+    final todasLinhas4 = await dbConnect.queryAllRows('ciclo');
+
+    print('Consulta todas as linhas:');
+    todasLinhas.forEach((row) => print(row));
+    print('Consulta todas as linhas:');
+    todasLinhas2.forEach((row) => print(row));
+    print('Consulta todas as linhas:');
+    todasLinhas3.forEach((row) => print(row));
+    print('Consulta todas as linhas:');
+    todasLinhas4.forEach((row) => print(row));
+  }
 
   void _atualizar() async {
     // linha para atualizar

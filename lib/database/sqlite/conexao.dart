@@ -5,7 +5,7 @@ import 'package:sqflite/sqflite.dart';
 class Connection {
   static Database? _database;
 
-  static final _databaseName = "aima.bd";
+  static final _databaseName = "aima_banco";
   static final _databaseVersion = 1;
 
   // torna esta classe singleton
@@ -13,7 +13,13 @@ class Connection {
   static final Connection instance = Connection._privateConstructor();
 
   Future<Database?> get() async {
-    if (_database != null) return _database;
+    String path = join(await getDatabasesPath(), _databaseName);
+    bool existeDB = await databaseExists(path);
+
+    // if (_database != null) return _database;
+    if (existeDB == true) {
+      return _database;
+    }
 
     _database = await _initDatabase();
     return _database;
@@ -29,9 +35,20 @@ class Connection {
   }
 
   Future _onCreate(Database db, int version) async {
-    for (int i = 0; i < listCommandCreateInsert.length; i++) {
-      await db.execute(listCommandCreateInsert[i]);
+    await db.execute(createTable1);
+    await db.execute(createTable2);
+    await db.execute(createTable3);
+    await db.execute(createTable4);
+    for (int i = 0; i < listInsert.length; i++) {
+      await db.execute(listInsert[i]);
     }
+
+    // for (int i = 0; i < listCommandCreate.length; i++) {
+    //   await db.execute(listCommandCreate[i]);
+    //   for (int y = 0; y < listInsert.length; y++) {
+    //     await db.execute(listInsert[i]);
+    //   }
+    // }
   }
 
   Future<List<Map<String, dynamic>>> queryAllRows(String table) async {
