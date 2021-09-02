@@ -1,4 +1,3 @@
-import 'package:aima/models/ciclo.model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DiaModel {
@@ -18,7 +17,7 @@ class DiaModel {
 
   iniciarCiclo(dataInicioCiclo) {
     if (dataInicioCiclo == true) {
-      CicloModel ciclo = CicloModel(data, data);
+      // CicloModel ciclo = CicloModel(data);
     }
   }
 }

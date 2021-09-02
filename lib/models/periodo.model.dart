@@ -1,5 +1,3 @@
-import 'package:aima/models/ciclo.model.dart';
-
 class PeriodoModel {
   final String nome;
   final DateTime inicioPeriodo;
