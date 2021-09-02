@@ -1,5 +1,6 @@
 import 'package:aima/database/db_util.dart';
 import 'package:aima/database/sqlite/conexao.dart';
+import 'package:aima/ui/pages/notas/sintomas.page.dart';
 import 'package:flutter/material.dart';
 import 'package:sqlite_viewer/sqlite_viewer.dart';
 
@@ -25,15 +26,6 @@ class TesteDB extends StatelessWidget {
               ),
               onPressed: () {
                 _inserir();
-              },
-            ),
-            ElevatedButton(
-              child: Text(
-                'Consultar dados',
-                style: TextStyle(fontSize: 20),
-              ),
-              onPressed: () {
-                _consultar();
               },
             ),
             ElevatedButton(
@@ -77,6 +69,20 @@ class TesteDB extends StatelessWidget {
                 );
               },
             ),
+            ElevatedButton(
+              child: Text(
+                'PAGINA ESTADOS EMO',
+                style: TextStyle(fontSize: 20),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => SintomasPage(),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
@@ -92,12 +98,6 @@ class TesteDB extends StatelessWidget {
     };
     final id = await dbHelper.insert(row);
     print('linha inserida id: $id');
-  }
-
-  void _consultar() async {
-    final todasLinhas = await dbHelper.queryAllRows();
-    print('Consulta todas as linhas:');
-    todasLinhas.forEach((row) => print(row));
   }
 
   void _consultar2() async {

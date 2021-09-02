@@ -16,7 +16,6 @@ class Connection {
     String path = join(await getDatabasesPath(), _databaseName);
     bool existeDB = await databaseExists(path);
 
-    // if (_database != null) return _database;
     if (existeDB == true) {
       return _database;
     }
@@ -42,13 +41,6 @@ class Connection {
     for (int i = 0; i < listInsert.length; i++) {
       await db.execute(listInsert[i]);
     }
-
-    // for (int i = 0; i < listCommandCreate.length; i++) {
-    //   await db.execute(listCommandCreate[i]);
-    //   for (int y = 0; y < listInsert.length; y++) {
-    //     await db.execute(listInsert[i]);
-    //   }
-    // }
   }
 
   Future<List<Map<String, dynamic>>> queryAllRows(String table) async {
