@@ -1,5 +1,6 @@
 import 'package:aima/database/db_util.dart';
 import 'package:aima/database/sqlite/conexao.dart';
+import 'package:aima/ui/pages/notas/humores.page.dart';
 import 'package:aima/ui/pages/notas/sintomas.page.dart';
 import 'package:flutter/material.dart';
 import 'package:sqlite_viewer/sqlite_viewer.dart';
@@ -78,7 +79,7 @@ class TesteDB extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => SintomasPage(),
+                    builder: (_) => HumoresPage(),
                   ),
                 );
               },
