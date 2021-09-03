@@ -13,12 +13,7 @@ class Connection {
   static final Connection instance = Connection._privateConstructor();
 
   Future<Database?> get() async {
-    String path = join(await getDatabasesPath(), _databaseName);
-    bool existeDB = await databaseExists(path);
-
-    if (existeDB == true) {
-      return _database;
-    }
+    if (_database != null) return _database;
 
     _database = await _initDatabase();
     return _database;
@@ -45,6 +40,7 @@ class Connection {
 
   Future<List<Map<String, dynamic>>> queryAllRows(String table) async {
     Database? _db = await instance.get();
+
     return await _db!.query(table);
   }
 

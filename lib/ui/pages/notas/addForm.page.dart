@@ -1,5 +1,6 @@
 import 'package:aima/database/sqlite/DAO/humores.dao.dart';
 import 'package:aima/ui/pages/notas/humores.page.dart';
+import 'package:aima/ui/shared/validators/cadastro.valid.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,10 @@ class AddFormPage extends StatefulWidget {
 class _AddFormPageState extends State<AddFormPage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController controller = TextEditingController();
+
+  Future<void> _add(String desc) async {
+    HumoresDAO().inserir(desc, 3);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +55,10 @@ class _AddFormPageState extends State<AddFormPage> {
                   ),
                   style: TextStyle(color: Theme.of(context).primaryColor),
                   validator: (value) {
-                    // return "Por favor digite um texto válido";
+                    if (CadastroValidator.instance.nomeValido(value) == false) {
+                      return "Por favor digite um texto válido";
+                    }
+                    return null;
                   },
                 ),
                 SizedBox(
@@ -58,10 +66,10 @@ class _AddFormPageState extends State<AddFormPage> {
                 ),
                 ButtonWidgetGeneric(
                   typeButton: ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        HumoresDAO().inserir(controller.text, 3);
-                        Navigator.push(
+                        await _add(controller.text);
+                        Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (_) => HumoresPage(),
