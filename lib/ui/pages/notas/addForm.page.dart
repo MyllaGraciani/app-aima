@@ -1,7 +1,6 @@
 import 'package:aima/database/sqlite/DAO/estadosEmo.dao.dart';
 import 'package:aima/database/sqlite/DAO/tiposNotas.dao.dart';
 import 'package:aima/domain/entities/tipo_notas.model.dart';
-import 'package:aima/ui/pages/notas/estadosEmo.page.dart';
 import 'package:aima/ui/shared/validators/cadastro.valid.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';

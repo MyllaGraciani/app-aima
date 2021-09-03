@@ -1,6 +1,8 @@
-import 'package:aima/ui/pages/cadastro/widget/cadastro.widget.dart';
-import 'package:aima/ui/pages/sucesso/sucesso.page.dart';
+import 'package:aima/ui/pages/tabs-menu/tabs.page.dart';
+import 'package:aima/ui/shared/validators/cadastro.valid.dart';
+import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DuracaoMenstrualPage extends StatefulWidget {
   @override
@@ -9,27 +11,71 @@ class DuracaoMenstrualPage extends StatefulWidget {
 
 class _DuracaoMenstrualPageState extends State<DuracaoMenstrualPage> {
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController controller = TextEditingController();
+
+  getPreferences(duracaoMenstruacao) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    prefs.setInt('duracaoMenstruacao', duracaoMenstruacao);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Material(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Form(
+          key: _formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // LinearProgressIndicator(
-              //   value: 0.3,
-              //   valueColor: AlwaysStoppedAnimation<Color>(
-              //       Theme.of(context).primaryColor),
-              // ),
-              Form(
-                key: _formKey,
-                child: CadastroWidget(
-                  label: "Qual a duração do seu período menstrual?",
-                  labelInput: "Duração",
-                  proxTela: SucessoPage(),
+              Text(
+                "Qual a média da duração da sua menstruação em dias?",
+                style: Theme.of(context).textTheme.headline3,
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              TextFormField(
+                controller: controller,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  labelText: "Exemplo: 7",
+                  border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(2.0)),
+                    borderSide: BorderSide(
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
+                  labelStyle: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                  ),
+                ),
+                style: TextStyle(color: Theme.of(context).primaryColor),
+                validator: (value) {
+                  if (CadastroValidator.instance.nomeValido(value) == false) {
+                    return "Por favor digite um texto válido";
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              ButtonWidgetGeneric(
+                typeButton: ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      getPreferences(int.parse(controller.text));
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TabsPage()),
+                      );
+                    }
+                  },
+                  child: Text("Próximo"),
                 ),
               ),
             ],

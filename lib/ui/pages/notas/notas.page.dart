@@ -1,57 +1,113 @@
+import 'package:aima/ui/pages/notas/estadosEmo.page.dart';
 import 'package:aima/ui/shared/widgets/appbar.widget.dart';
-import 'package:aima/ui/shared/widgets/box.widget.dart';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
-class NotasPage extends StatelessWidget {
+class Notas2Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        label: 'Anotações',
+        label: 'Configurações adicionais',
         textStyleSub: Theme.of(context).textTheme.subtitle1,
       ),
-      body: ListView(
-        children: [
-          Container(
-            padding: EdgeInsets.all(20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: Container(
+        padding: EdgeInsets.all(20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                BoxWidget(
-                  titleAsk: "Observações",
-                  descButton: "Escrever..",
-                  iconButton: Icon(Icons.border_color_rounded),
+                Container(
+                  height: 140,
+                  width: 140,
+                  child: ElevatedButton(
+                    child: Text(
+                      "Sintomas",
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EstadosEmocionaisPage(
+                            idTipo: 1,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 ),
-                BoxWidget(
-                  titleAsk: "Como está o seu humor?",
-                  descButton: "Humores..",
-                  iconButton: Icon(Icons.tag_faces_outlined),
-                ),
-                BoxWidget(
-                  titleAsk: "Como foi o seu sono?",
-                  descButton: "Sono..",
-                  iconButton: Icon(Icons.hourglass_bottom),
-                ),
-                BoxWidget(
-                  titleAsk: "Atividades feitas",
-                  descButton: "Atividades..",
-                  iconButton: Icon(Icons.sports_kabaddi_outlined),
-                ),
-                BoxWidget(
-                  titleAsk: "Relação sexual",
-                  descButton: "Relações..",
-                  iconButton: Icon(Icons.health_and_safety_sharp),
-                ),
-                BoxWidget(
-                  titleAsk: "Atividades feitas",
-                  descButton: "Atividades..",
-                  iconButton: Icon(Icons.sports_kabaddi_outlined),
+                Container(
+                  height: 140,
+                  width: 140,
+                  child: ElevatedButton(
+                    child: Text(
+                      "Humores",
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EstadosEmocionaisPage(
+                            idTipo: 2,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
-          ),
-        ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  height: 140,
+                  width: 140,
+                  child: ElevatedButton(
+                    child: Text(
+                      "Sexo",
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EstadosEmocionaisPage(
+                            idTipo: 3,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Container(
+                  height: 140,
+                  width: 140,
+                  child: ElevatedButton(
+                    child: Text(
+                      "Muco",
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EstadosEmocionaisPage(
+                            idTipo: 4,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

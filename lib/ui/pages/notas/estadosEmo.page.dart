@@ -4,13 +4,17 @@ import 'package:aima/ui/pages/notas/addForm.page.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
 
-class HumoresPage extends StatefulWidget {
+class EstadosEmocionaisPage extends StatefulWidget {
+  final int idTipo;
+
+  EstadosEmocionaisPage({required this.idTipo});
+
   @override
-  State<HumoresPage> createState() => _HumoresPageState();
+  State<EstadosEmocionaisPage> createState() => _EstadosEmocionaisPageState();
 }
 
-class _HumoresPageState extends State<HumoresPage> {
-  List _selecteHumor = [];
+class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
+  List _selecteItem = [];
 
   Future<List<EstadosEmocionaisModel>> _buscar(int idTipo) async {
     return EstadosEmocionaisDAO().find(idTipo);
@@ -23,11 +27,11 @@ class _HumoresPageState extends State<HumoresPage> {
   void _onHumorSelected(bool selected, humorId) {
     if (selected == true) {
       setState(() {
-        _selecteHumor.add(humorId);
+        _selecteItem.add(humorId);
       });
     } else {
       setState(() {
-        _selecteHumor.remove(humorId);
+        _selecteItem.remove(humorId);
       });
     }
   }
@@ -35,7 +39,7 @@ class _HumoresPageState extends State<HumoresPage> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<EstadosEmocionaisModel>>(
-        future: _buscar(2),
+        future: _buscar(widget.idTipo),
         builder: (context, futuro) {
           if (futuro.hasData) {
             List<EstadosEmocionaisModel>? lista = futuro.data;
@@ -78,9 +82,9 @@ class _HumoresPageState extends State<HumoresPage> {
                           child: CheckboxListTile(
                             dense: true,
                             contentPadding: const EdgeInsets.all(5),
-                            value: _selecteHumor.contains(lista[i].id),
+                            value: _selecteItem.contains(lista[i].id),
                             controlAffinity: ListTileControlAffinity.leading,
-                            selected: _selecteHumor.contains(lista[i].id),
+                            selected: _selecteItem.contains(lista[i].id),
                             activeColor:
                                 Theme.of(context).primaryColor.withAlpha(0),
                             selectedTileColor:

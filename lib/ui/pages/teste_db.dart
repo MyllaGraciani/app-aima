@@ -75,12 +75,12 @@ class TesteDB extends StatelessWidget {
                 style: TextStyle(fontSize: 20),
               ),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => HumoresPage(),
-                  ),
-                );
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (_) => EstadosEmocionaisPage(),
+                //   ),
+                // );
               },
             ),
           ],
