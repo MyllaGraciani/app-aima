@@ -10,8 +10,22 @@ class HumoresPage extends StatefulWidget {
 }
 
 class _HumoresPageState extends State<HumoresPage> {
+  List _selecteCategorys = [];
+
   Future<List<EstadosEmocionaisModel>> _buscar() async {
     return HumoresDAO().find();
+  }
+
+  void _onCategorySelected(bool selected, categoryId) {
+    if (selected == true) {
+      setState(() {
+        _selecteCategorys.add(categoryId);
+      });
+    } else {
+      setState(() {
+        _selecteCategorys.remove(categoryId);
+      });
+    }
   }
 
   @override
@@ -61,16 +75,18 @@ class _HumoresPageState extends State<HumoresPage> {
                             controlAffinity: ListTileControlAffinity.leading,
                             dense: true,
                             contentPadding: EdgeInsets.all(5),
-                            selected: false,
-                            value: false,
+                            selected: _selecteCategorys.contains(lista[i].id),
+                            value: _selecteCategorys.contains(lista[i].id),
+                            activeColor:
+                                Theme.of(context).primaryColor.withAlpha(0),
+                            selectedTileColor:
+                                Theme.of(context).primaryColor.withAlpha(200),
                             title: Text(
                               lista[i].descricao,
                               style: Theme.of(context).textTheme.headline6,
                             ),
-                            onChanged: (value) {
-                              // setState(() {
-                              //   _boolCheck = !_boolCheck;
-                              // });
+                            onChanged: (selected) {
+                              _onCategorySelected(selected!, lista[i].id);
                             },
                           ),
                         );
