@@ -16,6 +16,10 @@ class _HumoresPageState extends State<HumoresPage> {
     return HumoresDAO().find();
   }
 
+  _removerHumor(int id) async {
+    return HumoresDAO().remover(id);
+  }
+
   void _onCategorySelected(bool selected, categoryId) {
     if (selected == true) {
       setState(() {
@@ -65,18 +69,18 @@ class _HumoresPageState extends State<HumoresPage> {
                       itemCount: lista!.length,
                       itemBuilder: (context, i) {
                         return Container(
-                          margin: EdgeInsets.all(2),
+                          margin: const EdgeInsets.all(2),
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: Theme.of(context).primaryColor,
                             ),
                           ),
                           child: CheckboxListTile(
-                            controlAffinity: ListTileControlAffinity.leading,
                             dense: true,
-                            contentPadding: EdgeInsets.all(5),
-                            selected: _selecteCategorys.contains(lista[i].id),
+                            contentPadding: const EdgeInsets.all(5),
                             value: _selecteCategorys.contains(lista[i].id),
+                            controlAffinity: ListTileControlAffinity.leading,
+                            selected: _selecteCategorys.contains(lista[i].id),
                             activeColor:
                                 Theme.of(context).primaryColor.withAlpha(0),
                             selectedTileColor:
@@ -88,6 +92,14 @@ class _HumoresPageState extends State<HumoresPage> {
                             onChanged: (selected) {
                               _onCategorySelected(selected!, lista[i].id);
                             },
+                            secondary: IconButton(
+                              color: Theme.of(context).primaryColor,
+                              onPressed: () {
+                                _onCategorySelected(false, lista[i].id);
+                                _removerHumor(lista[i].id);
+                              },
+                              icon: Icon(Icons.delete),
+                            ),
                           ),
                         );
                       },

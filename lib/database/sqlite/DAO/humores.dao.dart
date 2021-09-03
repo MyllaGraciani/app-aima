@@ -29,7 +29,14 @@ class HumoresDAO {
 
     Map<String, dynamic> row = {"descricao": desc, "idTipo": idTipo};
 
-    final id = await _db.insert(tableName, row);
-    print('linha inserida id: $id');
+    await _db.insert(tableName, row);
+  }
+
+  remover(int id) async {
+    _db = (await Connection.instance.get())!;
+
+    String tableName = 'estadosEmocionais';
+
+    await _db.delete(tableName, where: 'id = ?', whereArgs: [id]);
   }
 }
