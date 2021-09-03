@@ -8,7 +8,7 @@ class Notas2Page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        label: 'Configurações adicionais',
+        label: 'Anotações',
         textStyleSub: Theme.of(context).textTheme.subtitle1,
       ),
       body: Container(

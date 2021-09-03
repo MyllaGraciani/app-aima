@@ -1,7 +1,7 @@
 import 'package:aima/ui/pages/adicionais/adicionais.page.dart';
 import 'package:aima/ui/pages/calendario/calendario.page.dart';
 import 'package:aima/ui/pages/home/home.page.dart';
-import 'package:aima/ui/pages/notas/notas2.page.dart';
+import 'package:aima/ui/pages/notas/notas.page.dart';
 import 'package:aima/ui/pages/perfil/perfil.page.dart';
 import 'package:flutter/material.dart';
 
