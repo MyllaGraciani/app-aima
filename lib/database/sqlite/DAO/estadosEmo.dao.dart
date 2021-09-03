@@ -3,14 +3,14 @@ import 'package:sqflite/sqflite.dart';
 
 import '../conexao.dart';
 
-class HumoresDAO {
+class EstadosEmocionaisDAO {
   late Database _db;
 
-  Future<List<EstadosEmocionaisModel>> find() async {
+  Future<List<EstadosEmocionaisModel>> find(int idTipo) async {
     _db = (await Connection.instance.get())!;
 
     List<Map<String, dynamic>> resultado = await _db
-        .query('estadosEmocionais', where: 'idTipo = ?', whereArgs: [3]);
+        .query('estadosEmocionais', where: 'idTipo = ?', whereArgs: [idTipo]);
 
     List<EstadosEmocionaisModel> lista = List.generate(resultado.length, (i) {
       var linha = resultado[i];

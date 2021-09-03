@@ -1,6 +1,7 @@
 import 'package:aima/config/light.theme.dart';
-import 'package:aima/ui/pages/teste_db.dart';
 import 'package:flutter/material.dart';
+
+import 'splash/splash.screen.page.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -13,8 +14,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Aíma',
       theme: lightTheme(),
-      home: TesteDB(),
-      // home: SplashScreen(),
+      //  home: TesteDB(),
+      home: SplashScreen(),
       //    home: SintomasPage(),
     );
   }

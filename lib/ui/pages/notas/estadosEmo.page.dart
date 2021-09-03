@@ -1,34 +1,33 @@
-import 'package:aima/database/sqlite/DAO/sintoma.dao.dart';
+import 'package:aima/database/sqlite/DAO/estadosEmo.dao.dart';
 import 'package:aima/domain/entities/estados_emo.model.dart';
+import 'package:aima/ui/pages/notas/addForm.page.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
 
-import 'addForm.page.dart';
-
-class SintomasPage extends StatefulWidget {
+class HumoresPage extends StatefulWidget {
   @override
-  State<SintomasPage> createState() => _SintomasPageState();
+  State<HumoresPage> createState() => _HumoresPageState();
 }
 
-class _SintomasPageState extends State<SintomasPage> {
-  List _selecteSintoma = [];
+class _HumoresPageState extends State<HumoresPage> {
+  List _selecteHumor = [];
 
-  Future<List<EstadosEmocionaisModel>> _buscar() async {
-    return SintomaDAO().find();
+  Future<List<EstadosEmocionaisModel>> _buscar(int idTipo) async {
+    return EstadosEmocionaisDAO().find(idTipo);
   }
 
-  _removerSintoma(int id) async {
-    return SintomaDAO().remover(id);
+  _removerHumor(int id) async {
+    return EstadosEmocionaisDAO().remover(id);
   }
 
-  void _onSintomaSelected(bool selected, sintomaID) {
+  void _onHumorSelected(bool selected, humorId) {
     if (selected == true) {
       setState(() {
-        _selecteSintoma.add(sintomaID);
+        _selecteHumor.add(humorId);
       });
     } else {
       setState(() {
-        _selecteSintoma.remove(sintomaID);
+        _selecteHumor.remove(humorId);
       });
     }
   }
@@ -36,10 +35,11 @@ class _SintomasPageState extends State<SintomasPage> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<EstadosEmocionaisModel>>(
-        future: _buscar(),
+        future: _buscar(2),
         builder: (context, futuro) {
           if (futuro.hasData) {
             List<EstadosEmocionaisModel>? lista = futuro.data;
+
             return Scaffold(
               appBar: AppBar(
                 title: Text(
@@ -78,9 +78,9 @@ class _SintomasPageState extends State<SintomasPage> {
                           child: CheckboxListTile(
                             dense: true,
                             contentPadding: const EdgeInsets.all(5),
-                            value: _selecteSintoma.contains(lista[i].id),
+                            value: _selecteHumor.contains(lista[i].id),
                             controlAffinity: ListTileControlAffinity.leading,
-                            selected: _selecteSintoma.contains(lista[i].id),
+                            selected: _selecteHumor.contains(lista[i].id),
                             activeColor:
                                 Theme.of(context).primaryColor.withAlpha(0),
                             selectedTileColor:
@@ -90,13 +90,13 @@ class _SintomasPageState extends State<SintomasPage> {
                               style: Theme.of(context).textTheme.headline6,
                             ),
                             onChanged: (selected) {
-                              _onSintomaSelected(selected!, lista[i].id);
+                              _onHumorSelected(selected!, lista[i].id);
                             },
                             secondary: IconButton(
                               color: Theme.of(context).primaryColor,
                               onPressed: () {
-                                _onSintomaSelected(false, lista[i].id);
-                                _removerSintoma(lista[i].id);
+                                _onHumorSelected(false, lista[i].id);
+                                _removerHumor(lista[i].id);
                               },
                               icon: Icon(Icons.delete),
                             ),

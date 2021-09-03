@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:aima/config/app.assets.dart';
+import 'package:aima/database/sqlite/conexao.dart';
 import 'package:aima/ui/pages/introducao/intro2.page.dart';
 import 'package:aima/ui/pages/login/login.page.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +14,12 @@ class CarregarPage extends StatefulWidget {
 }
 
 class _CarregarPageState extends State<CarregarPage> {
+  final dbConnect = Connection.instance;
+
   Future<int> getPreferences() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    await dbConnect.get();
 
     int? introRead = prefs.getInt('introLida');
 
@@ -46,9 +51,7 @@ class _CarregarPageState extends State<CarregarPage> {
         ),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Container(
-              child: Text("carregando.."),
-            );
+            return const Center(child: CircularProgressIndicator());
           } else {
             if (snapshot.data == 0) {
               return IntroducaoPage();
