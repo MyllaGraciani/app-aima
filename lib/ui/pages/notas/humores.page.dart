@@ -10,7 +10,7 @@ class HumoresPage extends StatefulWidget {
 }
 
 class _HumoresPageState extends State<HumoresPage> {
-  List _selecteCategorys = [];
+  List _selecteHumor = [];
 
   Future<List<EstadosEmocionaisModel>> _buscar() async {
     return HumoresDAO().find();
@@ -20,14 +20,14 @@ class _HumoresPageState extends State<HumoresPage> {
     return HumoresDAO().remover(id);
   }
 
-  void _onCategorySelected(bool selected, categoryId) {
+  void _onHumorSelected(bool selected, humorId) {
     if (selected == true) {
       setState(() {
-        _selecteCategorys.add(categoryId);
+        _selecteHumor.add(humorId);
       });
     } else {
       setState(() {
-        _selecteCategorys.remove(categoryId);
+        _selecteHumor.remove(humorId);
       });
     }
   }
@@ -51,7 +51,7 @@ class _HumoresPageState extends State<HumoresPage> {
                   IconButton(
                     color: Theme.of(context).primaryColor,
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (_) => AddFormPage(),
@@ -78,9 +78,9 @@ class _HumoresPageState extends State<HumoresPage> {
                           child: CheckboxListTile(
                             dense: true,
                             contentPadding: const EdgeInsets.all(5),
-                            value: _selecteCategorys.contains(lista[i].id),
+                            value: _selecteHumor.contains(lista[i].id),
                             controlAffinity: ListTileControlAffinity.leading,
-                            selected: _selecteCategorys.contains(lista[i].id),
+                            selected: _selecteHumor.contains(lista[i].id),
                             activeColor:
                                 Theme.of(context).primaryColor.withAlpha(0),
                             selectedTileColor:
@@ -90,12 +90,12 @@ class _HumoresPageState extends State<HumoresPage> {
                               style: Theme.of(context).textTheme.headline6,
                             ),
                             onChanged: (selected) {
-                              _onCategorySelected(selected!, lista[i].id);
+                              _onHumorSelected(selected!, lista[i].id);
                             },
                             secondary: IconButton(
                               color: Theme.of(context).primaryColor,
                               onPressed: () {
-                                _onCategorySelected(false, lista[i].id);
+                                _onHumorSelected(false, lista[i].id);
                                 _removerHumor(lista[i].id);
                               },
                               icon: Icon(Icons.delete),

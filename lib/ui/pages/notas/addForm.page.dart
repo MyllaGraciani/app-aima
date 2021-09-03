@@ -31,7 +31,7 @@ class _AddFormPageState extends State<AddFormPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Deseja adicionar um novo humor?",
+                  "Deseja adicionar um novo item?",
                   style: Theme.of(context).textTheme.headline3,
                 ),
                 SizedBox(
@@ -69,6 +69,7 @@ class _AddFormPageState extends State<AddFormPage> {
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
                         await _add(controller.text);
+
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
