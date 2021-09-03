@@ -47,4 +47,9 @@ class Connection {
     Database? _db = await instance.get();
     return await _db!.query(table);
   }
+
+  Future<int> insert(String table, Map<String, dynamic> row) async {
+    Database? _db = await instance.get();
+    return await _db!.insert(table, row);
+  }
 }

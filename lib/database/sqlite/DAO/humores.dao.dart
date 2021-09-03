@@ -21,4 +21,15 @@ class HumoresDAO {
 
     return lista;
   }
+
+  inserir(String desc, int idTipo) async {
+    _db = (await Connection.instance.get())!;
+
+    String tableName = 'estadosEmocionais';
+
+    Map<String, dynamic> row = {"descricao": desc, "idTipo": idTipo};
+
+    final id = await _db.insert(tableName, row);
+    print('linha inserida id: $id');
+  }
 }

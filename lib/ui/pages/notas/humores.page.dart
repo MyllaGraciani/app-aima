@@ -1,6 +1,7 @@
 import 'package:aima/database/sqlite/DAO/humores.dao.dart';
 import 'package:aima/domain/entities/estados_emo.model.dart';
-import 'package:aima/ui/shared/widgets/appbar.widget.dart';
+import 'package:aima/ui/pages/notas/addForm.page.dart';
+import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
 
 class HumoresPage extends StatefulWidget {
@@ -20,29 +21,73 @@ class _HumoresPageState extends State<HumoresPage> {
         builder: (context, futuro) {
           if (futuro.hasData) {
             List<EstadosEmocionaisModel>? lista = futuro.data;
+
             return Scaffold(
-                appBar: AppBarWidget(
-                  label: 'Humores',
-                  textStyleSub: Theme.of(context).textTheme.subtitle1,
+              appBar: AppBar(
+                title: Text(
+                  'Como você se sente hoje?',
+                  style: Theme.of(context).textTheme.subtitle1,
                 ),
-                body: ListView.builder(
-                  itemCount: lista!.length,
-                  itemBuilder: (context, i) {
-                    return CheckboxListTile(
-                      controlAffinity: ListTileControlAffinity.leading,
-                      selected: false,
-                      value: false,
-                      title: Text(lista[i].descricao),
-                      onChanged: (value) {
-                        // setState(() {
-                        //   _boolCheck = !_boolCheck;
-                        // });
+                centerTitle: true,
+                actions: [
+                  IconButton(
+                    color: Theme.of(context).primaryColor,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => AddFormPage(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.add),
+                  ),
+                ],
+              ),
+              body: Column(
+                children: [
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: lista!.length,
+                      itemBuilder: (context, i) {
+                        return Container(
+                          margin: EdgeInsets.all(2),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          ),
+                          child: CheckboxListTile(
+                            controlAffinity: ListTileControlAffinity.leading,
+                            dense: true,
+                            contentPadding: EdgeInsets.all(5),
+                            selected: false,
+                            value: false,
+                            title: Text(
+                              lista[i].descricao,
+                              style: Theme.of(context).textTheme.headline6,
+                            ),
+                            onChanged: (value) {
+                              // setState(() {
+                              //   _boolCheck = !_boolCheck;
+                              // });
+                            },
+                          ),
+                        );
                       },
-                    );
-                  },
-                ));
+                    ),
+                  ),
+                  ButtonWidgetGeneric(
+                    typeButton: ElevatedButton(
+                      onPressed: () {},
+                      child: Text("SALVAR"),
+                    ),
+                  ),
+                ],
+              ),
+            );
           } else {
-            return Scaffold();
+            return const Center(child: CircularProgressIndicator());
           }
         });
   }
