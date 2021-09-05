@@ -3,12 +3,17 @@ import 'package:aima/ui/shared/widgets/ciclo.dia.widget.dart';
 import 'package:aima/ui/shared/widgets/list.card.widget.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        label: 'Olá, Mylla',
+        label: 'Olá,',
         textStyleSub: Theme.of(context).textTheme.subtitle1,
       ),
       body: ListView(
