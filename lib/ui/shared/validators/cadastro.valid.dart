@@ -11,10 +11,22 @@ class CadastroValidator {
     return true;
   }
 
-  bool emailValido(value) {
+  bool cicloValido(value) {
     if (value == null ||
         value.isEmpty ||
-        verificaSeEspaco.hasMatch(value) == false) {
+        verificaSeEspaco.hasMatch(value) == false ||
+        int.parse(value) <= 20) {
+      return false;
+    }
+    return true;
+  }
+
+  bool pnValido(value) {
+    if (value == null ||
+        value.isEmpty ||
+        verificaSeEspaco.hasMatch(value) == false ||
+        int.parse(value) > 12 ||
+        int.parse(value) <= 0) {
       return false;
     }
     return true;

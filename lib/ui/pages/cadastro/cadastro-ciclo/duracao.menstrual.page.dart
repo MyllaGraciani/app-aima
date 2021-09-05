@@ -38,7 +38,8 @@ class _DuracaoMenstrualPageState extends State<DuracaoMenstrualPage> {
               ),
               TextFormField(
                 controller: controller,
-                keyboardType: TextInputType.text,
+                keyboardType: TextInputType.number,
+                maxLength: 2,
                 decoration: InputDecoration(
                   labelText: "Exemplo: 7",
                   border: OutlineInputBorder(),
@@ -54,8 +55,8 @@ class _DuracaoMenstrualPageState extends State<DuracaoMenstrualPage> {
                 ),
                 style: TextStyle(color: Theme.of(context).primaryColor),
                 validator: (value) {
-                  if (CadastroValidator.instance.nomeValido(value) == false) {
-                    return "Por favor digite um texto válido";
+                  if (CadastroValidator.instance.pnValido(value) == false) {
+                    return "Digite um valor menor que 12 e maior que 0.";
                   }
                   return null;
                 },

@@ -38,7 +38,8 @@ class _DuracaoCicloPageState extends State<DuracaoCicloPage> {
               ),
               TextFormField(
                 controller: controller,
-                keyboardType: TextInputType.text,
+                maxLength: 2,
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   labelText: "Exemplo: 27",
                   border: OutlineInputBorder(),
@@ -54,14 +55,14 @@ class _DuracaoCicloPageState extends State<DuracaoCicloPage> {
                 ),
                 style: TextStyle(color: Theme.of(context).primaryColor),
                 validator: (value) {
-                  if (CadastroValidator.instance.nomeValido(value) == false) {
-                    return "Por favor digite um texto válido";
+                  if (CadastroValidator.instance.cicloValido(value) == false) {
+                    return "Digite um valor que seja maior que 20.";
                   }
                   return null;
                 },
               ),
               SizedBox(
-                height: 40,
+                height: 20,
               ),
               ButtonWidgetGeneric(
                 typeButton: ElevatedButton(
