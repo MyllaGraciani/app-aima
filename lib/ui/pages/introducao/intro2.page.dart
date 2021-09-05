@@ -3,6 +3,7 @@ import 'package:aima/ui/pages/cadastro/cadastro.nome.page.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class IntroducaoPage extends StatefulWidget {
   @override
@@ -10,6 +11,11 @@ class IntroducaoPage extends StatefulWidget {
 }
 
 class _IntroducaoPageState extends State<IntroducaoPage> {
+  getPreferences() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt('introLida', 1);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -44,6 +50,7 @@ class _IntroducaoPageState extends State<IntroducaoPage> {
             ButtonWidgetGeneric(
               typeButton: ElevatedButton(
                 onPressed: () {
+                  // getPreferences();
                   Navigator.push(
                     context,
                     MaterialPageRoute(

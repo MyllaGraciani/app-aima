@@ -11,7 +11,7 @@ class PerfilPage extends StatelessWidget {
           height: double.maxFinite,
           width: double.maxFinite,
           child: Image.network(
-              "https://images.unsplash.com/photo-1576899244085-008f88c463ce?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDEwfHRvd0paRnNrcEdnfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+              "https://images.unsplash.com/photo-1630513807049-9a9858825508?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
               fit: BoxFit.fill),
         ),
         DadosPerfilWidget(),

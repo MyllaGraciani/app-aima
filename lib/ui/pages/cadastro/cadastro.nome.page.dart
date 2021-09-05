@@ -67,7 +67,8 @@ class _CadastroNomePageState extends State<CadastroNomePage> {
                 typeButton: ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      getPreferences(controller.toString());
+                      getPreferences(controller.text);
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(
