@@ -35,7 +35,9 @@ class CadastroValidator {
   bool senhaValida(value) {
     if (value == null ||
         value.isEmpty ||
-        verificaSeEspaco.hasMatch(value) == false) {
+        verificaSeEspaco.hasMatch(value) == false ||
+        value.toString().length > 4 ||
+        value.toString().length < 8) {
       return false;
     }
     return true;
