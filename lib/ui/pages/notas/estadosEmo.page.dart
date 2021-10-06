@@ -1,6 +1,7 @@
 import 'package:aima/database/sqlite/DAO/estadosEmo.dao.dart';
 import 'package:aima/domain/entities/estados_emo.model.dart';
 import 'package:aima/ui/pages/notas/addForm.page.dart';
+import 'package:aima/ui/pages/tabs-menu/tabs.page.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
 
@@ -125,7 +126,14 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
                     ),
                     ButtonWidgetGeneric(
                       typeButton: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => TabsPage(),
+                            ),
+                          );
+                        },
                         child: Text("SALVAR"),
                       ),
                     ),

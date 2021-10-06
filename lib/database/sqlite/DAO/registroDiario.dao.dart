@@ -6,10 +6,11 @@ import '../conexao.dart';
 class RegistroDiarioDAO {
   late Database _db;
 
-  Future<List<RegistroDoDiaModel>> find() async {
+  Future<List<RegistroDoDiaModel>> find(String data) async {
     _db = (await Connection.instance.get())!;
 
-    List<Map<String, dynamic>> resultado = await _db.query('registroDoDia');
+    List<Map<String, dynamic>> resultado =
+        await _db.query('registroDoDia', where: 'data = ?', whereArgs: [data]);
 
     List<RegistroDoDiaModel> lista = List.generate(resultado.length, (i) {
       var linha = resultado[i];

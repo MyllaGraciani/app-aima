@@ -1,5 +1,5 @@
 import 'package:aima/config/light.theme.dart';
-import 'package:aima/ui/pages/cadastro/cadastro.nome.page.dart';
+import 'package:aima/ui/pages/splash/splash.screen.page.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatefulWidget {
@@ -14,8 +14,8 @@ class _MyAppState extends State<MyApp> {
       title: 'Aíma',
       theme: lightTheme(),
       //  home: TesteDB(),
-      // home: SplashScreen(),
-      home: CadastroNomePage(),
+      home: SplashScreen(),
+      // home: CadastroNomePage(),
     );
   }
 }

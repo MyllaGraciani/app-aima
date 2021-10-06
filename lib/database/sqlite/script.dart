@@ -29,7 +29,7 @@ final String createTable4 = '''
     idUsuario INT NOT NULL,
     idCiclo INT NOT NULL,
     idEstadoEmocional INT NOT NULL,
-    data INT NOT NULL,
+    data VARCHAR(10) NOT NULL,
     FOREIGN KEY(idCiclo) REFERENCES ciclo(id),
     FOREIGN KEY(idEstadoEmocional) REFERENCES estadosEmocionais(id)
   )
