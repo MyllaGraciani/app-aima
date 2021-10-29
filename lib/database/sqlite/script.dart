@@ -16,11 +16,11 @@ final String createTable3 = '''
   CREATE TABLE IF NOT EXISTS ciclo(
     id INTEGER PRIMARY KEY,
     idUser INT NOT NULL,
-    dataInicio INT NOT NULL,
-    dataInicioPM INT NOT NULL,
-    dataFimPM INT,
-    dataInicioPF INT,
-    dataFimPF INT
+    dataInicio VARCHAR(10) NOT NULL,
+    dataInicioPM VARCHAR(10) NOT NULL,
+    dataFimPM VARCHAR(10),
+    dataInicioPF VARCHAR(10),
+    dataFimPF VARCHAR(10)
   )
 ''';
 final String createTable4 = '''

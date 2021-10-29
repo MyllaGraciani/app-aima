@@ -1,3 +1,4 @@
+import 'package:aima/config/app.color.dart';
 import 'package:aima/database/sqlite/DAO/registroDiario.dao.dart';
 import 'package:aima/domain/entities/registro_dia.model.dart';
 import 'package:aima/ui/shared/widgets/appbar.widget.dart';
@@ -12,15 +13,19 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String _dataAtual = DateFormat('dd/MM/yyyy').format(DateTime.now());
 
-  Future<List<RegistroDoDiaModel>> _buscar(String dataNow) async {
+  Future<List<RegistroDoDiaModel>> _buscarRegistro(String dataNow) async {
     return RegistroDiarioDAO().find(dataNow);
   }
+
+  // Future<List<CicloModel>> _buscarCiclo() async {
+  //   return CicloDAO().find();
+  // }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: FutureBuilder<List<RegistroDoDiaModel>>(
-        future: _buscar(_dataAtual),
+        future: _buscarRegistro(_dataAtual),
         builder: (context, futuro) {
           if (futuro.hasData) {
             List<RegistroDoDiaModel>? lista = futuro.data;
@@ -29,22 +34,21 @@ class _HomePageState extends State<HomePage> {
                 label: 'Olá, como você está?',
                 textStyleSub: Theme.of(context).textTheme.subtitle1,
               ),
-              body: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Center(
-                    child: Text(
-                      lista![0].data.toString(),
-                      style: Theme.of(context).textTheme.subtitle1,
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      _dataAtual,
-                      style: Theme.of(context).textTheme.subtitle1,
-                    ),
-                  ),
-                ],
+              body: Center(
+                child: (lista!.length > 0)
+                    ? Text("adsadasd")
+                    : Container(
+                        padding: EdgeInsets.all(10),
+                        child: Center(
+                          child: Text(
+                            "Você não cadastrou nenhum ciclo ainda. Inicie um novo ciclo aqui.",
+                            style: Theme.of(context).textTheme.headline6,
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                          color: AppColors.lightColor.withOpacity(0.4),
+                        ),
+                      ),
               ),
             );
           } else {
