@@ -30,10 +30,12 @@ class _DuracaoMenstrualPageState extends State<DuracaoMenstrualPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Qual a média da duração da sua menstruação em dias?",
-                style: Theme.of(context).textTheme.headline3,
+                "Média de duração da menstruação",
+                style: MediaQuery.of(context).size.width > 760
+                    ? Theme.of(context).textTheme.headline3
+                    : Theme.of(context).textTheme.headline6,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               TextFormField(
@@ -61,8 +63,8 @@ class _DuracaoMenstrualPageState extends State<DuracaoMenstrualPage> {
                   return null;
                 },
               ),
-              SizedBox(
-                height: 40,
+              const SizedBox(
+                height: 20,
               ),
               ButtonWidgetGeneric(
                 typeButton: ElevatedButton(

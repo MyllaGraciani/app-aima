@@ -32,9 +32,11 @@ class _CadastroNomePageState extends State<CadastroNomePage> {
               children: [
                 Text(
                   "Qual o seu nome?",
-                  style: Theme.of(context).textTheme.headline3,
+                  style: MediaQuery.of(context).size.width > 760
+                      ? Theme.of(context).textTheme.headline3
+                      : Theme.of(context).textTheme.headline6,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 TextFormField(
@@ -61,8 +63,8 @@ class _CadastroNomePageState extends State<CadastroNomePage> {
                     return null;
                   },
                 ),
-                SizedBox(
-                  height: 40,
+                const SizedBox(
+                  height: 20,
                 ),
                 ButtonWidgetGeneric(
                   typeButton: ElevatedButton(

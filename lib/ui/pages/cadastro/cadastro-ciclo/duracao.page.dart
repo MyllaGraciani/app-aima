@@ -31,9 +31,11 @@ class _DuracaoCicloPageState extends State<DuracaoCicloPage> {
             children: [
               Text(
                 "Qual a média da duração de seu ciclo em dias?",
-                style: Theme.of(context).textTheme.headline3,
+                style: MediaQuery.of(context).size.width > 760
+                    ? Theme.of(context).textTheme.headline3
+                    : Theme.of(context).textTheme.headline6,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               TextFormField(
@@ -61,7 +63,7 @@ class _DuracaoCicloPageState extends State<DuracaoCicloPage> {
                   return null;
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               ButtonWidgetGeneric(
