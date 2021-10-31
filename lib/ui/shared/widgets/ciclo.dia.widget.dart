@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CicloDiaWidget extends StatelessWidget {
+  final String diaCiclo;
+
+  const CicloDiaWidget({Key? key, required this.diaCiclo}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -18,7 +21,7 @@ class CicloDiaWidget extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyText1,
             ),
             Text(
-              "1",
+              diaCiclo,
               style: Theme.of(context).textTheme.headline2,
             ),
             Text(

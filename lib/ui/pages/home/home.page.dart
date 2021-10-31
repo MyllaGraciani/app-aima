@@ -5,6 +5,8 @@ import 'package:aima/domain/entities/ciclo.model.dart';
 import 'package:aima/domain/entities/registro_dia.model.dart';
 import 'package:aima/ui/shared/widgets/appbar.widget.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
+import 'package:aima/ui/shared/widgets/ciclo.dia.widget.dart';
+import 'package:aima/ui/shared/widgets/list.card.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -46,13 +48,30 @@ class _HomePageState extends State<HomePage> {
               ),
               body: Center(
                 child: (lista!.length > 0)
-                    ? Column(
+                    ? ListView(
                         children: [
-                          Text(
-                            "dia " +
-                                diaCiclo(lista[0].dataInicio) +
-                                " do ciclo",
-                            style: Theme.of(context).textTheme.headline5,
+                          Container(
+                            child: Column(
+                              children: [
+                                Container(
+                                    padding: EdgeInsets.all(
+                                        MediaQuery.of(context).size.width *
+                                            0.1),
+                                    child: CicloDiaWidget(
+                                      diaCiclo: diaCiclo(lista[0].dataInicio),
+                                    )),
+                                Text(
+                                  "Humores",
+                                  style: Theme.of(context).textTheme.bodyText1,
+                                ),
+                                ListCardWidget(),
+                                Text(
+                                  "Sintomas",
+                                  style: Theme.of(context).textTheme.bodyText1,
+                                ),
+                                ListCardWidget(),
+                              ],
+                            ),
                           ),
                         ],
                       )
