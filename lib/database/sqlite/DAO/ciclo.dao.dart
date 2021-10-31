@@ -9,19 +9,19 @@ class CicloDAO {
   Future<List<CicloModel>> find() async {
     _db = (await Connection.instance.get())!;
 
-    List<Map<String, dynamic>> resultado = await _db.query('ciclo');
+    List<Map<String, dynamic>> resultado =
+        await _db.query('ciclo', where: 'status = ?', whereArgs: ["atual"]);
 
     List<CicloModel> lista = List.generate(resultado.length, (i) {
       var linha = resultado[i];
 
       return CicloModel(
         linha['id'],
-        linha['idUser'],
         linha['dataInicio'],
         linha['dataInicioPM'],
-        linha['dataFimPM'],
-        linha['dataInicioPF'],
-        linha['dataFimPF'],
+        linha['dataFimPM'] == null ? "sem data" : linha['dataFimPM'],
+        linha['dataInicioPF'] == null ? "sem data" : linha['dataInicioPF'],
+        linha['dataFimPF'] == null ? "sem data" : linha['dataFimPF'],
         linha['status'],
       );
     });
@@ -29,19 +29,14 @@ class CicloDAO {
     return lista;
   }
 
-  inserir(int idUser, int dataInicio, int dataInicioPM, int dataFimPM,
-      int dataInicioPF, int dataFimPF, String status) async {
+  iniciarCiclo(String dataInicio, String status) async {
     _db = (await Connection.instance.get())!;
 
     String tableName = 'ciclo';
 
     Map<String, dynamic> row = {
-      "idUser": idUser,
       "dataInicio": dataInicio,
-      "dataInicioPM": dataInicioPM,
-      "dataFimPM": dataFimPM,
-      "dataInicioPF": dataInicioPF,
-      "dataFimPF": dataFimPF,
+      "dataInicioPM": dataInicio,
       "status": status
     };
 

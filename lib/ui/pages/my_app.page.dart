@@ -13,7 +13,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Aíma',
       theme: lightTheme(),
-      //  home: TesteDB(),
+      // home: TesteDB(),
       home: SplashScreen(),
       // home: CadastroNomePage(),
     );
