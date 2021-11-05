@@ -2,9 +2,11 @@ import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
 import 'package:aima/database/sqlite/DAO/registroDiario.dao.dart';
 import 'package:aima/domain/entities/ciclo.model.dart';
 import 'package:aima/domain/entities/registro_dia.model.dart';
+import 'package:aima/ui/pages/home/widgets/registro_do_dia.widget.dart';
 import 'package:aima/ui/pages/home/widgets/sem_ciclo.widget.dart';
 import 'package:aima/ui/shared/widgets/appbar.widget.dart';
 import 'package:aima/ui/shared/widgets/ciclo.dia.widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -15,10 +17,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String _dataAtual = DateFormat('dd/MM/yyyy').format(DateTime.now());
-
-  Future<List<RegistroDoDiaModel>> _buscarRegistro(String dataNow) async {
-    return RegistroDiarioDAO().find(dataNow);
-  }
 
   Future<List<CicloModel>> _buscarCicloAtual() async {
     return CicloDAO().find();
@@ -41,7 +39,7 @@ class _HomePageState extends State<HomePage> {
             List<CicloModel>? ciclo = futuro.data;
             return Scaffold(
               appBar: AppBarWidget(
-                label: 'Olá',
+                label: _dataAtual,
                 textStyleSub: Theme.of(context).textTheme.subtitle1,
               ),
               body: Center(
@@ -58,6 +56,7 @@ class _HomePageState extends State<HomePage> {
                                     child: CicloDiaWidget(
                                       diaCiclo: diaCiclo(ciclo[0].dataInicio),
                                     )),
+                                RegistroDoDiaWidget(),
                               ],
                             ),
                           ),
