@@ -1,4 +1,3 @@
-import 'package:aima/config/app.color.dart';
 import 'package:aima/database/sqlite/DAO/registroDiario.dao.dart';
 import 'package:aima/domain/entities/registro_dia.model.dart';
 import 'package:aima/ui/pages/home/widgets/sem_registro.widget.dart';
@@ -38,39 +37,9 @@ class _RegistroDoDiaWidgetState extends State<RegistroDoDiaWidget> {
                           style: Theme.of(context).textTheme.headline5,
                         ),
                         ItensRegistradosWidget(),
-                        ElevatedButton(
-                            onPressed: () {
-                              for (int i = 0; i < registroDoDia.length; i++) {
-                                print("id  " + registroDoDia[i].id.toString());
-                                print("estado  " +
-                                    registroDoDia[i]
-                                        .idEstadoEmocional
-                                        .toString());
-                                print("ciclo  " +
-                                    registroDoDia[i].idCiclo.toString());
-                              }
-                            },
-                            child: Text("data"))
                       ],
                     )
-                  : Column(
-                      children: [
-                        SemRegistroWidget(),
-                        ElevatedButton(
-                            onPressed: () {
-                              for (int i = 0; i < registroDoDia.length; i++) {
-                                print("id  " + registroDoDia[i].id.toString());
-                                print("estado  " +
-                                    registroDoDia[i]
-                                        .idEstadoEmocional
-                                        .toString());
-                                print("ciclo  " +
-                                    registroDoDia[i].idCiclo.toString());
-                              }
-                            },
-                            child: Text("data"))
-                      ],
-                    ),
+                  : SemRegistroWidget(),
             ),
           );
         } else {
