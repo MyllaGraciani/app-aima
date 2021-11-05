@@ -1,10 +1,9 @@
-import 'package:aima/config/app.color.dart';
 import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
 import 'package:aima/database/sqlite/DAO/registroDiario.dao.dart';
 import 'package:aima/domain/entities/ciclo.model.dart';
 import 'package:aima/domain/entities/registro_dia.model.dart';
+import 'package:aima/ui/pages/home/widgets/sem_ciclo.widget.dart';
 import 'package:aima/ui/shared/widgets/appbar.widget.dart';
-import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:aima/ui/shared/widgets/ciclo.dia.widget.dart';
 import 'package:aima/ui/shared/widgets/list.card.widget.dart';
 import 'package:flutter/material.dart';
@@ -60,45 +59,12 @@ class _HomePageState extends State<HomePage> {
                                     child: CicloDiaWidget(
                                       diaCiclo: diaCiclo(lista[0].dataInicio),
                                     )),
-                                Text(
-                                  "Humores",
-                                  style: Theme.of(context).textTheme.bodyText1,
-                                ),
-                                ListCardWidget(),
-                                Text(
-                                  "Sintomas",
-                                  style: Theme.of(context).textTheme.bodyText1,
-                                ),
-                                ListCardWidget(),
                               ],
                             ),
                           ),
                         ],
                       )
-                    : Container(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            Center(
-                              child: Text(
-                                "Você não cadastrou nenhum ciclo ainda.",
-                                style: Theme.of(context).textTheme.headline5,
-                              ),
-                            ),
-                            ButtonWidgetGeneric(
-                              typeButton: ElevatedButton(
-                                onPressed: () {
-                                  CicloDAO().iniciarCiclo(_dataAtual, "atual");
-                                },
-                                child: Text("Iniciar novo ciclo"),
-                              ),
-                            )
-                          ],
-                        ),
-                        decoration: BoxDecoration(
-                          color: AppColors.lightColor.withOpacity(0.4),
-                        ),
-                      ),
+                    : SemCiloWidget(dataAtual: _dataAtual),
               ),
             );
           } else {
