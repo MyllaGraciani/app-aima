@@ -15,8 +15,8 @@ class RegistroDiarioDAO {
     List<RegistroDoDiaModel> lista = List.generate(resultado.length, (i) {
       var linha = resultado[i];
 
-      return RegistroDoDiaModel(linha['id'], linha['idUser'], linha['idCiclo'],
-          linha['idEstadoEmo'], linha['data']);
+      return RegistroDoDiaModel(
+          linha['id'], linha['idCiclo'], linha['idEstadoEmo'], linha['data']);
     });
 
     return lista;
@@ -28,7 +28,6 @@ class RegistroDiarioDAO {
     String tableName = 'registroDoDia';
 
     Map<String, dynamic> row = {
-      "idUser": idUser,
       "idCiclo": idCiclo,
       "idEstadoEmo": idEstadoEmo,
       "data": data
