@@ -33,6 +33,7 @@ class Connection {
     await db.execute(createTable2);
     await db.execute(createTable3);
     await db.execute(createTable4);
+    await db.execute(createView1);
     for (int i = 0; i < listInsert.length; i++) {
       await db.execute(listInsert[i]);
     }

@@ -22,6 +22,22 @@ class RegistroDiarioDAO {
     return lista;
   }
 
+  Future<List<RegistroDiarioModel>> selectRegistroDiario(String data) async {
+    _db = (await Connection.instance.get())!;
+
+    List<Map<String, dynamic>> resultado = await _db
+        .query('registro_all', where: 'dataRegistro = ?', whereArgs: [data]);
+
+    List<RegistroDiarioModel> lista = List.generate(resultado.length, (i) {
+      var linha = resultado[i];
+
+      return RegistroDiarioModel(linha['dataRegistro'], linha['ciclo'],
+          linha['tipoAnotacao'], linha['estados']);
+    });
+
+    return lista;
+  }
+
   inserir(int idCiclo, int idEstadoEmocional, String data) async {
     _db = (await Connection.instance.get())!;
 
