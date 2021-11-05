@@ -34,7 +34,6 @@ class RegistroDiarioDAO {
       return RegistroDiarioModel(linha['dataRegistro'], linha['ciclo'],
           linha['tipoAnotacao'], linha['estados']);
     });
-
     return lista;
   }
 

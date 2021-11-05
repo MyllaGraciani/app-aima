@@ -1,6 +1,7 @@
 import 'package:aima/database/sqlite/DAO/estadosEmo.dao.dart';
 import 'package:aima/database/sqlite/DAO/registroDiario.dao.dart';
 import 'package:aima/domain/entities/estados_emo.model.dart';
+import 'package:aima/domain/entities/registro_dia.model.dart';
 import 'package:aima/ui/pages/notas/addForm.page.dart';
 import 'package:aima/ui/pages/tabs-menu/tabs.page.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
@@ -19,9 +20,29 @@ class EstadosEmocionaisPage extends StatefulWidget {
 class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
   String _dataAtual = DateFormat('dd/MM/yyyy').format(DateTime.now());
   List _selecteItem = [];
+  List<RegistroDoDiaModel> selecionados = [];
 
   Future<List<EstadosEmocionaisModel>> _buscar(int idTipo) async {
     return EstadosEmocionaisDAO().find(idTipo);
+  }
+
+  Future<List<int>> _buscarRegistro(String dataNow) async {
+    List<int> _idEstadosRegistrados = [];
+
+    selecionados = await RegistroDiarioDAO().find(dataNow);
+
+    for (int i = 0; i < selecionados.length; i++) {
+      _onEstadoSelected(true, selecionados[i].idEstadoEmocional);
+    }
+    print(_idEstadosRegistrados);
+    return _idEstadosRegistrados;
+  }
+
+  _removerRegistro(int id) async {
+    for (int i = 0; i < selecionados.length; i++) {
+      await RegistroDiarioDAO().remover(selecionados[i].id);
+      selecionados.remove(selecionados[i].id);
+    }
   }
 
   _removerEstado(int id) async {
@@ -35,9 +56,16 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
       });
     } else {
       setState(() {
+        _removerRegistro(idEstado);
         _selecteItem.remove(idEstado);
       });
     }
+  }
+
+  @override
+  void initState() {
+    _buscarRegistro(_dataAtual);
+    super.initState();
   }
 
   @override
