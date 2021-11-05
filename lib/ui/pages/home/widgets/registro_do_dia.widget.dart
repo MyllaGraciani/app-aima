@@ -1,6 +1,5 @@
 import 'package:aima/database/sqlite/DAO/registroDiario.dao.dart';
 import 'package:aima/domain/entities/registro_dia.model.dart';
-import 'package:aima/ui/pages/home/widgets/sem_ciclo.widget.dart';
 import 'package:aima/ui/pages/home/widgets/sem_registro.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
