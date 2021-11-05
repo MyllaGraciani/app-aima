@@ -5,7 +5,6 @@ import 'package:aima/domain/entities/registro_dia.model.dart';
 import 'package:aima/ui/pages/home/widgets/sem_ciclo.widget.dart';
 import 'package:aima/ui/shared/widgets/appbar.widget.dart';
 import 'package:aima/ui/shared/widgets/ciclo.dia.widget.dart';
-import 'package:aima/ui/shared/widgets/list.card.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -39,14 +38,14 @@ class _HomePageState extends State<HomePage> {
         future: _buscarCicloAtual(),
         builder: (context, futuro) {
           if (futuro.hasData) {
-            List<CicloModel>? lista = futuro.data;
+            List<CicloModel>? ciclo = futuro.data;
             return Scaffold(
               appBar: AppBarWidget(
-                label: 'Olá, como você está?',
+                label: 'Olá',
                 textStyleSub: Theme.of(context).textTheme.subtitle1,
               ),
               body: Center(
-                child: (lista!.length > 0)
+                child: (ciclo!.length > 0)
                     ? ListView(
                         children: [
                           Container(
@@ -57,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                                         MediaQuery.of(context).size.width *
                                             0.1),
                                     child: CicloDiaWidget(
-                                      diaCiclo: diaCiclo(lista[0].dataInicio),
+                                      diaCiclo: diaCiclo(ciclo[0].dataInicio),
                                     )),
                               ],
                             ),

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:aima/config/app.assets.dart';
 import 'package:aima/database/sqlite/conexao.dart';
+import 'package:aima/ui/pages/home/home.page.dart';
 import 'package:aima/ui/pages/introducao/intro2.page.dart';
 import 'package:aima/ui/pages/login/login.page.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +57,7 @@ class _CarregarPageState extends State<CarregarPage> {
             if (snapshot.data == 0) {
               return IntroducaoPage();
             } else {
-              return LoginPage();
+              return HomePage();
             }
           }
         },

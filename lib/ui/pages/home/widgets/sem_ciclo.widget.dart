@@ -1,5 +1,6 @@
 import 'package:aima/config/app.color.dart';
 import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
+import 'package:aima/ui/pages/tabs-menu/tabs.page.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +24,10 @@ class SemCiloWidget extends StatelessWidget {
             typeButton: ElevatedButton(
               onPressed: () {
                 CicloDAO().iniciarCiclo(dataAtual, "atual");
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => TabsPage()),
+                );
               },
               child: Text("Iniciar novo ciclo"),
             ),

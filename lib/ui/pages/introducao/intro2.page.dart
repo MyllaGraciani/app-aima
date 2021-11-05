@@ -50,7 +50,7 @@ class _IntroducaoPageState extends State<IntroducaoPage> {
             ButtonWidgetGeneric(
               typeButton: ElevatedButton(
                 onPressed: () {
-                  // getPreferences();
+                  getPreferences();
                   Navigator.push(
                     context,
                     MaterialPageRoute(
