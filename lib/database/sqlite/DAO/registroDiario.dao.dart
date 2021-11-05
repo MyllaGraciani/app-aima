@@ -48,8 +48,15 @@ class RegistroDiarioDAO {
       "idEstadoEmocional": idEstadoEmocional,
       "data": data
     };
+    dynamic ifExist;
+    ifExist = (await _db.query('registroDoDia',
+        where:
+            'EXISTS (SELECT 1 FROM registroDoDia WHERE idEstadoEmocional = ?)',
+        whereArgs: [idEstadoEmocional]));
 
-    await _db.insert(tableName, row);
+    if (ifExist.toString() == "[]") {
+      await _db.insert(tableName, row);
+    }
   }
 
   remover(int id) async {

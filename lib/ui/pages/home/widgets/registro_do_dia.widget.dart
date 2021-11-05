@@ -53,7 +53,24 @@ class _RegistroDoDiaWidgetState extends State<RegistroDoDiaWidget> {
                             child: Text("data"))
                       ],
                     )
-                  : SemRegistroWidget(),
+                  : Column(
+                      children: [
+                        SemRegistroWidget(),
+                        ElevatedButton(
+                            onPressed: () {
+                              for (int i = 0; i < registroDoDia.length; i++) {
+                                print("id  " + registroDoDia[i].id.toString());
+                                print("estado  " +
+                                    registroDoDia[i]
+                                        .idEstadoEmocional
+                                        .toString());
+                                print("ciclo  " +
+                                    registroDoDia[i].idCiclo.toString());
+                              }
+                            },
+                            child: Text("data"))
+                      ],
+                    ),
             ),
           );
         } else {
