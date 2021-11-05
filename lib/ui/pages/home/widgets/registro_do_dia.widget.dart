@@ -31,26 +31,27 @@ class _RegistroDoDiaWidgetState extends State<RegistroDoDiaWidget> {
           return Container(
             child: Center(
               child: (registroDoDia!.length > 0)
-                  ? Container(
-                      child: Column(
-                        children: [
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.95,
-                            height: 200,
-                            decoration: BoxDecoration(
-                              color: AppColors.primaryColor,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                ItensRegistradosWidget(),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                  ? Column(
+                      children: [
+                        Text(
+                          "Registros do dia",
+                          style: Theme.of(context).textTheme.headline5,
+                        ),
+                        ItensRegistradosWidget(),
+                        ElevatedButton(
+                            onPressed: () {
+                              for (int i = 0; i < registroDoDia.length; i++) {
+                                print("id  " + registroDoDia[i].id.toString());
+                                print("estado  " +
+                                    registroDoDia[i]
+                                        .idEstadoEmocional
+                                        .toString());
+                                print("ciclo  " +
+                                    registroDoDia[i].idCiclo.toString());
+                              }
+                            },
+                            child: Text("data"))
+                      ],
                     )
                   : SemRegistroWidget(),
             ),

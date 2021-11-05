@@ -1,3 +1,4 @@
+import 'package:aima/config/app.color.dart';
 import 'package:aima/database/sqlite/DAO/registroDiario.dao.dart';
 import 'package:aima/domain/entities/registro_dia.model.dart';
 import 'package:aima/ui/pages/home/widgets/sem_registro.widget.dart';
@@ -26,11 +27,30 @@ class _ItensRegistradosWidgetState extends State<ItensRegistradosWidget> {
         if (futuro.hasData) {
           List<RegistroDiarioModel>? registroDoDia = futuro.data;
           return Container(
-            height: 100,
+            height: 300,
+            margin: EdgeInsets.all(10),
             child: Center(
               child: (registroDoDia!.length > 0)
-                  ? ListView(
-                      children: [],
+                  ? GridView.builder(
+                      itemCount: registroDoDia.length,
+                      itemBuilder: (context, i) {
+                        return Container(
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: AppColors.primaryColor,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                          ),
+                          child: Text(registroDoDia[i].estados),
+                        );
+                      },
+                      gridDelegate:
+                          const SliverGridDelegateWithMaxCrossAxisExtent(
+                              maxCrossAxisExtent: 200,
+                              childAspectRatio: 3 / 0.6,
+                              crossAxisSpacing: 5,
+                              mainAxisSpacing: 5),
                     )
                   : SemRegistroWidget(),
             ),

@@ -36,9 +36,9 @@ final String createTable4 = '''
 
 final String createView1 =
     '''CREATE VIEW registro_all (dataRegistro, ciclo, tipoAnotacao, estados)
-AS SELECT d.data, d.idCiclo, t.descricao, e.descricao
+AS SELECT DISTINCT d.data, d.idCiclo, t.descricao, e.descricao 
 FROM registroDoDia d INNER JOIN estadosEmocionais e ON d.idEstadoEmocional = e.id  INNER JOIN tiposAnotacoes t ON e.idTipo = t.id
-ORDER BY d.idCiclo ;''';
+GROUP BY d.idEstadoEmocional, e.idTipo;''';
 
 final List<String> listInsert = [
   '''
