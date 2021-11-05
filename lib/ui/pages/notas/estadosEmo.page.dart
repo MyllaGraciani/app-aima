@@ -21,18 +21,18 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
     return EstadosEmocionaisDAO().find(idTipo);
   }
 
-  _removerHumor(int id) async {
+  _removerEstado(int id) async {
     return EstadosEmocionaisDAO().remover(id);
   }
 
-  void _onHumorSelected(bool selected, humorId) {
+  void _onEstadoSelected(bool selected, idTipo) {
     if (selected == true) {
       setState(() {
-        _selecteItem.add(humorId);
+        _selecteItem.add(idTipo);
       });
     } else {
       setState(() {
-        _selecteItem.remove(humorId);
+        _selecteItem.remove(idTipo);
       });
     }
   }
@@ -44,7 +44,7 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
           future: _buscar(widget.idTipo),
           builder: (context, futuro) {
             if (futuro.hasData) {
-              List<EstadosEmocionaisModel>? lista = futuro.data;
+              List<EstadosEmocionaisModel>? estado = futuro.data;
               return Scaffold(
                 appBar: AppBar(
                   title: Text(
@@ -70,9 +70,9 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
                 body: Column(
                   children: [
                     Expanded(
-                      child: (lista!.length > 0)
+                      child: (estado!.length > 0)
                           ? ListView.builder(
-                              itemCount: lista.length,
+                              itemCount: estado.length,
                               itemBuilder: (context, i) {
                                 return Container(
                                   margin: const EdgeInsets.all(2),
@@ -84,11 +84,11 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
                                   child: CheckboxListTile(
                                     dense: true,
                                     contentPadding: const EdgeInsets.all(5),
-                                    value: _selecteItem.contains(lista[i].id),
+                                    value: _selecteItem.contains(estado[i].id),
                                     controlAffinity:
                                         ListTileControlAffinity.leading,
                                     selected:
-                                        _selecteItem.contains(lista[i].id),
+                                        _selecteItem.contains(estado[i].id),
                                     activeColor: Theme.of(context)
                                         .primaryColor
                                         .withAlpha(0),
@@ -96,18 +96,19 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
                                         .primaryColor
                                         .withAlpha(200),
                                     title: Text(
-                                      lista[i].descricao,
+                                      estado[i].descricao,
                                       style:
                                           Theme.of(context).textTheme.headline6,
                                     ),
                                     onChanged: (selected) {
-                                      _onHumorSelected(selected!, lista[i].id);
+                                      _onEstadoSelected(
+                                          selected!, estado[i].id);
                                     },
                                     secondary: IconButton(
                                       color: Theme.of(context).primaryColor,
                                       onPressed: () {
-                                        _onHumorSelected(false, lista[i].id);
-                                        _removerHumor(lista[i].id);
+                                        _onEstadoSelected(false, estado[i].id);
+                                        _removerEstado(estado[i].id);
                                       },
                                       icon: Icon(Icons.delete),
                                     ),
