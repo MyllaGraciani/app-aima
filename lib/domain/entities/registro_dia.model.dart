@@ -1,8 +1,8 @@
 class RegistroDoDiaModel {
   final int id;
   final int idCiclo;
-  final int idEstadoEmo;
-  final DateTime data;
+  final int idEstadoEmocional;
+  final String data;
 
-  RegistroDoDiaModel(this.id, this.idCiclo, this.idEstadoEmo, this.data);
+  RegistroDoDiaModel(this.id, this.idCiclo, this.idEstadoEmocional, this.data);
 }

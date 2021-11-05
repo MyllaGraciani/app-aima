@@ -15,21 +15,21 @@ class RegistroDiarioDAO {
     List<RegistroDoDiaModel> lista = List.generate(resultado.length, (i) {
       var linha = resultado[i];
 
-      return RegistroDoDiaModel(
-          linha['id'], linha['idCiclo'], linha['idEstadoEmo'], linha['data']);
+      return RegistroDoDiaModel(linha['id'], linha['idCiclo'],
+          linha['idEstadoEmocional'], linha['data']);
     });
 
     return lista;
   }
 
-  inserir(int idUser, int idCiclo, int idEstadoEmo, int data) async {
+  inserir(int idCiclo, int idEstadoEmocional, String data) async {
     _db = (await Connection.instance.get())!;
 
     String tableName = 'registroDoDia';
 
     Map<String, dynamic> row = {
       "idCiclo": idCiclo,
-      "idEstadoEmo": idEstadoEmo,
+      "idEstadoEmocional": idEstadoEmocional,
       "data": data
     };
 

@@ -1,9 +1,11 @@
 import 'package:aima/database/sqlite/DAO/estadosEmo.dao.dart';
+import 'package:aima/database/sqlite/DAO/registroDiario.dao.dart';
 import 'package:aima/domain/entities/estados_emo.model.dart';
 import 'package:aima/ui/pages/notas/addForm.page.dart';
 import 'package:aima/ui/pages/tabs-menu/tabs.page.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class EstadosEmocionaisPage extends StatefulWidget {
   final int idTipo;
@@ -15,6 +17,7 @@ class EstadosEmocionaisPage extends StatefulWidget {
 }
 
 class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
+  String _dataAtual = DateFormat('dd/MM/yyyy').format(DateTime.now());
   List _selecteItem = [];
 
   Future<List<EstadosEmocionaisModel>> _buscar(int idTipo) async {
@@ -25,14 +28,14 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
     return EstadosEmocionaisDAO().remover(id);
   }
 
-  void _onEstadoSelected(bool selected, idTipo) {
+  void _onEstadoSelected(bool selected, idEstado) {
     if (selected == true) {
       setState(() {
-        _selecteItem.add(idTipo);
+        _selecteItem.add(idEstado);
       });
     } else {
       setState(() {
-        _selecteItem.remove(idTipo);
+        _selecteItem.remove(idEstado);
       });
     }
   }
@@ -48,7 +51,7 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
               return Scaffold(
                 appBar: AppBar(
                   title: Text(
-                    'Como você se sente hoje?',
+                    'O que você deseja registrar hoje?',
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                   centerTitle: true,
@@ -128,6 +131,10 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
                     ButtonWidgetGeneric(
                       typeButton: ElevatedButton(
                         onPressed: () {
+                          for (int i = 0; i < _selecteItem.length; i++) {
+                            RegistroDiarioDAO()
+                                .inserir(1, _selecteItem[i], _dataAtual);
+                          }
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
