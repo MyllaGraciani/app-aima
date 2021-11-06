@@ -6,7 +6,7 @@ import '../conexao.dart';
 class CicloDAO {
   late Database _db;
 
-  Future<List<CicloModel>> find() async {
+  Future<List<CicloModel>> findCicloAtual() async {
     _db = (await Connection.instance.get())!;
 
     List<Map<String, dynamic>> resultado =
@@ -25,8 +25,17 @@ class CicloDAO {
         linha['status'],
       );
     });
-
+    findIDCicloAtual();
     return lista;
+  }
+
+  Future<int> findIDCicloAtual() async {
+    _db = (await Connection.instance.get())!;
+
+    List<Map<String, dynamic>> resultado =
+        await _db.query('ciclo', where: 'status = ?', whereArgs: ["atual"]);
+
+    return resultado[0].values.first;
   }
 
   iniciarCiclo(String dataInicio, String status) async {

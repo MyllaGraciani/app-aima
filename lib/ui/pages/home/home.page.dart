@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   String _dataAtual = DateFormat('dd/MM/yyyy').format(DateTime.now());
 
   Future<List<CicloModel>> _buscarCicloAtual() async {
-    return CicloDAO().find();
+    return CicloDAO().findCicloAtual();
   }
 
   String diaCiclo(String dataInicio) {

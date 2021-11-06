@@ -1,5 +1,7 @@
+import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
 import 'package:aima/database/sqlite/DAO/estadosEmo.dao.dart';
 import 'package:aima/database/sqlite/DAO/registroDiario.dao.dart';
+import 'package:aima/domain/entities/ciclo.model.dart';
 import 'package:aima/domain/entities/estados_emo.model.dart';
 import 'package:aima/domain/entities/registro_dia.model.dart';
 import 'package:aima/ui/pages/notas/addForm.page.dart';
@@ -24,6 +26,12 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
 
   Future<List<EstadosEmocionaisModel>> _buscar(int idTipo) async {
     return EstadosEmocionaisDAO().find(idTipo);
+  }
+
+  Future<int> _buscarCiclo() async {
+    int _idCicloAtual;
+    _idCicloAtual = await CicloDAO().findIDCicloAtual();
+    return _idCicloAtual;
   }
 
   Future<List<int>> _buscarEstadosRegistrados(String dataNow) async {
@@ -157,10 +165,12 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
                     ),
                     ButtonWidgetGeneric(
                       typeButton: ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
+                          int _idCicloAtual = await _buscarCiclo();
+
                           for (int i = 0; i < _selecteItem.length; i++) {
-                            RegistroDiarioDAO()
-                                .inserir(1, _selecteItem[i], _dataAtual);
+                            RegistroDiarioDAO().inserir(
+                                _idCicloAtual, _selecteItem[i], _dataAtual);
                           }
                           Navigator.pushReplacement(
                             context,
