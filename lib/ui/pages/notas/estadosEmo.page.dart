@@ -26,7 +26,7 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
     return EstadosEmocionaisDAO().find(idTipo);
   }
 
-  Future<List<int>> _buscarRegistro(String dataNow) async {
+  Future<List<int>> _buscarEstadosRegistrados(String dataNow) async {
     List<int> _idEstadosRegistrados = [];
 
     selecionados = await RegistroDiarioDAO().find(dataNow);
@@ -34,7 +34,6 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
     for (int i = 0; i < selecionados.length; i++) {
       _onEstadoSelected(true, selecionados[i].idEstadoEmocional);
     }
-    print(_idEstadosRegistrados);
     return _idEstadosRegistrados;
   }
 
@@ -64,7 +63,7 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
 
   @override
   void initState() {
-    _buscarRegistro(_dataAtual);
+    _buscarEstadosRegistrados(_dataAtual);
     super.initState();
   }
 
@@ -129,7 +128,7 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
                                     title: Text(
                                       estado[i].descricao,
                                       style:
-                                          Theme.of(context).textTheme.headline6,
+                                          Theme.of(context).textTheme.headline5,
                                     ),
                                     onChanged: (selected) {
                                       _onEstadoSelected(

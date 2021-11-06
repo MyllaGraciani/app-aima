@@ -50,8 +50,8 @@ class RegistroDiarioDAO {
     dynamic ifExist;
     ifExist = (await _db.query('registroDoDia',
         where:
-            'EXISTS (SELECT 1 FROM registroDoDia WHERE idEstadoEmocional = ?)',
-        whereArgs: [idEstadoEmocional]));
+            'EXISTS (SELECT 1 FROM registroDoDia WHERE idEstadoEmocional = ? AND data = ?)',
+        whereArgs: [idEstadoEmocional, data]));
 
     if (ifExist.toString() == "[]") {
       await _db.insert(tableName, row);
