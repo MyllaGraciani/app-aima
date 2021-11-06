@@ -1,7 +1,6 @@
 import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
 import 'package:aima/database/sqlite/DAO/estadosEmo.dao.dart';
 import 'package:aima/database/sqlite/DAO/registroDiario.dao.dart';
-import 'package:aima/domain/entities/ciclo.model.dart';
 import 'package:aima/domain/entities/estados_emo.model.dart';
 import 'package:aima/domain/entities/registro_dia.model.dart';
 import 'package:aima/ui/pages/notas/addForm.page.dart';
