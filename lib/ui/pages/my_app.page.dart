@@ -1,5 +1,4 @@
 import 'package:aima/config/light.theme.dart';
-import 'package:aima/ui/pages/notas/notas2.page.dart';
 import 'package:aima/ui/pages/splash/splash.screen.page.dart';
 import 'package:flutter/material.dart';
 
@@ -15,8 +14,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Aíma',
       theme: lightTheme(),
       // home: TesteDB(),
-      //  home: SplashScreen(),
-      home: NotasPage2(),
+      home: SplashScreen(),
     );
   }
 }
