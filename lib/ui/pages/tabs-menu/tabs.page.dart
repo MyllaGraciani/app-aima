@@ -18,7 +18,7 @@ class TabsPage extends StatelessWidget {
             children: [
               HomePage(),
               CalendarioPage(),
-              Notas2Page(),
+              NotasPage(),
               AdicionaisPage(),
               PerfilPage(),
             ],
