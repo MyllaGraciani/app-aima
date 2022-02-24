@@ -1,45 +1,3 @@
-final String createTable1 = '''
-  CREATE TABLE IF NOT EXISTS tiposAnotacoes(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    descricao VARCHAR(150) NOT NULL
-  )
-''';
-final String createTable2 = '''
-  CREATE TABLE IF NOT EXISTS estadosEmocionais(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    idTipo INT NOT NULL,
-    descricao VARCHAR(150) NOT NULL,
-    FOREIGN KEY(idTipo) REFERENCES tiposAnotacoes(id)
-  )
-''';
-final String createTable3 = '''
-  CREATE TABLE IF NOT EXISTS ciclo(
-    id INTEGER PRIMARY KEY,
-    dataInicio VARCHAR(10) NOT NULL,
-    dataInicioPM VARCHAR(10) NOT NULL,
-    dataFimPM VARCHAR(10),
-    dataInicioPF VARCHAR(10),
-    dataFimPF VARCHAR(10),
-    status VARCHAR(50)
-  )
-''';
-final String createTable4 = '''
-  CREATE TABLE IF NOT EXISTS registroDoDia(
-    id INTEGER PRIMARY KEY,
-    idCiclo INT NOT NULL,
-    idEstadoEmocional INT NOT NULL,
-    data VARCHAR(10) NOT NULL,
-    FOREIGN KEY(idCiclo) REFERENCES ciclo(id),
-    FOREIGN KEY(idEstadoEmocional) REFERENCES estadosEmocionais(id)
-  )
-''';
-
-final String createView1 =
-    '''CREATE VIEW registro_all (dataRegistro, ciclo, tipoAnotacao, estados)
-AS SELECT DISTINCT d.data, d.idCiclo, t.descricao, e.descricao 
-FROM registroDoDia d INNER JOIN estadosEmocionais e ON d.idEstadoEmocional = e.id  INNER JOIN tiposAnotacoes t ON e.idTipo = t.id
-ORDER BY e.idTipo;''';
-
 final List<String> listInsert = [
   '''
 INSERT INTO tiposAnotacoes (id, descricao)
@@ -136,5 +94,25 @@ VALUES (19,'Inchaço', 1)
   '''
 INSERT INTO estadosEmocionais (id, descricao, idTipo)
 VALUES (20,'Diarréia', 1)
+''',
+  '''
+INSERT INTO CICLO (id, dataInicio, dataInicioPM, dataFimPM ,dataInicioPF, dataFimPF, status) 
+VALUES (
+     01, 
+    '19/05/2021', 
+    '19/05/2021', 
+    '03/06/2021', 
+    '23/05/2021', 
+    '14/06/2021',
+    'encerraddo'
+)
+''',
+  '''
+INSERT INTO registroDoDia(id, idCiclo, idEstadoEmocional, data) 
+VALUES (1, 01, 9 , '19/05/2021')
+''',
+  '''
+INSERT INTO registroDoDia(id, idCiclo, idEstadoEmocional, data) 
+VALUES (2, 01, 10 , '19/05/2021')
 '''
 ];

@@ -17,7 +17,7 @@ class NotasPage extends StatelessWidget {
       body: GridView.count(
         crossAxisCount: crossAxisCount,
         scrollDirection: Axis.vertical,
-        childAspectRatio: 1 / 1,
+        childAspectRatio: 2 / 1,
         crossAxisSpacing: 5,
         mainAxisSpacing: 5,
         padding: EdgeInsets.all(20),

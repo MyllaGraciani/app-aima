@@ -6,6 +6,28 @@ import '../conexao.dart';
 class CicloDAO {
   late Database _db;
 
+  Future<List<CicloModel>> findAll() async {
+    _db = (await Connection.instance.get())!;
+
+    List<Map<String, dynamic>> resultado = await _db.query('ciclo');
+
+    List<CicloModel> lista = List.generate(resultado.length, (i) {
+      var linha = resultado[i];
+
+      return CicloModel(
+        linha['id'],
+        linha['dataInicio'],
+        linha['dataInicioPM'],
+        linha['dataFimPM'] == null ? "sem data" : linha['dataFimPM'],
+        linha['dataInicioPF'] == null ? "sem data" : linha['dataInicioPF'],
+        linha['dataFimPF'] == null ? "sem data" : linha['dataFimPF'],
+        linha['status'],
+      );
+    });
+    findIDCicloAtual();
+    return lista;
+  }
+
   Future<List<CicloModel>> findCicloAtual() async {
     _db = (await Connection.instance.get())!;
 

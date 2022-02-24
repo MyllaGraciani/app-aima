@@ -1,5 +1,5 @@
-import 'package:aima/database/sqlite/DAO/estadosEmo.dao.dart';
-import 'package:aima/database/sqlite/DAO/tiposNotas.dao.dart';
+import 'package:aima/controllers/estadosEmo.controller.dart';
+import 'package:aima/controllers/tiposNotas.controller.dart';
 import 'package:aima/domain/entities/tipo_notas.model.dart';
 import 'package:aima/ui/pages/tabs-menu/tabs.page.dart';
 import 'package:aima/ui/shared/validators/cadastro.valid.dart';
@@ -14,24 +14,21 @@ class AddFormPage extends StatefulWidget {
 }
 
 class _AddFormPageState extends State<AddFormPage> {
-  final _formKey = GlobalKey<FormState>();
-  final TextEditingController controller = TextEditingController();
-  int _selected = 1;
-  Future<List<TipoNotasModel>> _buscar() async {
-    return TipoNotasDAO().find();
-  }
+  EstadosEmoController _estadosEmoController = EstadosEmoController();
+  TiposNotasController _tiposNotasController = TiposNotasController();
 
-  Future<void> _add(String desc, int id) async {
-    EstadosEmocionaisDAO().inserir(desc, id);
-  }
+  final TextEditingController controller = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
+  int _selected = 1;
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<TipoNotasModel>>(
-        future: _buscar(),
+        future: _tiposNotasController.buscarTiposNotas(),
         builder: (context, futuro) {
           if (futuro.hasData) {
-            List<TipoNotasModel>? lista = futuro.data;
+            List<TipoNotasModel>? tipoNota = futuro.data;
             return Scaffold(
               body: Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -44,7 +41,7 @@ class _AddFormPageState extends State<AddFormPage> {
                         "Deseja adicionar um novo item?",
                         style: Theme.of(context).textTheme.headline3,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       Text(
@@ -54,7 +51,7 @@ class _AddFormPageState extends State<AddFormPage> {
                       DropdownButton<int>(
                         isExpanded: true,
                         value: _selected,
-                        items: lista!.map((e) {
+                        items: tipoNota!.map((e) {
                           return new DropdownMenuItem<int>(
                             child: Text(e.descricao),
                             value: e.id,
@@ -66,7 +63,7 @@ class _AddFormPageState extends State<AddFormPage> {
                           });
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       TextFormField(
@@ -95,15 +92,15 @@ class _AddFormPageState extends State<AddFormPage> {
                           return null;
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       ButtonWidgetGeneric(
                         typeButton: ElevatedButton(
                           onPressed: () async {
                             if (_formKey.currentState!.validate()) {
-                              await _add(controller.text, _selected);
-
+                              await _estadosEmoController.addEstadoEmocional(
+                                  controller.text, _selected);
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(

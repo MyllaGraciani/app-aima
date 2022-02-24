@@ -2,6 +2,8 @@ import 'package:aima/database/sqlite/script.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
+import 'scriptCreateTable.dart';
+
 class Connection {
   static Database? _database;
 
@@ -29,11 +31,12 @@ class Connection {
   }
 
   Future _onCreate(Database db, int version) async {
-    await db.execute(createTable1);
-    await db.execute(createTable2);
-    await db.execute(createTable3);
-    await db.execute(createTable4);
-    await db.execute(createView1);
+    await db.execute(createTableTiposAnotacoes);
+    await db.execute(createTableEstadosEmocionais);
+    await db.execute(createTableCiclo);
+    await db.execute(createTableRegistroDoDia);
+    await db.execute(createViewRregistroAll);
+
     for (int i = 0; i < listInsert.length; i++) {
       await db.execute(listInsert[i]);
     }

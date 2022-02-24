@@ -26,7 +26,7 @@ class SemRegistroWidget extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => Notas2Page()),
+                  MaterialPageRoute(builder: (context) => NotasPage()),
                 );
               },
               child: Text("Registrar"),
