@@ -1,7 +1,16 @@
 import 'package:aima/config/light.theme.dart';
+import 'package:aima/ui/pages/cadastro/cadastro.email.page.dart';
+import 'package:aima/ui/pages/cadastro/cadastro.genero.page.dart';
+import 'package:aima/ui/pages/cadastro/cadastro.nome.page.dart';
+import 'package:aima/ui/pages/embreve/embreve.page.dart';
 import 'package:flutter/material.dart';
 
+import 'cadastro/cadastro-ciclo/duracao.menstrual.page.dart';
+import 'cadastro/cadastro-ciclo/duracao.page.dart';
+import 'cadastro/cadastro.senha.page.dart';
+import 'notas/notas.page.dart';
 import 'splash/splash.screen.page.dart';
+import 'tabs-menu/tabs.page.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -14,8 +23,25 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Aíma',
       theme: lightTheme(),
-      // home: TesteDB(),
-      home: SplashScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => SplashScreen(),
+        '/home': (context) => TabsPage(),
+        '/perfil': (context) => SplashScreen(),
+        '/anotacoes': (context) => NotasPage(),
+        '/calendario': (context) => SplashScreen(),
+        '/em_breve': (context) => EmBrevePage(),
+        '/erro': (context) => SplashScreen(),
+
+        // pages cadastro
+        '/cadastro_email': (context) => CadastroEmailPage(),
+        '/cadastro_genero': (context) => CadastroGeneroPage(),
+        '/cadastro_nome': (context) => CadastroNomePage(),
+        '/cadastro_senha': (context) => CadastroSenhaPage(),
+
+        '/cadastro_duracao_ciclo': (context) => DuracaoCicloPage(),
+        '/cadastro_duracao_menstruacao': (context) => DuracaoMenstrualPage(),
+      },
     );
   }
 }

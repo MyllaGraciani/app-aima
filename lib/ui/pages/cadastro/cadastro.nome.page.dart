@@ -1,4 +1,3 @@
-import 'package:aima/ui/pages/cadastro/cadastro.senha.page.dart';
 import 'package:aima/ui/shared/validators/cadastro.valid.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
@@ -71,12 +70,7 @@ class _CadastroNomePageState extends State<CadastroNomePage> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         getPreferences(controller.text);
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => CadastroSenhaPage()),
-                        );
+                        Navigator.of(context).pushNamed('/cadastro_senha');
                       }
                     },
                     child: Text("Próximo"),

@@ -51,12 +51,8 @@ class _IntroducaoPageState extends State<IntroducaoPage> {
               typeButton: ElevatedButton(
                 onPressed: () {
                   getPreferences();
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CadastroNomePage(),
-                    ),
-                  );
+
+                  Navigator.of(context).pushNamed('/cadastro_nome');
                 },
                 child: Text("Entrar"),
               ),

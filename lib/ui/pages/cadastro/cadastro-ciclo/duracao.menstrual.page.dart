@@ -72,10 +72,7 @@ class _DuracaoMenstrualPageState extends State<DuracaoMenstrualPage> {
                     if (_formKey.currentState!.validate()) {
                       getPreferences(int.parse(controller.text));
 
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => TabsPage()),
-                      );
+                      Navigator.of(context).pushNamed('/home');
                     }
                   },
                   child: Text("Próximo"),

@@ -72,11 +72,8 @@ class _DuracaoCicloPageState extends State<DuracaoCicloPage> {
                     if (_formKey.currentState!.validate()) {
                       getPreferences(int.parse(controller.text));
 
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DuracaoMenstrualPage()),
-                      );
+                      Navigator.of(context)
+                          .pushNamed('/cadastro_duracao_menstruacao');
                     }
                   },
                   child: Text("Próximo"),

@@ -24,10 +24,8 @@ class SemCiloWidget extends StatelessWidget {
             typeButton: ElevatedButton(
               onPressed: () {
                 CicloDAO().iniciarCiclo(dataAtual, "atual");
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => TabsPage()),
-                );
+
+                Navigator.of(context).pushReplacementNamed('/home');
               },
               child: Text("Iniciar novo ciclo"),
             ),

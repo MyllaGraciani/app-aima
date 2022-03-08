@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         LogoWidget(),
-                        SizedBox(
+                       const SizedBox(
                           height: 10,
                         ),
                         InputWidget(
@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
                           typeKeyboard: TextInputType.emailAddress,
                           obscure: false,
                         ),
-                        SizedBox(
+                       const SizedBox(
                           height: 10,
                         ),
                         InputWidget(
@@ -52,34 +52,24 @@ class _LoginPageState extends State<LoginPage> {
                           typeKeyboard: TextInputType.text,
                           obscure: true,
                         ),
-                        SizedBox(
+                       const SizedBox(
                           height: 20,
                         ),
                         ButtonWidgetGeneric(
                           typeButton: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => TabsPage(),
-                                ),
-                              );
+                              Navigator.of(context).pushNamed('/home');
                             },
                             child: Text("Entrar"),
                           ),
                         ),
-                        SizedBox(
+                      const SizedBox(
                           height: 5,
                         ),
                         ButtonWidgetGeneric(
                           typeButton: TextButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => CadastroNomePage(),
-                                ),
-                              );
+                              Navigator.of(context).pushNamed('/cadastro_nome');
                             },
                             child: Text("Cadastrar"),
                           ),

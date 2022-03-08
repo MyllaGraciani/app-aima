@@ -73,11 +73,8 @@ class _CadastroSenhaPageState extends State<CadastroSenhaPage> {
                       if (_formKey.currentState!.validate()) {
                         getPreferences(controller.text);
 
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => DuracaoCicloPage()),
-                        );
+                        Navigator.of(context)
+                            .pushNamed('/cadastro_duracao_ciclo');
                       }
                     },
                     child: Text("Próximo"),

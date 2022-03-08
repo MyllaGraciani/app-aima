@@ -11,12 +11,7 @@ class EmBrevePage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => TabsPage(),
-                ),
-              );
+              Navigator.of(context).pushNamed('/home');
             },
             icon: Icon(Icons.close),
             color: Theme.of(context).primaryColor,

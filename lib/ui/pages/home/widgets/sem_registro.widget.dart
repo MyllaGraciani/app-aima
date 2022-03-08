@@ -24,10 +24,7 @@ class SemRegistroWidget extends StatelessWidget {
           ButtonWidgetGeneric(
             typeButton: ElevatedButton(
               onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => NotasPage()),
-                );
+                Navigator.of(context).pushReplacementNamed('/anotacoes');
               },
               child: Text("Registrar"),
             ),

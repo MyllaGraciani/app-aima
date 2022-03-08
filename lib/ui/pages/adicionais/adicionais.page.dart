@@ -1,4 +1,3 @@
-import 'package:aima/ui/pages/embreve/embreve.page.dart';
 import 'package:aima/ui/shared/widgets/appbar.widget.dart';
 import 'package:flutter/material.dart';
 
@@ -23,12 +22,7 @@ class AdicionaisPage extends StatelessWidget {
                   width: 140,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EmBrevePage(),
-                        ),
-                      );
+                      Navigator.of(context).pushNamed('/em_breve');
                     },
                     child: Text(
                       "GRÁFICOS",
@@ -41,12 +35,7 @@ class AdicionaisPage extends StatelessWidget {
                   width: 140,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EmBrevePage(),
-                        ),
-                      );
+                      Navigator.of(context).pushNamed('/em_breve');
                     },
                     child: Text(
                       "ALIMENTAÇÃO",
@@ -64,12 +53,7 @@ class AdicionaisPage extends StatelessWidget {
                   width: 140,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EmBrevePage(),
-                        ),
-                      );
+                      Navigator.of(context).pushNamed('/em_breve');
                     },
                     child: Text(
                       "HIGIENE",
@@ -82,12 +66,7 @@ class AdicionaisPage extends StatelessWidget {
                   width: 140,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EmBrevePage(),
-                        ),
-                      );
+                      Navigator.of(context).pushNamed('/em_breve');
                     },
                     child: Text(
                       "AUTOCUIDADO",
@@ -105,12 +84,7 @@ class AdicionaisPage extends StatelessWidget {
                   width: 140,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EmBrevePage(),
-                        ),
-                      );
+                      Navigator.of(context).pushNamed('/em_breve');
                     },
                     child: Text(
                       "LUA",
@@ -123,12 +97,7 @@ class AdicionaisPage extends StatelessWidget {
                   width: 140,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EmBrevePage(),
-                        ),
-                      );
+                      Navigator.of(context).pushNamed('/em_breve');
                     },
                     child: Text(
                       "MEDICAMENTO",
@@ -146,12 +115,7 @@ class AdicionaisPage extends StatelessWidget {
                   width: 140,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EmBrevePage(),
-                        ),
-                      );
+                      Navigator.of(context).pushNamed('/em_breve');
                     },
                     child: Text(
                       "EXAME MÉDICO",
@@ -164,12 +128,7 @@ class AdicionaisPage extends StatelessWidget {
                   width: 140,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EmBrevePage(),
-                        ),
-                      );
+                      Navigator.of(context).pushNamed('/em_breve');
                     },
                     child: Text(
                       "METAS",
