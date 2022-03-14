@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:aima/ui/pages/splash/splash.load.page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

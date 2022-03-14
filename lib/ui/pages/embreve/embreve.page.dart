@@ -1,4 +1,3 @@
-import 'package:aima/ui/pages/tabs-menu/tabs.page.dart';
 import 'package:flutter/material.dart';
 
 class EmBrevePage extends StatelessWidget {

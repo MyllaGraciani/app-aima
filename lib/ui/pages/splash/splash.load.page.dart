@@ -5,7 +5,6 @@ import 'package:aima/ui/pages/introducao/intro2.page.dart';
 import 'package:aima/ui/pages/tabs-menu/tabs.page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CarregarPage extends StatefulWidget {

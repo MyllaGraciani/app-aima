@@ -2,7 +2,6 @@ import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
 import 'package:aima/domain/entities/ciclo.model.dart';
 import 'package:aima/ui/pages/home/widgets/sem_ciclo.widget.dart';
 import 'package:aima/ui/shared/widgets/appbar.widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

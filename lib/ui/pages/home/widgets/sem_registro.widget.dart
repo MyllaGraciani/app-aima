@@ -1,5 +1,4 @@
 import 'package:aima/config/app.color.dart';
-import 'package:aima/ui/pages/notas/notas.page.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
 

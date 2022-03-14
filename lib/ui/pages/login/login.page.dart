@@ -1,10 +1,7 @@
-import 'package:aima/ui/pages/cadastro/cadastro.nome.page.dart';
 import 'package:aima/ui/pages/login/widgets/logo.widget.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:aima/ui/shared/widgets/input.widget.dart';
 import 'package:flutter/material.dart';
-
-import '../tabs-menu/tabs.page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -36,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         LogoWidget(),
-                       const SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         InputWidget(
@@ -44,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                           typeKeyboard: TextInputType.emailAddress,
                           obscure: false,
                         ),
-                       const SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         InputWidget(
@@ -52,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                           typeKeyboard: TextInputType.text,
                           obscure: true,
                         ),
-                       const SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         ButtonWidgetGeneric(
@@ -63,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
                             child: Text("Entrar"),
                           ),
                         ),
-                      const SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
                         ButtonWidgetGeneric(
