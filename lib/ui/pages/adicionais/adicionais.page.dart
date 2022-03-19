@@ -10,7 +10,7 @@ class AdicionaisPage extends StatelessWidget {
         textStyleSub: Theme.of(context).textTheme.subtitle1,
       ),
       body: Container(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(5),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -18,8 +18,8 @@ class AdicionaisPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                  height: 140,
-                  width: 140,
+                  height: 100,
+                  width: 100,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed('/em_breve');
@@ -31,8 +31,8 @@ class AdicionaisPage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: 140,
-                  width: 140,
+                  height: 100,
+                  width: 100,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed('/em_breve');
@@ -49,8 +49,8 @@ class AdicionaisPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                  height: 140,
-                  width: 140,
+                  height: 100,
+                  width: 100,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed('/em_breve');
@@ -62,8 +62,8 @@ class AdicionaisPage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: 140,
-                  width: 140,
+                  height: 100,
+                  width: 100,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed('/em_breve');
@@ -80,8 +80,8 @@ class AdicionaisPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                  height: 140,
-                  width: 140,
+                  height: 100,
+                  width: 100,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed('/em_breve');
@@ -93,8 +93,8 @@ class AdicionaisPage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: 140,
-                  width: 140,
+                  height: 100,
+                  width: 100,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed('/em_breve');
@@ -111,8 +111,8 @@ class AdicionaisPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                  height: 140,
-                  width: 140,
+                  height: 100,
+                  width: 100,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed('/em_breve');
@@ -124,8 +124,8 @@ class AdicionaisPage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: 140,
-                  width: 140,
+                  height: 100,
+                  width: 100,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed('/em_breve');

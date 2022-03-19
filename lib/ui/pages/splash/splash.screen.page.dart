@@ -10,10 +10,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   void navigationToNextPage() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => CarregarPage()),
-    );
+    Navigator.of(context).pushReplacementNamed('/carregar_page');
   }
 
   startSplashScreenTimer() async {
