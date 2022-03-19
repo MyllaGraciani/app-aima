@@ -26,7 +26,7 @@ dependencies:
   simple_gesture_detector: ^0.2.0
   # pacote para preferencias do user
   shared_preferences: ^2.0.5
-  sqflite: ^2.0.0+4
+  sqflite: ^2.0.2
   provider: ^6.0.0
   path: ^1.8.0
   path_provider: ^2.0.2

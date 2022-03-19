@@ -1,4 +1,5 @@
 import 'package:aima/config/app.color.dart';
+import 'package:aima/config/app.size.dart';
 import 'package:aima/config/configuracoes.dart';
 import 'package:aima/database/sqlite/DAO/registroDiario.dao.dart';
 import 'package:aima/domain/entities/registro_dia.model.dart';
@@ -27,14 +28,17 @@ class _ItensRegistradosWidgetState extends State<ItensRegistradosWidget> {
           List<RegistroDiarioModel>? registroDoDia = futuro.data;
           return Container(
             height: 300,
-            margin: EdgeInsets.all(10),
+            margin: EdgeInsets.all(
+                SizeConfig.of(context).dynamicScalePadding(value: 0.03)),
             child: Center(
               child: (registroDoDia!.length > 0)
                   ? GridView.builder(
                       itemCount: registroDoDia.length,
                       itemBuilder: (context, i) {
                         return Container(
-                          padding: EdgeInsets.all(5),
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.all(SizeConfig.of(context)
+                              .dynamicScalePadding(value: 0.01)),
                           decoration: BoxDecoration(
                             color: AppColors.primaryColor,
                             borderRadius: BorderRadius.all(
@@ -47,7 +51,7 @@ class _ItensRegistradosWidgetState extends State<ItensRegistradosWidget> {
                       gridDelegate:
                           const SliverGridDelegateWithMaxCrossAxisExtent(
                               maxCrossAxisExtent: 200,
-                              childAspectRatio: 3 / 0.6,
+                              childAspectRatio: 1.5 / 0.6,
                               crossAxisSpacing: 5,
                               mainAxisSpacing: 5),
                     )

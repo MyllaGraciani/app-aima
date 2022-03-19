@@ -56,7 +56,6 @@ class CicloDAO {
 
     List<Map<String, dynamic>> resultado =
         await _db.query('ciclo', where: 'status = ?', whereArgs: ["atual"]);
-
     return resultado[0].values.first;
   }
 
