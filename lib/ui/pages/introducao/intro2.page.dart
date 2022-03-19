@@ -1,4 +1,5 @@
 import 'package:aima/config/app.assets.dart';
+import 'package:aima/config/app.size.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -28,7 +29,8 @@ class _IntroducaoPageState extends State<IntroducaoPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: 250,
+                      height:
+                          SizeConfig.of(context).dynamicScaleSize(size: 250),
                       child: Image.asset(
                         AppAssets.iconeWelcome,
                       ),
@@ -46,7 +48,6 @@ class _IntroducaoPageState extends State<IntroducaoPage> {
               typeButton: ElevatedButton(
                 onPressed: () {
                   getPreferences();
-
                   Navigator.of(context).pushNamed('/cadastro_nome');
                 },
                 child: Text("Entrar"),

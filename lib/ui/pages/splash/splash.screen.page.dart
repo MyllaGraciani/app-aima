@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:aima/ui/pages/splash/splash.load.page.dart';
+import 'package:aima/config/app.size.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -9,13 +9,13 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  void navigationToNextPage() {
+  void navigateToNextPage() {
     Navigator.of(context).pushReplacementNamed('/carregar_page');
   }
 
   startSplashScreenTimer() async {
-    var _duration = new Duration(seconds: 5);
-    return new Timer(_duration, navigationToNextPage);
+    var _duration = new Duration(seconds: 10);
+    return new Timer(_duration, navigateToNextPage);
   }
 
   @override
@@ -34,14 +34,15 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              height: 300,
+              height: SizeConfig.of(context).dynamicScaleSize(size: 300),
               child: Image.asset(
-                "assets/logo.png",
+                "assets/logo.png", //TODOdiminuir o peso da imagem
               ),
             ),
             Text(
               "aíma",
               style: Theme.of(context).textTheme.headline4,
+              //TODOver se vale criar os estilos em um arq separado ou não
             ),
           ],
         ),

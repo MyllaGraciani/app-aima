@@ -5,6 +5,7 @@ import 'package:aima/ui/pages/cadastro/cadastro.nome.page.dart';
 import 'package:aima/ui/pages/calendario/calendario.page.dart';
 import 'package:aima/ui/pages/embreve/embreve.page.dart';
 import 'package:aima/ui/pages/erro/error.page.dart';
+import 'package:aima/ui/pages/login/login.page.dart';
 import 'package:aima/ui/pages/perfil/perfil.page.dart';
 import 'package:flutter/material.dart';
 
@@ -37,6 +38,7 @@ class _MyAppState extends State<MyApp> {
         '/em_breve': (context) => EmBrevePage(),
         '/erro': (context) => ErrorPage(),
         '/carregar_page': (context) => CarregarPage(),
+        '/login': (context) => LoginPage(),
 
         // pages cadastro
         '/cadastro_email': (context) => CadastroEmailPage(),

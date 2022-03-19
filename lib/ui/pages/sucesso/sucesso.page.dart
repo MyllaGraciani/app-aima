@@ -1,4 +1,3 @@
-import 'package:aima/ui/pages/login/login.page.dart';
 import 'package:flutter/material.dart';
 
 class SucessoPage extends StatelessWidget {
@@ -11,12 +10,7 @@ class SucessoPage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => LoginPage(),
-                ),
-              );
+              Navigator.of(context).pushNamed('/login');
             },
             icon: Icon(Icons.close),
             color: Theme.of(context).primaryColor,
@@ -29,7 +23,8 @@ class SucessoPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset("assets/LovingDoodle.png"),
+              Image.asset(
+                  "assets/LovingDoodle.png"), //TODOdiminuir o tamanho da imagem
               Text(
                 "Obrigada!",
                 style: Theme.of(context).textTheme.headline3,
