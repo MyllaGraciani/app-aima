@@ -1,3 +1,4 @@
+import 'package:aima/config/configuracoes.dart';
 import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
 import 'package:aima/domain/entities/ciclo.model.dart';
 import 'package:aima/ui/pages/home/widgets/sem_ciclo.widget.dart';
@@ -11,7 +12,7 @@ class RegistrosCiclosPage extends StatefulWidget {
 }
 
 class _RegistrosCiclosPageState extends State<RegistrosCiclosPage> {
-  String _dataAtual = DateFormat('dd/MM/yyyy').format(DateTime.now());
+  String _dataAtual = Configuracoes().dataAtual;
 
   Future<List<CicloModel>> _buscarCicloAtual() async {
     return CicloDAO().findAll();
@@ -56,7 +57,7 @@ class _RegistrosCiclosPageState extends State<RegistrosCiclosPage> {
                             ),
                           );
                         })
-                    : SemCiloWidget(dataAtual: _dataAtual),
+                    : SemCiloWidget(),
               ),
             );
           } else {

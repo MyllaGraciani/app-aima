@@ -1,9 +1,9 @@
 import 'package:aima/config/app.color.dart';
+import 'package:aima/config/configuracoes.dart';
 import 'package:aima/database/sqlite/DAO/registroDiario.dao.dart';
 import 'package:aima/domain/entities/registro_dia.model.dart';
 import 'package:aima/ui/pages/home/widgets/sem_registro.widget.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class ItensRegistradosWidget extends StatefulWidget {
   const ItensRegistradosWidget({Key? key}) : super(key: key);
@@ -13,8 +13,7 @@ class ItensRegistradosWidget extends StatefulWidget {
 }
 
 class _ItensRegistradosWidgetState extends State<ItensRegistradosWidget> {
-  String _dataAtual = DateFormat('dd/MM/yyyy').format(DateTime.now());
-
+  String _dataAtual = Configuracoes().dataAtual;
   Future<List<RegistroDiarioModel>> _buscarRegistro(String dataNow) async {
     return RegistroDiarioDAO().selectRegistroDiario(dataNow);
   }

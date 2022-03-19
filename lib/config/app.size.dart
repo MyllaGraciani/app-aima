@@ -20,6 +20,11 @@ class SizeConfig {
     return size;
   }
 
+  dynamicScalePadding({required value}) {
+    var mWidth = mediaQueryData.size.width;
+    return mWidth * value;
+  }
+
   bool isMini() {
     final shortestSide = mediaQueryData.size.shortestSide;
     return shortestSide <= 360;

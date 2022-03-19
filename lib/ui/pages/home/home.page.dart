@@ -1,3 +1,5 @@
+import 'package:aima/config/app.size.dart';
+import 'package:aima/config/configuracoes.dart';
 import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
 import 'package:aima/domain/entities/ciclo.model.dart';
 import 'package:aima/ui/pages/home/widgets/registro_do_dia.widget.dart';
@@ -13,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String _dataAtual = DateFormat('dd/MM/yyyy').format(DateTime.now());
+  String _dataAtual = Configuracoes().dataAtual;
 
   Future<List<CicloModel>> _buscarCicloAtual() async {
     return CicloDAO().findCicloAtual();
@@ -51,20 +53,18 @@ class _HomePageState extends State<HomePage> {
                                     child: Text("Fim da menstruação")),
                                 Container(
                                     padding: EdgeInsets.all(
-                                        MediaQuery.of(context).size.width *
-                                            0.1),
+                                        SizeConfig.of(context)
+                                            .dynamicScalePadding(value: 0.1)),
                                     child: CicloDiaWidget(
                                       diaCiclo: diaCiclo(ciclo[0].dataInicio),
                                     )),
-                                RegistroDoDiaWidget(
-                                  dataAtual: _dataAtual,
-                                ),
+                                RegistroDoDiaWidget(),
                               ],
                             ),
                           ),
                         ],
                       )
-                    : SemCiloWidget(dataAtual: _dataAtual),
+                    : SemCiloWidget(),
               ),
             );
           } else {

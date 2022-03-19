@@ -1,3 +1,4 @@
+import 'package:aima/config/configuracoes.dart';
 import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
 import 'package:aima/database/sqlite/DAO/estadosEmo.dao.dart';
 import 'package:aima/database/sqlite/DAO/registroDiario.dao.dart';
@@ -7,11 +8,9 @@ import 'package:aima/ui/pages/notas/addForm.page.dart';
 import 'package:aima/ui/pages/tabs-menu/tabs.page.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class EstadosEmocionaisPage extends StatefulWidget {
   final int idTipo;
-
   EstadosEmocionaisPage({required this.idTipo});
 
   @override
@@ -19,7 +18,7 @@ class EstadosEmocionaisPage extends StatefulWidget {
 }
 
 class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
-  String _dataAtual = DateFormat('dd/MM/yyyy').format(DateTime.now());
+  String _dataAtual = Configuracoes().dataAtual;
   List _selecteItem = [];
   List<RegistroDoDiaModel> selecionados = [];
 
