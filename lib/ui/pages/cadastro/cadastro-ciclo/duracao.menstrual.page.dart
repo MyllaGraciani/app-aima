@@ -21,6 +21,7 @@ class _DuracaoMenstrualPageState extends State<DuracaoMenstrualPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Form(

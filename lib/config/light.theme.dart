@@ -74,7 +74,7 @@ ThemeData lightTheme() {
       ),
       headline6: TextStyle(
         color: AppColors.primaryColor,
-        fontSize: 40,
+        fontSize: 35,
       ),
       subtitle1: TextStyle(
         color: AppColors.primaryColor,

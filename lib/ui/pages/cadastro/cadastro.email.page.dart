@@ -13,6 +13,7 @@ class _CadastroEmailPageState extends State<CadastroEmailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Material(
         child: Padding(
           padding: const EdgeInsets.all(20.0),

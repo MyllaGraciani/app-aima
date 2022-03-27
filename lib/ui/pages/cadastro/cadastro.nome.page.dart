@@ -22,6 +22,7 @@ class _CadastroNomePageState extends State<CadastroNomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Form(

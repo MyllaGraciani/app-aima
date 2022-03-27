@@ -13,6 +13,7 @@ class _CadastroGeneroPageState extends State<CadastroGeneroPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Material(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
