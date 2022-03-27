@@ -4,7 +4,6 @@ import 'package:aima/domain/entities/tipo_notas.model.dart';
 import 'package:aima/ui/pages/tabs-menu/tabs.page.dart';
 import 'package:aima/ui/shared/validators/cadastro.valid.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class AddFormPage extends StatefulWidget {
