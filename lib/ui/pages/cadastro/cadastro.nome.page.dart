@@ -22,62 +22,65 @@ class _CadastroNomePageState extends State<CadastroNomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
         body: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Form(
             key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Qual o seu nome?",
-                  style: MediaQuery.of(context).size.width > 760
-                      ? Theme.of(context).textTheme.headline3
-                      : Theme.of(context).textTheme.headline6,
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                TextFormField(
-                  controller: controller,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    labelText: "Nome ou apelido",
-                    border: OutlineInputBorder(),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(2.0)),
-                      borderSide: BorderSide(
-                        color: Theme.of(context).primaryColor,
+            child: Center(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Text(
+                      "Qual o seu nome?",
+                      style: MediaQuery.of(context).size.width > 760
+                          ? Theme.of(context).textTheme.headline3
+                          : Theme.of(context).textTheme.headline6,
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    TextFormField(
+                      controller: controller,
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        labelText: "Nome ou apelido",
+                        border: OutlineInputBorder(),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(2.0)),
+                          borderSide: BorderSide(
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                        labelStyle: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      ),
+                      style: TextStyle(color: Theme.of(context).primaryColor),
+                      validator: (value) {
+                        if (CadastroValidator.instance.nomeValido(value) ==
+                            false) {
+                          return "Por favor digite um nome válido";
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    ButtonWidgetGeneric(
+                      typeButton: ElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            getPreferences(controller.text);
+                            Navigator.of(context).pushNamed('/cadastro_senha');
+                          }
+                        },
+                        child: Text("Próximo"),
                       ),
                     ),
-                    labelStyle: TextStyle(
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ),
-                  style: TextStyle(color: Theme.of(context).primaryColor),
-                  validator: (value) {
-                    if (CadastroValidator.instance.nomeValido(value) == false) {
-                      return "Por favor digite um nome válido";
-                    }
-                    return null;
-                  },
+                  ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
-                ButtonWidgetGeneric(
-                  typeButton: ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        getPreferences(controller.text);
-                        Navigator.of(context).pushNamed('/cadastro_senha');
-                      }
-                    },
-                    child: Text("Próximo"),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ),

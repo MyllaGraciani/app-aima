@@ -34,34 +34,37 @@ class CadastroWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          label,
-          style: Theme.of(context).textTheme.headline3,
+    return Center(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Text(
+              label,
+              style: Theme.of(context).textTheme.headline3,
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            _tipoInput(),
+            SizedBox(
+              height: 40,
+            ),
+            ButtonWidgetGeneric(
+              typeButton: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => proxTela,
+                    ),
+                  );
+                },
+                child: Text("Próximo"),
+              ),
+            ),
+          ],
         ),
-        SizedBox(
-          height: 40,
-        ),
-        _tipoInput(),
-        SizedBox(
-          height: 40,
-        ),
-        ButtonWidgetGeneric(
-          typeButton: ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => proxTela,
-                ),
-              );
-            },
-            child: Text("Próximo"),
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
