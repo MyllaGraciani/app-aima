@@ -1,4 +1,3 @@
-import 'package:aima/ui/pages/embreve/embreve.page.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -29,7 +28,7 @@ class _DadosPerfilWidgetState extends State<DadosPerfilWidget> {
       builder: (context, futuro) {
         if (futuro.hasData) {
           return Container(
-            color: Theme.of(context).primaryColor.withOpacity(0.8),
+            color: Theme.of(context).primaryColor.withOpacity(0.6),
             padding: EdgeInsets.all(20),
             child: Column(
               children: [
@@ -70,12 +69,7 @@ class _DadosPerfilWidgetState extends State<DadosPerfilWidget> {
                   typeButton: OutlinedButton(
                     child: Text("ALTERAR DADOS"),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EmBrevePage(),
-                        ),
-                      );
+                      Navigator.pushNamed(context, '/em_breve');
                     },
                   ),
                 ),
@@ -84,12 +78,7 @@ class _DadosPerfilWidgetState extends State<DadosPerfilWidget> {
                   typeButton: OutlinedButton(
                     child: Text("BACKUP"),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EmBrevePage(),
-                        ),
-                      );
+                      Navigator.pushNamed(context, '/em_breve');
                     },
                   ),
                 ),

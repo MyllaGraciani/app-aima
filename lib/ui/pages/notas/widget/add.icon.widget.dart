@@ -8,7 +8,7 @@ class AddEstadoIcon extends StatelessWidget {
     return IconButton(
       color: Theme.of(context).primaryColor,
       onPressed: () {
-        Navigator.pushReplacementNamed(context, 'add_estado_emocional');
+        Navigator.pushReplacementNamed(context, '/add_estado_emocional');
       },
       icon: Icon(Icons.add),
     );

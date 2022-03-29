@@ -54,6 +54,12 @@ class CicloDAO {
   Future<int> findIDCicloAtual() async {
     _db = (await Connection.instance.get())!;
 
+    bool isEmpty = await _db.rawQuery('SELECT * FROM ciclo WHERE status = ?',
+        ['atual']).then((value) => value.isEmpty);
+
+    if (isEmpty) {
+      return 0;
+    }
     List<Map<String, dynamic>> resultado =
         await _db.query('ciclo', where: 'status = ?', whereArgs: ["atual"]);
     return resultado[0].values.first;

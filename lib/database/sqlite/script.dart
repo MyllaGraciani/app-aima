@@ -16,6 +16,14 @@ INSERT INTO tiposAnotacoes (id, descricao)
 VALUES (4,'Muco')
 ''',
   '''
+INSERT INTO tiposAnotacoes (id, descricao)
+VALUES (5,'Alimentação')
+''',
+  '''
+INSERT INTO tiposAnotacoes (id, descricao)
+VALUES (6,'Higiene')
+''',
+  '''
 INSERT INTO estadosEmocionais (id, descricao, idTipo)
 VALUES (1,'Feliz', 2)
 ''',
