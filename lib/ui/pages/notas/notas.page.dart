@@ -1,7 +1,6 @@
+import 'package:aima/ui/pages/notas/widget/elevated.btn.widget.dart';
 import 'package:aima/ui/shared/widgets/appbar.widget.dart';
 import 'package:flutter/material.dart';
-
-import 'estadosEmo.page.dart';
 
 class NotasPage extends StatelessWidget {
   const NotasPage({Key? key}) : super(key: key);
@@ -22,102 +21,12 @@ class NotasPage extends StatelessWidget {
         mainAxisSpacing: 5,
         padding: EdgeInsets.all(20),
         children: [
-          ElevatedButton(
-            child: Text(
-              "Sintomas",
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => EstadosEmocionaisPage(
-                    idTipo: 1,
-                  ),
-                ),
-              );
-            },
-          ),
-          ElevatedButton(
-            child: Text(
-              "Humores",
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => EstadosEmocionaisPage(
-                    idTipo: 2,
-                  ),
-                ),
-              );
-            },
-          ),
-          ElevatedButton(
-            child: Text(
-              "Muco",
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => EstadosEmocionaisPage(
-                    idTipo: 4,
-                  ),
-                ),
-              );
-            },
-          ),
-          ElevatedButton(
-            child: Text(
-              "Sexo",
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => EstadosEmocionaisPage(
-                    idTipo: 3,
-                  ),
-                ),
-              );
-            },
-          ),
-          ElevatedButton(
-            child: Text(
-              "Alimentação",
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => EstadosEmocionaisPage(
-                    idTipo: 1,
-                  ),
-                ),
-              );
-            },
-          ),
-          ElevatedButton(
-            child: Text(
-              "Higiene",
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => EstadosEmocionaisPage(
-                    idTipo: 1,
-                  ),
-                ),
-              );
-            },
-          ),
+          ElevatedBtn(name: 'Sintomas', namedRoute: '/anotar_sintomas'),
+          ElevatedBtn(name: 'Humores', namedRoute: '/anotar_humores'),
+          ElevatedBtn(name: 'Muco', namedRoute: '/anotar_muco'),
+          ElevatedBtn(name: 'Sexo', namedRoute: '/anotar_sexo'),
+          ElevatedBtn(name: 'Alimentação', namedRoute: '/anotar_alimentacao'),
+          ElevatedBtn(name: 'Higiene', namedRoute: '/anotar_higiene'),
         ],
       ),
     );
