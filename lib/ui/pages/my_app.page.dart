@@ -6,6 +6,7 @@ import 'package:aima/ui/pages/calendario/calendario.page.dart';
 import 'package:aima/ui/pages/embreve/embreve.page.dart';
 import 'package:aima/ui/pages/erro/error.page.dart';
 import 'package:aima/ui/pages/login/login.page.dart';
+import 'package:aima/ui/pages/notas/addForm.page.dart';
 import 'package:aima/ui/pages/notas/estadosEmo.page.dart';
 import 'package:aima/ui/pages/perfil/perfil.page.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +42,7 @@ class _MyAppState extends State<MyApp> {
         '/anotar_muco': (context) => EstadosEmocionaisPage(idTipo: 4),
         '/anotar_alimentacao': (context) => EstadosEmocionaisPage(idTipo: 5),
         '/anotar_higiene': (context) => EstadosEmocionaisPage(idTipo: 6),
+        '/add_estado_emocional': (context) => AddFormPage(),
         '/calendario': (context) => CalendarioPage(),
         '/em_breve': (context) => EmBrevePage(),
         '/erro': (context) => ErrorPage(),

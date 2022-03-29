@@ -4,10 +4,11 @@ import 'package:aima/database/sqlite/DAO/estadosEmo.dao.dart';
 import 'package:aima/database/sqlite/DAO/registroDiario.dao.dart';
 import 'package:aima/domain/entities/estados_emo.model.dart';
 import 'package:aima/domain/entities/registro_dia.model.dart';
-import 'package:aima/ui/pages/notas/addForm.page.dart';
-import 'package:aima/ui/pages/tabs-menu/tabs.page.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
+
+import 'widget/add.icon.widget.dart';
+import 'widget/semItens.widget.dart';
 
 class EstadosEmocionaisPage extends StatefulWidget {
   final int idTipo;
@@ -89,18 +90,7 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
                   ),
                   centerTitle: true,
                   actions: [
-                    IconButton(
-                      color: Theme.of(context).primaryColor,
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => AddFormPage(),
-                          ),
-                        );
-                      },
-                      icon: Icon(Icons.add),
-                    ),
+                    AddEstadoIcon(),
                   ],
                 ),
                 body: Column(
@@ -152,14 +142,7 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
                                 );
                               },
                             )
-                          : Container(
-                              padding: EdgeInsets.all(10),
-                              child: Center(
-                                  child: Text(
-                                "Não existe nenhum item ainda, adicione através do sinal de mais =D",
-                                style: Theme.of(context).textTheme.headline6,
-                              )),
-                            ),
+                          : SemItens(),
                     ),
                     ButtonWidgetGeneric(
                       typeButton: ElevatedButton(
@@ -170,12 +153,7 @@ class _EstadosEmocionaisPageState extends State<EstadosEmocionaisPage> {
                             RegistroDiarioDAO().inserir(
                                 _idCicloAtual, _selecteItem[i], _dataAtual);
                           }
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => TabsPage(),
-                            ),
-                          );
+                          Navigator.pushReplacementNamed(context, '/home');
                         },
                         child: Text("SALVAR"),
                       ),
