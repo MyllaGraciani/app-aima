@@ -1,3 +1,4 @@
+import 'package:aima/ui/pages/perfil/widgets/infos.widget.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -44,22 +45,18 @@ class _DadosPerfilWidgetState extends State<DadosPerfilWidget> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "Nome: " + futuro.data![0],
-                            style: Theme.of(context).textTheme.bodyText2,
+                          InfosPerfilWidget(
+                            futureData: futuro.data![0],
+                            nomeCampo: "Nome: ",
                           ),
-                          Text(
-                            "Média da duração do ciclo: " +
-                                futuro.data![1] +
-                                " dias",
-                            style: Theme.of(context).textTheme.bodyText2,
-                          ),
-                          Text(
-                            "Média da duração do período menstrual: " +
-                                futuro.data![2] +
-                                " dias",
-                            style: Theme.of(context).textTheme.bodyText2,
-                          ),
+                          InfosPerfilWidget(
+                              futureData: futuro.data![1],
+                              nomeCampo: "Duração do ciclo: ",
+                              subNome: " dias"),
+                          InfosPerfilWidget(
+                              futureData: futuro.data![2],
+                              nomeCampo: "Duração da menstruação: ",
+                              subNome: " dias"),
                         ],
                       ),
                     ],
