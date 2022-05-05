@@ -6,6 +6,7 @@ import 'package:aima/ui/pages/perfil/perfil.page.dart';
 import 'package:flutter/material.dart';
 
 class TabsPage extends StatelessWidget {
+  //teste
   @override
   Widget build(BuildContext context) {
     return SafeArea(
