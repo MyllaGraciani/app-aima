@@ -10,20 +10,20 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class HomePage extends StatefulWidget {
+  final dataAtual = CicloDia(DateFormat('dd/MM/yyyy').format(DateTime.now()));
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  String _dataAtual = Configuracoes().dataAtual;
-
   Future<List<CicloModel>> _buscarCicloAtual() async {
     return CicloDAO().findCicloAtual();
   }
 
   String diaCiclo(String dataInicio) {
     DateTime? iniciociclo = DateFormat('dd/MM/yyyy').parse(dataInicio);
-    DateTime? dAtual = DateFormat('dd/MM/yyyy').parse(_dataAtual);
+    DateTime? dAtual = DateFormat('dd/MM/yyyy').parse(widget.dataAtual.dia);
     Duration diaCiclo = dAtual.difference(iniciociclo);
     return diaCiclo.inDays.toString();
   }
@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
             List<CicloModel>? ciclo = futuro.data;
             return Scaffold(
               appBar: AppBarWidget(
-                label: _dataAtual,
+                label: widget.dataAtual.dia,
                 textStyleSub: Theme.of(context).textTheme.subtitle1,
               ),
               body: Center(
@@ -48,6 +48,18 @@ class _HomePageState extends State<HomePage> {
                           Container(
                             child: Column(
                               children: [
+                                CalendarDatePicker(
+                                    initialDate: DateFormat('dd/MM/yyyy')
+                                        .parse(widget.dataAtual.dia),
+                                    firstDate: DateTime(1998, 01, 01),
+                                    lastDate: DateTime(2100, 12, 12),
+                                    onDateChanged: (date) {
+                                      setState(() {
+                                        widget.dataAtual.dia =
+                                            DateFormat('dd/MM/yyyy')
+                                                .format(date);
+                                      });
+                                    }),
                                 ElevatedButton(
                                     onPressed: () {},
                                     child: Text("Fim da menstruação")),
@@ -58,13 +70,14 @@ class _HomePageState extends State<HomePage> {
                                     child: CicloDiaWidget(
                                       diaCiclo: diaCiclo(ciclo[0].dataInicio),
                                     )),
-                                RegistroDoDiaWidget(),
+                                RegistroDoDiaWidget(
+                                    dataAtual: widget.dataAtual.dia),
                               ],
                             ),
                           ),
                         ],
                       )
-                    : SemCiloWidget(),
+                    : SemCiloWidget(dataAtual: widget.dataAtual),
               ),
             );
           } else {

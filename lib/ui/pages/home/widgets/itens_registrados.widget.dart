@@ -1,20 +1,19 @@
 import 'package:aima/config/app.color.dart';
 import 'package:aima/config/app.size.dart';
-import 'package:aima/config/configuracoes.dart';
 import 'package:aima/database/sqlite/DAO/registroDiario.dao.dart';
 import 'package:aima/domain/entities/registro_dia.model.dart';
 import 'package:aima/ui/pages/home/widgets/sem_registro.widget.dart';
 import 'package:flutter/material.dart';
 
 class ItensRegistradosWidget extends StatefulWidget {
-  const ItensRegistradosWidget({Key? key}) : super(key: key);
+  final dataAtual;
+  const ItensRegistradosWidget({Key? key, this.dataAtual}) : super(key: key);
 
   @override
   _ItensRegistradosWidgetState createState() => _ItensRegistradosWidgetState();
 }
 
 class _ItensRegistradosWidgetState extends State<ItensRegistradosWidget> {
-  String _dataAtual = Configuracoes().dataAtual;
   Future<List<RegistroDiarioModel>> _buscarRegistro(String dataNow) async {
     return RegistroDiarioDAO().selectRegistroDiario(dataNow);
   }
@@ -22,7 +21,7 @@ class _ItensRegistradosWidgetState extends State<ItensRegistradosWidget> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<RegistroDiarioModel>>(
-      future: _buscarRegistro(_dataAtual),
+      future: _buscarRegistro(widget.dataAtual),
       builder: (context, futuro) {
         if (futuro.hasData) {
           List<RegistroDiarioModel>? registroDoDia = futuro.data;

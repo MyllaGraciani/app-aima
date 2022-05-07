@@ -15,7 +15,7 @@ class InfosPerfilWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      nomeCampo + futureData + subNome!,
+      nomeCampo + futureData,
       style: Theme.of(context).textTheme.bodyText2,
     );
   }
