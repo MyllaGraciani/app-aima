@@ -1,3 +1,4 @@
+import 'package:aima/controllers/valueNotifier.dart';
 import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
 import 'package:aima/domain/entities/ciclo.model.dart';
 import 'package:aima/ui/pages/home/widgets/sem_ciclo.widget.dart';
@@ -6,9 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class RegistrosCiclosPage extends StatefulWidget {
-  final dataAtual;
-
-  const RegistrosCiclosPage({Key? key, this.dataAtual}) : super(key: key);
+  const RegistrosCiclosPage({Key? key}) : super(key: key);
 
   @override
   State<RegistrosCiclosPage> createState() => _RegistrosCiclosPageState();
@@ -21,7 +20,7 @@ class _RegistrosCiclosPageState extends State<RegistrosCiclosPage> {
 
   String diaCiclo(String dataInicio) {
     DateTime? iniciociclo = DateFormat('dd/MM/yyyy').parse(dataInicio);
-    DateTime? dAtual = DateFormat('dd/MM/yyyy').parse(widget.dataAtual);
+    DateTime? dAtual = DateFormat('dd/MM/yyyy').parse(dataAtual.value);
     Duration diaCiclo = dAtual.difference(iniciociclo);
     return diaCiclo.inDays.toString();
   }
@@ -58,7 +57,7 @@ class _RegistrosCiclosPageState extends State<RegistrosCiclosPage> {
                             ),
                           );
                         })
-                    : SemCiloWidget(dataAtual: widget.dataAtual),
+                    : SemCicloWidget(),
               ),
             );
           } else {

@@ -1,13 +1,10 @@
 import 'package:aima/config/app.color.dart';
+import 'package:aima/controllers/valueNotifier.dart';
 import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
 
-class SemCiloWidget extends StatelessWidget {
-  final dataAtual;
-
-  const SemCiloWidget({Key? key, this.dataAtual}) : super(key: key);
-
+class SemCicloWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,16 +17,24 @@ class SemCiloWidget extends StatelessWidget {
               style: Theme.of(context).textTheme.headline5,
             ),
           ),
-          ButtonWidgetGeneric(
-            typeButton: ElevatedButton(
-              onPressed: () {
-                CicloDAO().iniciarCiclo(dataAtual, "atual");
+          ValueListenableBuilder(
+              valueListenable: dataAtual,
+              builder: (context, dataAtual, child) {
+                if (dataAtual != null && dataAtual is String) {
+                  return ButtonWidgetGeneric(
+                    typeButton: ElevatedButton(
+                      onPressed: () {
+                        CicloDAO().iniciarCiclo(dataAtual, "atual");
 
-                Navigator.of(context).pushReplacementNamed('/home');
-              },
-              child: Text("Iniciar novo ciclo"),
-            ),
-          )
+                        Navigator.of(context).pushReplacementNamed('/home');
+                      },
+                      child: Text("Iniciar novo ciclo"),
+                    ),
+                  );
+                } else {
+                  return Text("houve um erro");
+                }
+              })
         ],
       ),
       decoration: BoxDecoration(

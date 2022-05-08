@@ -5,6 +5,7 @@ import 'package:aima/ui/pages/cadastro/cadastro.nome.page.dart';
 import 'package:aima/ui/pages/calendario/calendario.page.dart';
 import 'package:aima/ui/pages/embreve/embreve.page.dart';
 import 'package:aima/ui/pages/erro/error.page.dart';
+import 'package:aima/ui/pages/home/selecionarData.dart';
 import 'package:aima/ui/pages/login/login.page.dart';
 import 'package:aima/ui/pages/notas/addForm.page.dart';
 import 'package:aima/ui/pages/notas/estadosEmo.page.dart';
@@ -48,6 +49,7 @@ class _MyAppState extends State<MyApp> {
         '/erro': (context) => ErrorPage(),
         '/carregar_page': (context) => CarregarPage(),
         '/login': (context) => LoginPage(),
+        '/selecionar_data': (context) => SelecionarDataPage(),
 
         // pages cadastro
         '/cadastro_email': (context) => CadastroEmailPage(),
