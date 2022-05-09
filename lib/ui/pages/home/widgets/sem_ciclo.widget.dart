@@ -1,3 +1,4 @@
+import 'package:aima/config/app.assets.dart';
 import 'package:aima/config/app.color.dart';
 import 'package:aima/controllers/valueNotifier.dart';
 import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
@@ -10,13 +11,19 @@ class SemCicloWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(10),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
             child: Text(
               "Você não cadastrou nenhum ciclo ainda.",
-              style: Theme.of(context).textTheme.headline5,
+              style: TextStyle(
+                fontSize: 20,
+                color: AppColors.primaryColor,
+              ),
+              textAlign: TextAlign.center,
             ),
           ),
+          Image.asset(AppAssets.iconeEmBreve, height: 200),
           ValueListenableBuilder(
               valueListenable: dataAtual,
               builder: (context, dataAtual, child) {
@@ -38,7 +45,7 @@ class SemCicloWidget extends StatelessWidget {
         ],
       ),
       decoration: BoxDecoration(
-        color: AppColors.lightColor.withOpacity(0.4),
+        color: AppColors.backgroundColor.withOpacity(0.1),
       ),
     );
   }

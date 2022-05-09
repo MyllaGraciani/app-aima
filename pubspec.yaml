@@ -32,6 +32,10 @@ dependencies:
   path_provider: ^2.0.2
   sqlite_viewer: ^1.0.5
 
+flutter_icons:
+  image_path_android: "assets/logo.png"
+  image_path_ios: "assets/logo.png"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

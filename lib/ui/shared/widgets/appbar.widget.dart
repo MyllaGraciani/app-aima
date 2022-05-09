@@ -12,7 +12,7 @@ class AppBarWidget extends PreferredSize {
             title: Row(
               children: [
                 SizedBox(height: 40, child: Image.asset("assets/logo.png")),
-                SizedBox(
+                const SizedBox(
                   width: 15,
                 ),
                 Text(
