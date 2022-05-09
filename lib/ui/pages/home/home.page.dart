@@ -1,3 +1,4 @@
+import 'package:aima/config/app.color.dart';
 import 'package:aima/config/app.size.dart';
 import 'package:aima/controllers/valueNotifier.dart';
 import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
@@ -59,9 +60,9 @@ class _HomePageState extends State<HomePage> {
                                 Container(
                                   child: Column(
                                     children: [
-                                      // ElevatedButton(
-                                      //     onPressed: () {},
-                                      //     child: Text("Fim da menstruação")),
+                                      Row(
+                                        children: [],
+                                      ),
                                       Container(
                                           padding: EdgeInsets.all(
                                               SizeConfig.of(context)

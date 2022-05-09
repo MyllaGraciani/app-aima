@@ -73,25 +73,3 @@ class _ItensRegistradosWidgetState extends State<ItensRegistradosWidget> {
     );
   }
 }
-
-// Container(
-//                         child: Column(
-//                           children: [
-//                             Container(
-//                               width: MediaQuery.of(context).size.width * 0.95,
-//                               height: 200,
-//                               decoration: BoxDecoration(
-//                                 color: Colors.amber,
-//                                 borderRadius: BorderRadius.all(
-//                                   Radius.circular(10),
-//                                 ),
-//                               ),
-//                               child: Column(
-//                                 children: [
-//                                   Text(registroDoDia[0].dataRegistro),
-//                                 ],
-//                               ),
-//                             ),
-//                           ],
-//                         ),
-//                       ),
