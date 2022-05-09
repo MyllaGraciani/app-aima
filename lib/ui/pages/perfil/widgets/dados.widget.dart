@@ -66,19 +66,20 @@ class _DadosPerfilWidgetState extends State<DadosPerfilWidget> {
                   typeButton: OutlinedButton(
                     child: Text("ALTERAR DADOS"),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/em_breve');
+                      Navigator.pushNamed(context, '/cadastro_nome');
                     },
                   ),
                 ),
-                SizedBox(height: 20),
-                ButtonWidgetGeneric(
-                  typeButton: OutlinedButton(
-                    child: Text("BACKUP"),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/em_breve');
-                    },
-                  ),
-                ),
+                //- implementar botão para fazer backup do banco de dados
+                // const SizedBox(height: 20),
+                // ButtonWidgetGeneric(
+                //   typeButton: OutlinedButton(
+                //     child: Text("BACKUP"),
+                //     onPressed: () {
+                //       Navigator.pushNamed(context, '/em_breve');
+                //     },
+                //   ),
+                // ),
               ],
             ),
           );

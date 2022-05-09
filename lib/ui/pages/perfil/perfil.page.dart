@@ -1,3 +1,4 @@
+import 'package:aima/config/app.color.dart';
 import 'package:aima/ui/pages/perfil/widgets/dados.widget.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class PerfilPage extends StatelessWidget {
         Container(
           height: double.maxFinite,
           width: double.maxFinite,
-          color: Colors.red,
+          color: AppColors.primaryColor,
         ),
         DadosPerfilWidget(),
       ],
