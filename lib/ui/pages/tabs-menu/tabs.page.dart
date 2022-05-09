@@ -1,5 +1,5 @@
 import 'package:aima/ui/pages/adicionais/adicionais.page.dart';
-import 'package:aima/ui/pages/calendario/calendario.page.dart';
+// import 'package:aima/ui/pages/calendario/calendario.page.dart';
 import 'package:aima/ui/pages/home/home.page.dart';
 import 'package:aima/ui/pages/notas/notas.page.dart';
 import 'package:aima/ui/pages/perfil/perfil.page.dart';
@@ -12,13 +12,13 @@ class TabsPage extends StatelessWidget {
     return SafeArea(
       child: DefaultTabController(
         // quantidade de itens que o menu vai ter
-        length: 5,
+        length: 4,
         child: Scaffold(
           //páginas que serão mostradas na mesma ordem dos respectivos icones
           body: TabBarView(
             children: [
               HomePage(),
-              CalendarioPage(),
+              // CalendarioPage(),
               NotasPage(),
               AdicionaisPage(),
               PerfilPage(),
@@ -30,9 +30,9 @@ class TabsPage extends StatelessWidget {
               Tab(
                 icon: new Icon(Icons.home),
               ),
-              Tab(
-                icon: new Icon(Icons.calendar_today),
-              ),
+              // Tab(
+              //   icon: new Icon(Icons.calendar_today),
+              // ),
               Tab(
                 icon: new Icon(Icons.note_add_rounded),
               ),
