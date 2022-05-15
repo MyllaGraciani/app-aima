@@ -2,7 +2,12 @@ import 'package:aima/config/app.color.dart';
 import 'package:flutter/material.dart';
 
 class FloatingBtnWidget extends StatelessWidget {
-  const FloatingBtnWidget({Key? key}) : super(key: key);
+  final Icon iconButton;
+  final String nameRoute;
+
+  const FloatingBtnWidget(
+      {Key? key, required this.iconButton, required this.nameRoute})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +21,9 @@ class FloatingBtnWidget extends StatelessWidget {
       ),
       child: IconButton(
         color: Colors.white70,
-        icon: Icon(Icons.edit_calendar_outlined),
+        icon: iconButton,
         onPressed: () {
-          Navigator.pushNamed(context, '/selecionar_data');
+          Navigator.of(context).pushNamed(nameRoute);
         },
       ),
     );

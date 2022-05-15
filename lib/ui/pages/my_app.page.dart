@@ -7,6 +7,7 @@ import 'package:aima/ui/pages/embreve/embreve.page.dart';
 import 'package:aima/ui/pages/erro/error.page.dart';
 import 'package:aima/ui/pages/home/selecionarData.dart';
 import 'package:aima/ui/pages/login/login.page.dart';
+import 'package:aima/ui/pages/notas/addCategoria.page.dart';
 import 'package:aima/ui/pages/notas/addForm.page.dart';
 import 'package:aima/ui/pages/notas/estadosEmo.page.dart';
 import 'package:aima/ui/pages/perfil/perfil.page.dart';
@@ -44,6 +45,7 @@ class _MyAppState extends State<MyApp> {
         '/anotar_alimentacao': (context) => EstadosEmocionaisPage(idTipo: 5),
         '/anotar_higiene': (context) => EstadosEmocionaisPage(idTipo: 6),
         '/add_estado_emocional': (context) => AddFormPage(),
+        '/add_categoria': (context) => AddCategoriaPage(),
         '/calendario': (context) => CalendarioPage(),
         '/em_breve': (context) => EmBrevePage(),
         '/erro': (context) => ErrorPage(),

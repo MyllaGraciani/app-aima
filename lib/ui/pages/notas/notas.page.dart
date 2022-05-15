@@ -2,6 +2,8 @@ import 'package:aima/ui/pages/notas/widget/elevated.btn.widget.dart';
 import 'package:aima/ui/shared/widgets/appbar.widget.dart';
 import 'package:flutter/material.dart';
 
+import '../home/widgets/floating_btn.widget.dart';
+
 class NotasPage extends StatelessWidget {
   const NotasPage({Key? key}) : super(key: key);
   static const int crossAxisCount = 2;
@@ -19,16 +21,21 @@ class NotasPage extends StatelessWidget {
         childAspectRatio: 2 / 1,
         crossAxisSpacing: 5,
         mainAxisSpacing: 5,
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.04),
         children: [
-          ElevatedBtn(name: 'Sintomas', namedRoute: '/anotar_sintomas'),
-          ElevatedBtn(name: 'Humores', namedRoute: '/anotar_humores'),
-          ElevatedBtn(name: 'Muco', namedRoute: '/anotar_muco'),
-          ElevatedBtn(name: 'Sexo', namedRoute: '/anotar_sexo'),
-          ElevatedBtn(name: 'Alimentação', namedRoute: '/anotar_alimentacao'),
-          ElevatedBtn(name: 'Higiene', namedRoute: '/anotar_higiene'),
+          ElevatedBtn(name: 'sintomas', namedRoute: '/anotar_sintomas'),
+          ElevatedBtn(name: 'humores', namedRoute: '/anotar_humores'),
+          ElevatedBtn(name: 'muco', namedRoute: '/anotar_muco'),
+          ElevatedBtn(name: 'sexo', namedRoute: '/anotar_sexo'),
+          ElevatedBtn(name: 'alimentação', namedRoute: '/anotar_alimentacao'),
+          ElevatedBtn(name: 'higiene', namedRoute: '/anotar_higiene'),
         ],
       ),
+      floatingActionButton: FloatingBtnWidget(
+        iconButton: Icon(Icons.add_circle_outline),
+        nameRoute: '/add_categoria',
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
     );
   }
 }

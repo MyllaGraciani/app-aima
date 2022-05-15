@@ -1,4 +1,3 @@
-import 'package:aima/config/app.color.dart';
 import 'package:aima/config/app.size.dart';
 import 'package:aima/controllers/valueNotifier.dart';
 import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
@@ -80,7 +79,10 @@ class _HomePageState extends State<HomePage> {
                             )
                           : SemCicloWidget(),
                     ),
-                    floatingActionButton: FloatingBtnWidget(),
+                    floatingActionButton: FloatingBtnWidget(
+                      iconButton: Icon(Icons.edit_calendar_outlined),
+                      nameRoute: '/selecionar_data',
+                    ),
                     floatingActionButtonLocation:
                         FloatingActionButtonLocation.endTop,
                   );

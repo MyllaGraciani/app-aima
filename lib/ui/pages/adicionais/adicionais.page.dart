@@ -18,24 +18,11 @@ class AdicionaisPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ContainerWidget(
-                  name: 'Gráficos',
+                  name: 'gráficos',
                   nameRoute: '/em_breve',
                 ),
                 ContainerWidget(
-                  name: 'Autocuidado',
-                  nameRoute: '/em_breve',
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ContainerWidget(
-                  name: 'Lua',
-                  nameRoute: '/em_breve',
-                ),
-                ContainerWidget(
-                  name: 'Medicamento',
+                  name: 'autocuidado',
                   nameRoute: '/em_breve',
                 ),
               ],
@@ -44,11 +31,24 @@ class AdicionaisPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ContainerWidget(
-                  name: 'Exame médico',
+                  name: 'lua',
                   nameRoute: '/em_breve',
                 ),
                 ContainerWidget(
-                  name: 'Metas',
+                  name: 'medicamento',
+                  nameRoute: '/em_breve',
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ContainerWidget(
+                  name: 'exame médico',
+                  nameRoute: '/em_breve',
+                ),
+                ContainerWidget(
+                  name: 'metas',
                   nameRoute: '/em_breve',
                 ),
               ],

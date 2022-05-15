@@ -24,6 +24,10 @@ INSERT INTO tiposAnotacoes (id, descricao)
 VALUES (6,'Higiene')
 ''',
   '''
+INSERT INTO tiposAnotacoes (id, descricao)
+VALUES (7,'Fluxo Menstruação')
+''',
+  '''
 INSERT INTO estadosEmocionais (id, descricao, idTipo)
 VALUES (1,'Feliz', 2)
 ''',
@@ -104,23 +108,23 @@ INSERT INTO estadosEmocionais (id, descricao, idTipo)
 VALUES (20,'Diarréia', 1)
 ''',
   '''
-INSERT INTO CICLO (id, dataInicio, dataInicioPM, dataFimPM ,dataInicioPF, dataFimPF, status) 
-VALUES (
-     01, 
-    '19/05/2021', 
-    '19/05/2021', 
-    '03/06/2021', 
-    '23/05/2021', 
-    '14/06/2021',
-    'encerraddo'
-)
+INSERT INTO estadosEmocionais (id, descricao, idTipo)
+VALUES (21,'Leve', 7)
 ''',
   '''
-INSERT INTO registroDoDia(id, idCiclo, idEstadoEmocional, data) 
-VALUES (1, 01, 9 , '19/05/2021')
+INSERT INTO estadosEmocionais (id, descricao, idTipo)
+VALUES (22,'Médio', 7)
 ''',
   '''
-INSERT INTO registroDoDia(id, idCiclo, idEstadoEmocional, data) 
-VALUES (2, 01, 10 , '19/05/2021')
+INSERT INTO estadosEmocionais (id, descricao, idTipo)
+VALUES (23,'Intenso', 7)
+''',
+  '''
+INSERT INTO estadosEmocionais (id, descricao, idTipo)
+VALUES (24,'Super intenso', 7)
+''',
+  '''
+INSERT INTO estadosEmocionais (id, descricao, idTipo)
+VALUES (25,'Sangramento de escape', 7)
 '''
 ];
