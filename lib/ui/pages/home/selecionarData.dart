@@ -24,6 +24,7 @@ class SelecionarDataPage extends StatelessWidget {
         child: Scaffold(
       body: Container(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CalendarDatePicker(
                 initialDate: formatarData(dataAtual.value),
