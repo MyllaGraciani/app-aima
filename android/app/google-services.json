@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "707103331395",
+    "firebase_url": "https://app-aima-default-rtdb.firebaseio.com",
     "project_id": "app-aima",
     "storage_bucket": "app-aima.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "707103331395-2ea9e4h3jsr0d68fdaop2ohnasbrfkso.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aima",
+            "certificate_hash": "afef49986e13183753cb18ba303defe65470ab4b"
+          }
+        },
         {
           "client_id": "707103331395-4p2p4v3snc72m7phsral79c6laks3t41.apps.googleusercontent.com",
           "client_type": 3
@@ -29,6 +38,13 @@
             {
               "client_id": "707103331395-4p2p4v3snc72m7phsral79c6laks3t41.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "707103331395-jcaptjnq4rl93hvo3vu1ku3o0f5api1k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.aima"
+              }
             }
           ]
         }

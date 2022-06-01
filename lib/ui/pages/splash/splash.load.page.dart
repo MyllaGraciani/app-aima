@@ -3,6 +3,7 @@ import 'package:aima/config/app.assets.dart';
 import 'package:aima/database/sqlite/conexao.dart';
 import 'package:aima/ui/pages/introducao/intro2.page.dart';
 import 'package:aima/ui/pages/tabs-menu/tabs.page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -19,6 +20,10 @@ class _CarregarPageState extends State<CarregarPage> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     await dbConnect.get();
+
+    FirebaseFirestore.instance
+        .collection('usuarios')
+        .add({'text': 'data added through app'});
 
     int? introRead = prefs.getInt('introLida');
 

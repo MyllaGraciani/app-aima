@@ -10,13 +10,13 @@ import 'package:aima/ui/pages/login/login.page.dart';
 import 'package:aima/ui/pages/notas/addCategoria.page.dart';
 import 'package:aima/ui/pages/notas/addForm.page.dart';
 import 'package:aima/ui/pages/notas/estadosEmo.page.dart';
+import 'package:aima/ui/pages/notas/notes.page.dart';
 import 'package:aima/ui/pages/perfil/perfil.page.dart';
 import 'package:flutter/material.dart';
 
 import 'cadastro/cadastro-ciclo/duracao.menstrual.page.dart';
 import 'cadastro/cadastro-ciclo/duracao.page.dart';
 import 'cadastro/cadastro.senha.page.dart';
-import 'notas/notas.page.dart';
 import 'splash/splash.load.page.dart';
 import 'splash/splash.screen.page.dart';
 import 'tabs-menu/tabs.page.dart';
@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
         '/': (context) => SplashScreen(),
         '/home': (context) => TabsPage(),
         '/perfil': (context) => PerfilPage(),
-        '/anotacoes': (context) => NotasPage(),
+        '/anotacoes': (context) => NotesPage(),
         '/anotar_sintomas': (context) => EstadosEmocionaisPage(idTipo: 1),
         '/anotar_humores': (context) => EstadosEmocionaisPage(idTipo: 2),
         '/anotar_sexo': (context) => EstadosEmocionaisPage(idTipo: 3),

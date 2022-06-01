@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:aima/config/app.size.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,6 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   startSplashScreenTimer() async {
     var _duration = new Duration(seconds: 10);
+    await Firebase.initializeApp();
     return new Timer(_duration, navigateToNextPage);
   }
 
