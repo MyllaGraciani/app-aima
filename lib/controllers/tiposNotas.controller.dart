@@ -5,4 +5,8 @@ class TiposNotasController {
   Future<List<TipoNotasModel>> buscarTiposNotas() async {
     return TipoNotasDAO().find();
   }
+
+  Future<void> addTipoNota(String descricao) async {
+    TipoNotasDAO().inserir(descricao);
+  }
 }

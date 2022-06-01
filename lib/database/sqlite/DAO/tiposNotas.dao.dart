@@ -20,12 +20,12 @@ class TipoNotasDAO {
     return lista;
   }
 
-  inserir(String desc, int idTipo) async {
+  inserir(String desc) async {
     _db = (await Connection.instance.get())!;
 
-    String tableName = 'estadosEmocionais';
+    String tableName = 'tiposAnotacoes';
 
-    Map<String, dynamic> row = {"descricao": desc, "idTipo": idTipo};
+    Map<String, dynamic> row = {"descricao": desc};
 
     await _db.insert(tableName, row);
   }
@@ -33,7 +33,7 @@ class TipoNotasDAO {
   remover(int id) async {
     _db = (await Connection.instance.get())!;
 
-    String tableName = 'estadosEmocionais';
+    String tableName = 'tiposAnotacoes';
 
     await _db.delete(tableName, where: 'id = ?', whereArgs: [id]);
   }
