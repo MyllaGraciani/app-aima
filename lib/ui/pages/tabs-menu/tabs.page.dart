@@ -1,5 +1,4 @@
 import 'package:aima/ui/pages/home/home.page.dart';
-import 'package:aima/ui/pages/notas/notas.page.dart';
 import 'package:aima/ui/pages/notas/notes.page.dart';
 import 'package:aima/ui/pages/perfil/perfil.page.dart';
 import 'package:flutter/material.dart';

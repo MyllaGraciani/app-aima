@@ -1,6 +1,5 @@
 import 'package:aima/config/app.size.dart';
 import 'package:aima/controllers/tiposNotas.controller.dart';
-import 'package:aima/domain/entities/tipo_notas.model.dart';
 import 'package:aima/ui/pages/tabs-menu/tabs.page.dart';
 import 'package:aima/ui/shared/validators/cadastro.valid.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
@@ -19,7 +18,6 @@ class _AddCategoriaPageState extends State<AddCategoriaPage> {
   final TextEditingController controller = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
-  int _selected = 1;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
