@@ -24,110 +24,114 @@ class _AddFormPageState extends State<AddFormPage> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<TipoNotasModel>>(
-        future: _tiposNotasController.buscarTiposNotas(),
-        builder: (context, futuro) {
-          if (futuro.hasData) {
-            List<TipoNotasModel>? tipoNota = futuro.data;
-            return Scaffold(
-              body: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Form(
-                  key: _formKey,
-                  child: Center(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Text(
-                            "Deseja adicionar um novo item?",
-                            style: MediaQuery.of(context).size.width > 760
-                                ? Theme.of(context).textTheme.headline3
-                                : Theme.of(context).textTheme.headline6,
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "Categoria:",
-                            style: Theme.of(context).textTheme.bodyText1,
-                          ),
-                          DropdownButton<int>(
-                            isExpanded: true,
-                            value: _selected,
-                            items: tipoNota!.map((e) {
-                              return new DropdownMenuItem<int>(
-                                child: Text(e.descricao),
-                                value: e.id,
-                              );
-                            }).toList(),
-                            onChanged: (value) {
-                              this.setState(() {
-                                _selected = value!;
-                              });
-                            },
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          TextFormField(
-                            controller: controller,
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              labelText: "Descrição",
-                              border: OutlineInputBorder(),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(2.0)),
-                                borderSide: BorderSide(
-                                  color: Theme.of(context).primaryColor,
+    return SafeArea(
+      child: Scaffold(
+        body: FutureBuilder<List<TipoNotasModel>>(
+            future: _tiposNotasController.buscarTiposNotas(),
+            builder: (context, futuro) {
+              if (futuro.hasData) {
+                List<TipoNotasModel>? tipoNota = futuro.data;
+                return Container(
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Form(
+                      key: _formKey,
+                      child: Center(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Text(
+                                "Deseja adicionar um novo item?",
+                                style: MediaQuery.of(context).size.width > 760
+                                    ? Theme.of(context).textTheme.headline3
+                                    : Theme.of(context).textTheme.headline6,
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                "Categoria:",
+                                style: Theme.of(context).textTheme.bodyText1,
+                              ),
+                              DropdownButton<int>(
+                                isExpanded: true,
+                                value: _selected = tipoNota?.first.id ?? 1,
+                                items: tipoNota!.map((e) {
+                                  return new DropdownMenuItem<int>(
+                                    child: Text(e.descricao),
+                                    value: e.id,
+                                  );
+                                }).toList(),
+                                onChanged: (value) {
+                                  this.setState(() {
+                                    _selected = value!;
+                                  });
+                                },
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              TextFormField(
+                                controller: controller,
+                                keyboardType: TextInputType.text,
+                                decoration: InputDecoration(
+                                  labelText: "Descrição",
+                                  border: OutlineInputBorder(),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(2.0)),
+                                    borderSide: BorderSide(
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                  ),
+                                  labelStyle: TextStyle(
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                ),
+                                style: TextStyle(
+                                    color: Theme.of(context).primaryColor),
+                                validator: (value) {
+                                  if (CadastroValidator.instance
+                                          .nomeValido(value) ==
+                                      false) {
+                                    return "Por favor digite um texto válido";
+                                  }
+                                  return null;
+                                },
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              ButtonWidgetGeneric(
+                                typeButton: ElevatedButton(
+                                  onPressed: () async {
+                                    if (_formKey.currentState!.validate()) {
+                                      await _estadosEmoController
+                                          .addEstadoEmocional(
+                                              controller.text, _selected);
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (_) => TabsPage(),
+                                        ),
+                                      );
+                                    }
+                                  },
+                                  child: Text("Adicionar"),
                                 ),
                               ),
-                              labelStyle: TextStyle(
-                                color: Theme.of(context).primaryColor,
-                              ),
-                            ),
-                            style: TextStyle(
-                                color: Theme.of(context).primaryColor),
-                            validator: (value) {
-                              if (CadastroValidator.instance
-                                      .nomeValido(value) ==
-                                  false) {
-                                return "Por favor digite um texto válido";
-                              }
-                              return null;
-                            },
+                            ],
                           ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          ButtonWidgetGeneric(
-                            typeButton: ElevatedButton(
-                              onPressed: () async {
-                                if (_formKey.currentState!.validate()) {
-                                  await _estadosEmoController
-                                      .addEstadoEmocional(
-                                          controller.text, _selected);
-                                  Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (_) => TabsPage(),
-                                    ),
-                                  );
-                                }
-                              },
-                              child: Text("Adicionar"),
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),
-            );
-          } else {
-            return const Center(child: CircularProgressIndicator());
-          }
-        });
+                );
+              } else {
+                return const Center(child: CircularProgressIndicator());
+              }
+            }),
+      ),
+    );
   }
 }
