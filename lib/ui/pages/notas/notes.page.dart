@@ -2,9 +2,7 @@ import 'package:aima/config/app.color.dart';
 import 'package:aima/config/app.size.dart';
 import 'package:aima/database/sqlite/DAO/tiposNotas.dao.dart';
 import 'package:aima/domain/entities/tipo_notas.model.dart';
-import 'package:aima/ui/pages/home/widgets/floating_btn.widget.dart';
 import 'package:aima/ui/pages/notas/estadosEmo.page.dart';
-import 'package:aima/ui/shared/widgets/appbar.widget.dart';
 import 'package:flutter/material.dart';
 
 class NotesPage extends StatefulWidget {
@@ -23,9 +21,43 @@ class _NotesPageState extends State<NotesPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBarWidget(
-          label: 'Anotações',
-          textStyleSub: Theme.of(context).textTheme.subtitle1,
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Row(
+            children: [
+              SizedBox(height: 40, child: Image.asset("assets/logo.png")),
+              const SizedBox(
+                width: 15,
+              ),
+              Text(
+                'Anotações',
+                style: Theme.of(context).textTheme.subtitle1,
+              ),
+            ],
+          ),
+          actionsIconTheme: IconThemeData(color: AppColors.primaryColor),
+          actions: [
+            PopupMenuButton(
+              itemBuilder: ((context) => [
+                    PopupMenuItem(
+                      value: 1,
+                      child: Text('adicionar categoria'),
+                    ),
+                    PopupMenuItem(
+                      value: 2,
+                      child: Text('remover categoria'),
+                    ),
+                  ]),
+              onSelected: (result) {
+                if (result == 1) {
+                  Navigator.pushNamed(context, '/add_categoria');
+                }
+                if (result == 2) {
+                  Navigator.pushNamed(context, '/rem_categoria');
+                }
+              },
+            ),
+          ],
         ),
         body: FutureBuilder<List<TipoNotasModel>>(
           future: _buscarTiposNotas(),
@@ -51,10 +83,17 @@ class _NotesPageState extends State<NotesPage> {
                                   Radius.circular(10),
                                 ),
                               ),
-                              child: ElevatedButton(
+                              child: TextButton(
                                 child: Text(
-                                  tiposNotas[i].descricao,
+                                  tiposNotas[i].descricao +
+                                      '\n' +
+                                      tiposNotas[i].id.toString(),
                                   textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: AppColors.backgroundColor,
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 15,
+                                  ),
                                 ),
                                 onPressed: () {
                                   Navigator.push(
@@ -83,11 +122,6 @@ class _NotesPageState extends State<NotesPage> {
             }
           },
         ),
-        floatingActionButton: FloatingBtnWidget(
-          iconButton: Icon(Icons.add_circle_outline),
-          nameRoute: '/add_categoria',
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       ),
     );
   }
