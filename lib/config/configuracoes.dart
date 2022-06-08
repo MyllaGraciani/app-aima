@@ -6,13 +6,3 @@ class Configuracoes {
   static int duracaoMenstruacao = 5;
   static String dataAtual = '';
 }
-
-// class CicloDia {
-//   late String _dia;
-
-//   CicloDia(this._dia);
-
-//   get dia => _dia;
-
-//   set dia(dataAtual) => _dia = dataAtual;
-// }
