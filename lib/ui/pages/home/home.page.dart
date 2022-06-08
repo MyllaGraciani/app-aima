@@ -6,7 +6,6 @@ import 'package:aima/ui/pages/home/widgets/floating_btn.widget.dart';
 import 'package:aima/ui/pages/home/widgets/registro_do_dia.widget.dart';
 import 'package:aima/ui/pages/home/widgets/sem_ciclo.widget.dart';
 import 'package:aima/ui/shared/widgets/appbar.widget.dart';
-import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:aima/ui/shared/widgets/ciclo.dia.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';

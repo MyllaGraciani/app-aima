@@ -33,7 +33,7 @@ class _NotesPageState extends State<NotesPage> {
             List<TipoNotasModel>? tiposNotas = future.data;
             if (future.hasData) {
               return Container(
-                height: 300,
+                height: MediaQuery.of(context).size.height,
                 margin: EdgeInsets.all(
                     SizeConfig.of(context).dynamicScalePadding(value: 0.03)),
                 child: Center(

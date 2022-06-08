@@ -81,15 +81,13 @@ class SelecionarDataPage extends StatelessWidget {
                   CicloDAO().iniciarCiclo(dataAtual.value, "atual");
                   CicloDAO().findAll().then((ciclos) {
                     for (CicloModel ciclo in ciclos) {
-                      for (int i = 0; i < ciclos.length; i++) {
-                        print('id ' + ciclo.id.toString());
-                        print('dataInicio ' + ciclo.dataInicio.toString());
-                        print('dataInicioPM  ' + ciclo.dataInicioPM.toString());
-                        print('dataFimPM ' + ciclo.dataFimPM.toString());
-                        print('dataInicioPF ' + ciclo.dataInicioPF.toString());
-                        print('dataFimPF ' + ciclo.dataFimPF.toString());
-                        print('status ' + ciclo.status.toString());
-                      }
+                      print('id ' + ciclo.id.toString());
+                      print('dataInicio ' + ciclo.dataInicio.toString());
+                      print('dataInicioPM  ' + ciclo.dataInicioPM.toString());
+                      print('dataFimPM ' + ciclo.dataFimPM.toString());
+                      print('dataInicioPF ' + ciclo.dataInicioPF.toString());
+                      print('dataFimPF ' + ciclo.dataFimPF.toString());
+                      print('status ' + ciclo.status.toString());
                     }
                   });
                 },

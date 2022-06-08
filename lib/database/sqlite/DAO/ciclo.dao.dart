@@ -79,6 +79,14 @@ class CicloDAO {
     await _db.insert(tableName, row);
   }
 
+  atualizarCiclo(Map<String, dynamic> row) async {
+    _db = (await Connection.instance.get())!;
+
+    String tableName = 'ciclo';
+
+    await _db.update(tableName, row, where: 'status = ?', whereArgs: ["atual"]);
+  }
+
   remover(int id) async {
     _db = (await Connection.instance.get())!;
 
