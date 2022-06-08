@@ -9,6 +9,7 @@ import 'package:aima/ui/pages/login/login.page.dart';
 import 'package:aima/ui/pages/notas/addCategoria.page.dart';
 import 'package:aima/ui/pages/notas/addForm.page.dart';
 import 'package:aima/ui/pages/notas/notes.page.dart';
+import 'package:aima/ui/pages/notas/removeCategoria.page.dart';
 import 'package:aima/ui/pages/perfil/perfil.page.dart';
 import 'package:flutter/material.dart';
 
@@ -28,6 +29,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Aíma',
       theme: lightTheme(),
       initialRoute: '/',
@@ -43,6 +45,7 @@ class _MyAppState extends State<MyApp> {
         '/carregar_page': (context) => CarregarPage(),
         '/login': (context) => LoginPage(),
         '/selecionar_data': (context) => SelecionarDataPage(),
+        '/rem_categoria': (context) => RemoveCategoriaPage(),
 
         // pages cadastro
         '/cadastro_email': (context) => CadastroEmailPage(),
