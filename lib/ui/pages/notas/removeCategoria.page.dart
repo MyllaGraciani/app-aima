@@ -1,15 +1,8 @@
-import 'package:aima/controllers/valueNotifier.dart';
-import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
-import 'package:aima/database/sqlite/DAO/estadosEmo.dao.dart';
-import 'package:aima/database/sqlite/DAO/registroDiario.dao.dart';
 import 'package:aima/database/sqlite/DAO/tiposNotas.dao.dart';
-import 'package:aima/domain/entities/estados_emo.model.dart';
-import 'package:aima/domain/entities/registro_dia.model.dart';
 import 'package:aima/domain/entities/tipo_notas.model.dart';
 import 'package:aima/ui/shared/widgets/button.widget.dart';
 import 'package:flutter/material.dart';
 
-import 'widget/add.icon.widget.dart';
 import 'widget/semItens.widget.dart';
 
 class RemoveCategoriaPage extends StatefulWidget {
@@ -24,7 +17,7 @@ class _RemoveCategoriaPageState extends State<RemoveCategoriaPage> {
     return TipoNotasDAO().find();
   }
 
-  _removerCategorias(int id) async {
+  _removerCategorias() async {
     for (int i = 0; i < _selecteItem.length; i++) {
       await TipoNotasDAO().remover(_selecteItem[i]);
     }
@@ -123,9 +116,10 @@ class _RemoveCategoriaPageState extends State<RemoveCategoriaPage> {
                     ButtonWidgetGeneric(
                       typeButton: ElevatedButton(
                         onPressed: () async {
+                          _removerCategorias();
                           Navigator.pushReplacementNamed(context, '/home');
                         },
-                        child: Text("VOLTAR"),
+                        child: Text("remover todas selecionadas"),
                       ),
                     ),
                   ],
