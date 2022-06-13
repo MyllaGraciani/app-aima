@@ -73,21 +73,19 @@ class _NotesPageState extends State<NotesPage> {
                       ? GridView.builder(
                           itemCount: tiposNotas.length,
                           itemBuilder: (context, i) {
-                            return Container(
-                              alignment: Alignment.center,
-                              padding: EdgeInsets.all(SizeConfig.of(context)
-                                  .dynamicScalePadding(value: 0.01)),
-                              decoration: BoxDecoration(
-                                color: AppColors.primaryColor,
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10),
+                            return TextButton(
+                              child: Container(
+                                alignment: Alignment.center,
+                                padding: EdgeInsets.all(SizeConfig.of(context)
+                                    .dynamicScalePadding(value: 0.01)),
+                                decoration: BoxDecoration(
+                                  color: AppColors.primaryColor,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(10),
+                                  ),
                                 ),
-                              ),
-                              child: TextButton(
                                 child: Text(
-                                  tiposNotas[i].descricao +
-                                      '\n' +
-                                      tiposNotas[i].id.toString(),
+                                  tiposNotas[i].descricao,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color: AppColors.backgroundColor,
@@ -95,16 +93,16 @@ class _NotesPageState extends State<NotesPage> {
                                     fontSize: 15,
                                   ),
                                 ),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            EstadosEmocionaisPage(
-                                                idTipo: tiposNotas[i].id)),
-                                  );
-                                },
                               ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          EstadosEmocionaisPage(
+                                              idTipo: tiposNotas[i].id)),
+                                );
+                              },
                             );
                           },
                           gridDelegate:
