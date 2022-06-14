@@ -84,7 +84,7 @@ class CicloDAO {
 
     String tableName = 'ciclo';
 
-    await _db.update(tableName, row, where: 'status = ?', whereArgs: ["atual"]);
+    await _db.update(tableName, row);
   }
 
   remover(int id) async {
