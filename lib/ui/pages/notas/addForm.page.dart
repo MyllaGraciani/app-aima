@@ -55,7 +55,7 @@ class _AddFormPageState extends State<AddFormPage> {
                               ),
                               DropdownButton<int>(
                                 isExpanded: true,
-                                value: _selected = tipoNota?.first.id ?? 1,
+                                value: _selected,
                                 items: tipoNota!.map((e) {
                                   return new DropdownMenuItem<int>(
                                     child: Text(e.descricao),
@@ -109,6 +109,7 @@ class _AddFormPageState extends State<AddFormPage> {
                                       await _estadosEmoController
                                           .addEstadoEmocional(
                                               controller.text, _selected);
+
                                       Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(
