@@ -41,6 +41,10 @@ class SelecionarDataPage extends StatelessWidget {
     dataAtual.value = dataSelecionada;
   }
 
+  _updateCiclo(row) {
+    CicloDAO().atualizarCiclo(row);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -66,7 +70,13 @@ class SelecionarDataPage extends StatelessWidget {
                 style: ButtonStyle(
                   backgroundColor: colorButton,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Map<String, dynamic> fimCiclo = {
+                    'status': 'encerrado',
+                  };
+                  _updateCiclo(fimCiclo);
+                  CicloDAO().iniciarCiclo(dataAtual.value, "atual");
+                },
                 icon: Icon(Icons.add_circle_outline),
                 label: Text('inicio nova menstruação nesse dia'),
               ),
@@ -77,19 +87,12 @@ class SelecionarDataPage extends StatelessWidget {
                       .dynamicScalePadding(value: paddingButton)),
               width: Size.infinite.width,
               child: TextButton.icon(
-                onPressed: () {
-                  CicloDAO().iniciarCiclo(dataAtual.value, "atual");
-                  CicloDAO().findAll().then((ciclos) {
-                    for (CicloModel ciclo in ciclos) {
-                      print('id ' + ciclo.id.toString());
-                      print('dataInicio ' + ciclo.dataInicio.toString());
-                      print('dataInicioPM  ' + ciclo.dataInicioPM.toString());
-                      print('dataFimPM ' + ciclo.dataFimPM.toString());
-                      print('dataInicioPF ' + ciclo.dataInicioPF.toString());
-                      print('dataFimPF ' + ciclo.dataFimPF.toString());
-                      print('status ' + ciclo.status.toString());
-                    }
-                  });
+                onPressed: () async {
+                  Map<String, dynamic> fimMenstruacao = {
+                    'dataFimPM': dataAtual.value.toString(),
+                    'atual': 'atual',
+                  };
+                  _updateCiclo(fimMenstruacao);
                 },
                 style: ButtonStyle(
                   backgroundColor: colorButton,
