@@ -72,7 +72,8 @@ class _CadastroNomePageState extends State<CadastroNomePage> {
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             getPreferences(controller.text);
-                            Navigator.of(context).pushNamed('/cadastro_senha');
+                            Navigator.of(context)
+                                .pushNamed('/cadastro_duracao_ciclo');
                           }
                         },
                         child: Text("Próximo"),
