@@ -2,7 +2,6 @@ import 'package:aima/config/app.color.dart';
 import 'package:aima/config/app.size.dart';
 import 'package:aima/controllers/valueNotifier.dart';
 import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
-import 'package:aima/domain/entities/ciclo.model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
