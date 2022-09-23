@@ -70,15 +70,15 @@ class _DadosPerfilWidgetState extends State<DadosPerfilWidget> {
                     },
                   ),
                 ),
-                // const SizedBox(height: 20),
-                // ButtonWidgetGeneric(
-                //   typeButton: OutlinedButton(
-                //     child: Text("SOBRE O APP"),
-                //     onPressed: () {
-                //       Navigator.pushNamed(context, '/cadastro_nome');
-                //     },
-                //   ),
-                // ),
+                const SizedBox(height: 20),
+                ButtonWidgetGeneric(
+                  typeButton: OutlinedButton(
+                    child: Text("SOBRE O APP"),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/sobre');
+                    },
+                  ),
+                ),
                 //- implementar botão para fazer backup do banco de dados
                 // const SizedBox(height: 20),
                 // ButtonWidgetGeneric(

@@ -11,6 +11,7 @@ import 'package:aima/ui/pages/notas/addForm.page.dart';
 import 'package:aima/ui/pages/notas/notes.page.dart';
 import 'package:aima/ui/pages/notas/removeCategoria.page.dart';
 import 'package:aima/ui/pages/perfil/perfil.page.dart';
+import 'package:aima/ui/pages/sobre/sobre.page.dart';
 import 'package:flutter/material.dart';
 
 import 'cadastro/cadastro-ciclo/duracao.menstrual.page.dart';
@@ -46,6 +47,7 @@ class _MyAppState extends State<MyApp> {
         '/login': (context) => LoginPage(),
         '/selecionar_data': (context) => SelecionarDataPage(),
         '/rem_categoria': (context) => RemoveCategoriaPage(),
+        '/sobre': (context) => SobreAppPage(),
 
         // pages cadastro
         '/cadastro_email': (context) => CadastroEmailPage(),
