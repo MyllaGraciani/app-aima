@@ -24,11 +24,15 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Future<List<CicloModel>> _buscarCicloAtual() async {
-    return CicloDAO().findCicloAtual();
+  // Future<List<CicloModel>> _buscarCicloAtual() async {
+  //   return CicloDAO().findCicloAtual();
+  // }
+
+  Future<List<CicloModel>> _buscarCiclos() async {
+    return CicloDAO().findAll();
   }
 
-  String diaCiclo(String dataInicio) {
+  String diaCiclo(String dataInicio, {required int idCiclo}) {
     DateTime iniciociclo = formatarData(dataInicio);
     DateTime dAtual = formatarData(dataAtual.value);
     Duration diaCiclo = dAtual.difference(iniciociclo);
@@ -39,7 +43,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: FutureBuilder<List<CicloModel>>(
-        future: _buscarCicloAtual(),
+        future: _buscarCiclos(),
         builder: (context, futuro) {
           if (futuro.hasData) {
             List<CicloModel>? ciclo = futuro.data;
@@ -65,9 +69,10 @@ class _HomePageState extends State<HomePage> {
                                                   .dynamicScalePadding(
                                                       value: 0.1)),
                                           child: CicloDiaWidget(
-                                            diaCiclo:
-                                                diaCiclo(ciclo[0].dataInicio),
-                                          )),
+                                              diaCiclo: diaCiclo(
+                                                  ciclo[0].dataInicio,
+                                                  idCiclo: ciclo[0].id),
+                                              idCiclo: ciclo[0].id)),
                                       RegistroDoDiaWidget(),
                                     ],
                                   ),

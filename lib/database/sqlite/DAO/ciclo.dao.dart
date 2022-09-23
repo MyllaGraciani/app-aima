@@ -17,10 +17,10 @@ class CicloDAO {
       return CicloModel(
         linha['id'],
         linha['dataInicio'],
-        linha['dataInicioPM'],
         linha['dataFimPM'] == null ? "sem data" : linha['dataFimPM'],
         linha['dataInicioPF'] == null ? "sem data" : linha['dataInicioPF'],
         linha['dataFimPF'] == null ? "sem data" : linha['dataFimPF'],
+        linha['dataFim'] == null ? "sem data" : linha['dataFim'],
         linha['status'],
       );
     });
@@ -40,10 +40,10 @@ class CicloDAO {
       return CicloModel(
         linha['id'],
         linha['dataInicio'],
-        linha['dataInicioPM'],
         linha['dataFimPM'] == null ? "sem data" : linha['dataFimPM'],
         linha['dataInicioPF'] == null ? "sem data" : linha['dataInicioPF'],
         linha['dataFimPF'] == null ? "sem data" : linha['dataFimPF'],
+        linha['dataFim'] == null ? "sem data" : linha['dataFim'],
         linha['status'],
       );
     });
@@ -70,11 +70,7 @@ class CicloDAO {
 
     String tableName = 'ciclo';
 
-    Map<String, dynamic> row = {
-      "dataInicio": dataInicio,
-      "dataInicioPM": dataInicio,
-      "status": status
-    };
+    Map<String, dynamic> row = {"dataInicio": dataInicio, "status": status};
 
     await _db.insert(tableName, row);
   }

@@ -1,5 +1,6 @@
 import 'package:aima/config/app.color.dart';
 import 'package:aima/config/app.size.dart';
+import 'package:aima/controllers/diaRegistro.controller.dart';
 import 'package:aima/controllers/valueNotifier.dart';
 import 'package:aima/database/sqlite/DAO/ciclo.dao.dart';
 import 'package:flutter/material.dart';
@@ -72,6 +73,7 @@ class SelecionarDataPage extends StatelessWidget {
                 onPressed: () {
                   Map<String, dynamic> fimCiclo = {
                     'status': 'encerrado',
+                    'dataFim': dataAtual.value,
                   };
                   _updateCiclo(fimCiclo);
                   CicloDAO().iniciarCiclo(dataAtual.value, "atual");
@@ -87,11 +89,12 @@ class SelecionarDataPage extends StatelessWidget {
               width: Size.infinite.width,
               child: TextButton.icon(
                 onPressed: () async {
-                  Map<String, dynamic> fimMenstruacao = {
-                    'dataFimPM': dataAtual.value.toString(),
-                    'atual': 'atual',
-                  };
-                  _updateCiclo(fimMenstruacao);
+                  DiaRegistro().cicloSelecionado();
+                  // Map<String, dynamic> fimMenstruacao = {
+                  //   'dataFimPM': dataAtual.value.toString(),
+                  //   'atual': 'atual',
+                  // };
+                  // _updateCiclo(fimMenstruacao);
                 },
                 style: ButtonStyle(
                   backgroundColor: colorButton,
